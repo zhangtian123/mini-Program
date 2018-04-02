@@ -1,0 +1,32 @@
+<view class='triangle'></view>
+<view class='filterBack' wx:if="{{isFiltered}}">
+  <text>记录筛选：</text>
+  <view>
+    <radio-group bindchange="radioChange" class="radioGroup">
+      <label wx:for-items="{{filterRadioButton}}">
+        <radio value="{{item}}" class="radioItem" checked="{{item.checked}}">{{item}} </radio>
+      </label>
+    </radio-group>
+    <view wx:if="{{isSelfDefineTime}}">
+      <view class="chooseTime">
+        <text>自定义日期区间:</text>
+      </view>
+      <view class="dateBox">
+        <text class="from-to">从：</text>
+        <picker mode="date" value="{{date}}" start="1978-01-01" end="2100-01-01" bindchange="bindBeginDateChange">
+          <view class="dateTime"> {{beginDate}} </view>
+        </picker>
+      </view>
+      <view class="dateBox">
+        <text class="from-to">到：</text>
+        <picker mode="date" value="{{date}}" start="1978-01-01" end="2100-01-01" bindchange="bindEndDateChange">
+          <view class="dateTime"> {{endDate}} </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view>
+    <button class="myBtn" id='makeSure' bindtap='filterConfirm'>确定</button>
+  </view>
+</view>
+<view class="page-middle" wx:if="{{isFiltered}}" bindtap="filter_view"></view>

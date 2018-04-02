@@ -1,0 +1,7 @@
+@import "../template/template.wxss";
+@import "../../tools/content.wxss";
+@import "../priceResearch/index.wxss";
+
+.packagetype{
+  font-size:30rpx;
+}

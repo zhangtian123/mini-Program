@@ -1,0 +1,124 @@
+.searchLetter{
+    position: fixed;
+    right: 0;
+    width:6%;
+    height: 100%;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    color: #666;
+    z-index: 1
+}
+
+.focus-search{
+  margin-left:4%;
+  margin-top:1%;
+  width:90%;
+  z-index:999;
+  background-color: white;
+}
+
+.line {
+  width: 98%;
+  border-bottom: 1rpx dashed #dddadd;
+}
+
+.focus-result{
+  margin-left:3%;
+  height:70rpx;
+  line-height:70rpx;
+}
+
+.searchLetter view{
+    height: 70rpx;
+}
+
+.touchClass{
+    background-color: rgba(0, 0, 0,0.3);
+    color: #fff;
+}
+
+.showSlectedLetter{
+    background-color: rgba(0, 0, 0,0.5);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top:50%;
+    left: 50%;
+    margin: -50px;
+    width: 100px;
+    height: 100px;
+    border-radius:10px; 
+    font-size: 26px;
+    z-index: 1
+}
+
+.selection{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.item_letter{
+    display: flex;
+    background-color: #f8f8f8;
+    height: 30px;
+    padding-left: 10px;
+    align-items: center;
+}
+
+.item_port{
+    display: flex;
+    background-color: #fff;
+    height: 40px;
+    padding-left: 10px;
+    align-items: center;
+    border-bottom: 1px solid #f8f8f8
+}
+
+.myBtn {
+  width: 100%;
+  color: white;
+  height: 70rpx;
+  line-height: 70rpx;
+  margin-top: 20rpx;
+  border: 1rpx solid #dddadd;
+  background: linear-gradient(to right, #36a2ef, #0078cd);
+  box-shadow: 0rpx 2rpx 6rpx #36a2ef;
+  border-radius: 30rpx;
+  text-align: center;
+}
+
+.icon {
+  width: 60rpx;
+  height: 60rpx;
+  float: left;
+  margin: 10rpx 10rpx 0 20rpx;
+}
+
+.input-bg {
+  width: 100%;
+  border-radius: 30px;
+  height: 80rpx;
+  border: 1px solid #dddadd;
+  margin-top: 30rpx;
+}
+
+.textfield {
+  text-align: left;
+  margin-top: 17rpx;
+  margin-left: 10rpx;
+}
+.card4{
+  background-color: white;
+  padding:20rpx;
+  border-radius: 15rpx;
+  box-shadow: 0 5rpx 5rpx #dddadd;
+  margin:20rpx;
+}
+.myBtn::after{
+  border:none;
+}

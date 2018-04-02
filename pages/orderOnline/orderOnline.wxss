@@ -1,0 +1,64 @@
+/* pages/orderOnline/orderOnline.wxss */
+@import "../template/template.wxss";
+@import "../../tools/content.wxss";
+@import "../priceResearch/index.wxss";
+
+.input-title-b{
+  color:#006fbe;
+}
+
+.input-title{
+  width:40%;
+}
+
+.input-title2{
+   width:100%; 
+}
+ .input-title3{
+   width:40%; 
+} 
+.input-normal{
+  border: none;
+}
+
+.input-right{
+  /* text-align: right; */
+}
+
+.line{
+  width:100%;
+  border-bottom: 1px solid #ededed;
+}
+
+.line2{
+  width:48%; 
+  border-bottom: 1px solid #ededed;
+}
+
+.input-search{
+  /* margin-left:4%; */
+  position: absolute;
+  margin-top:1%;
+  margin-left: 15%;
+  width:70%;
+  z-index:999;
+  text-align: center;
+  background-color: white;
+  border:1px solid #ededed;
+  border-bottom-left-radius: 15rpx;
+  border-bottom-right-radius: 15rpx;
+}
+
+
+.input-result{
+  margin-left:3%;
+  height:70rpx;
+  line-height:70rpx;
+}
+
+.footer{
+  width:100%;
+  margin-top:20rpx;
+  border:none;
+}
+

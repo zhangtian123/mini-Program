@@ -1,0 +1,137 @@
+page{
+  background-color:  #ededed;
+}
+
+/*顶部导航样式*/
+  .navbar{ 
+ flex: none; 
+ display: flex;  
+ padding-top: 15rpx;
+ z-index: 50; 
+ height: 70rpx;
+ background-color:  #fff;
+ border-bottom:3rpx solid #dddadd;
+} 
+
+.navbar .item{ 
+ position: relative; 
+ flex: auto; 
+ text-align: center;
+ line-height: 60rpx; 
+ font-size: 36rpx;
+ color: #79797a;
+} 
+
+.navbar .item.active{ 
+ color: #0071c1; 
+ font-size: 36rpx;
+} 
+
+.navbar .item.active:after{ 
+ content: ""; 
+ display: block; 
+ position: absolute; 
+ bottom: 0rpx; 
+ left: 20rpx; 
+ right: 20rpx; 
+ height: 6rpx; 
+ background: #0071c1; 
+ font-size: 36rpx;
+ color: #79797a;
+}
+
+#one{
+  padding: 30rpx 30rpx 0 30rpx;
+  line-height: 80rpx;
+}
+
+.state,.info{
+  border-radius: 40rpx;
+  background-color: white;
+  box-shadow: 0 5rpx 10rpx #dddadd;
+  color: #006fbe;
+  padding: 0 30rpx;
+}
+
+.info{margin-top: 30rpx;
+}
+.info view{
+  color:#79797a;
+}
+
+picker{
+  margin-left: 66rpx;
+}
+
+.box-no{
+  margin:10rpx 0 0 66rpx;
+  border-bottom: 2rpx solid #dddadd
+}
+
+.seal-no{
+  margin:10rpx 0 0 30rpx;
+  border-bottom: 2rpx solid #dddadd
+}
+
+textarea{
+  width:70%;
+  height: 120rpx;
+  border: 2rpx solid #dddadd;
+  margin: -10rpx 0 40rpx 20%;
+  border-radius: 30rpx;
+  padding: 20rpx;
+  line-height: 60rpx;
+}
+
+.fill-submit{
+  width: 85%;
+  color:white;
+  border: 1rpx solid #dddadd;
+  background: linear-gradient(to right,#36a2ef,#0078cd);
+  box-shadow: 0rpx 2rpx 6rpx #36a2ef;
+  border-radius: 40rpx;
+  margin-top: 30rpx;
+  line-height: 70rpx;
+}
+
+/*//////////////////拍照////////////////////////*/
+.img-v{
+  padding: 20rpx 20rpx;
+  display: flex;
+   align-items: center;
+   flex-direction: column;
+   justify-content: space-around;
+}
+
+.img image{
+  border: 2rpx dashed #dddadd;
+  width: 220rpx;
+  height: 270rpx;
+   margin: 20rpx 6rpx;
+}
+
+.imgs{
+   display: flex;flex-direction: row;
+}
+
+.upload-img-btn,.photo-submit{
+  text-align: center;
+  width: 100rpx;
+  height: 100rpx;
+  /* color:white; */
+  /* border: 1rpx solid #dddadd; */
+  /* background: linear-gradient(to right,#36a2ef,#0078cd); */
+  /* box-shadow: 0rpx 2rpx 6rpx #36a2ef; */
+  /* border-radius: 40rpx; */
+  margin:0 0 30rpx 0%;
+  line-height: 70rpx;
+}
+
+.delete-btn image{
+  width:40rpx;
+  height: 40rpx;
+  position: relative;
+  top: -340rpx;
+  left: 200rpx;
+  border: none;
+}

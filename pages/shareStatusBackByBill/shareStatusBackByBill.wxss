@@ -1,0 +1,31 @@
+/* pages/shareStatusBackByBill/shareStatusBackByBill.wxss */
+
+@import "../../tools/content.wxss";
+@import "../../tools/billTable.wxss";
+@import "../../tools/showModal/showModal.wxss";
+@import "../../tools/filterPage/billFilterPage.wxss";
+@import "../template/template.wxss"; 
+
+.circle-l{
+  height: 30rpx;
+  width: 30rpx;
+  border-radius:25rpx; 
+  background:#dedede;
+  margin-left: -40rpx;
+}
+.circle-r{
+  height: 30rpx;
+  width: 30rpx;
+  border-radius:25rpx; 
+  background:#dedede;
+  margin-right: -40rpx;
+}
+.dashLine{
+  margin:0 20rpx;
+}
+
+
+.ticket-style{
+  display: flex;flex-direction: row;
+  align-items: center;
+}

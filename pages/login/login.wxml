@@ -1,0 +1,29 @@
+<!--pages/login/login.wxml-->
+<view class="content">
+  <!--Logo space  -->
+  <view class="logo-box">
+    <image class="logoimage" mode="scaleToFill" src="/images/logo.jpg"></image>
+  </view>
+  <view style='margin:-20% 0 25% 15%;'>
+    <text>佰信国际物流协同管理平台</text>
+  </view>
+  <!--Textfields for username and password  -->
+  <view class='input-bg'>
+    <image class='icon' src='/images/user.png'></image>
+    <input class='textfield' placeholder="请输入用户名" value="{{userName}}" bindinput='userNameInput' bindblur='isUserNameExist' />
+  </view>
+  <view class='input-bg'>
+    <image class='icon' src='/images/password.png'></image>
+    <input class='textfield' placeholder="请输入密码" value="{{userPassword}}" password="true" bindinput='userPasswordInput' />
+  </view>
+  <!--Login button  -->
+  <button class="myBtn" bindtap="logIn">登录</button>
+  <view class="buttonspace">
+    <!--Register and Forgot password  -->
+    <navigator class="register" url="/pages/register2/register" hover-class='none'>快速注册</navigator>
+    <navigator class="rightside" url="/pages/forgot_password2/forgot_password" hover-class='none'>忘记密码? </navigator>
+  </view>
+</view>
+<view>
+  <loading wx:if="{{login_loading}}">登录中</loading>
+</view>

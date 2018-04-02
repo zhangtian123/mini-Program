@@ -1,0 +1,65 @@
+{
+  "pages": [
+    "pages/IndexPage/Index",
+    "pages/login/login",
+    "pages/ordertrace/ordertrace",
+    "pages/internal_ordertrace/ordertrace",
+    "pages/port_select/index",
+    "pages/port_select_out/port_select_out",
+    "pages/declare/feedback",
+    "pages/declaring/declaring",
+    "pages/declare_accept_release/index",
+    "pages/external_billVerify/billVerify",
+    "pages/requestFunds/requestFunds",
+    "pages/registerVerify/RegisterVerify",
+    "pages/billVerify/billVerify",
+    "pages/registerDetail/registerDetail",
+    "pages/register2/register",
+    "pages/registerextra2/registerextra",
+    "pages/protocolShow/protocolShow",
+    "pages/forgot_password2/forgot_password",
+    "pages/vehicle/vehicle",
+    "pages/vehicle_loaded/loaded",
+    "pages/vehicle_sendingcar/sendingcar",
+    "pages/vehicle_takingbox/feedback-takebox",
+    "pages/vehicle_feedback/index",
+    "pages/switchport/switchport",
+    "pages/priceResearch/index",
+    "pages/priceResearch_out/index",
+    "pages/orderOnline/orderOnline",
+    "pages/orderList/orderList",
+    "pages/shareStatusBackByBill/shareStatusBackByBill",
+    "pages/shareStatusBackByPrice/shareStatusBackByPrice",
+    "pages/shareStatusBackInvalid/shareStatusBackInvalid",
+    "pages/shareStatusBackByOrder/shareStatusBackByOrder",
+    "pages/generatePrice/generatePrice",
+    "pages/shareStatusBackByQuote/shareStatusBackByQuote"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#006fbe",
+    "navigationBarTitleText": "BestLOG8",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#dddddd",
+    "selectedColor": "#006fbe",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/login/login",
+        "text": "进入系统",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/homeselected.png"
+      },
+      {
+        "pagePath": "pages/port_select_out/port_select_out",
+        "text": "运价查询",
+        "iconPath": "images/search.png",
+        "selectedIconPath": "images/searchselected.png"
+      }
+    ]
+  },
+  "debug": true
+}

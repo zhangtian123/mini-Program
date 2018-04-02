@@ -1,0 +1,50 @@
+<!--侧边栏-->
+<view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start">
+  <view style='z-index:10000; position:absolute;height:100%;'>
+    <include src="../template/supplier.wxml" />
+  </view>
+
+  <!--导航-->
+  <view class="nav">
+    <image bindtap="tap_ch" src='../../images/menu.png' mode='aspectFit' class="menu"></image>
+  </view>
+
+  <!--正文-->
+  <scroll-view class='content' scroll-y="true" style='height:1500rpx' bindscrolltolower="scrollToLower">
+    <view class='card' wx:for="{{itemList}}" wx:item="{{item}}">
+      <view class="information">
+        报关单号
+        <text class='detail-info'>{{item.BILL.BILLNO}}</text>
+      </view>
+      <view class="dashLine"></view>
+      <text>报关状态</text>
+      <view class='Row' style='margin-top:20rpx;'>
+        <view class='Column'>
+          <view class="{{item.DETAIL[1].IsFinished ? 'circle' :'circle-unfinished' }} ">接单</view>
+          <text class='time' wx:if="{{item.DETAIL[1].IsFinished}}">{{item.DETAIL[1].FINISHEDDATE}}</text>
+        </view>
+        <view class="line"></view>
+        <view class='Column'>
+          <view class="{{item.DETAIL[2].IsFinished ? 'circle' :'circle-unfinished' }} ">申报</view>
+          <text class='time' wx:if="{{item.DETAIL[2].IsFinished}}">{{item.DETAIL[2].FINISHEDDATE}}</text>
+        </view>
+        <view class="line"></view>
+        <view class='Column'>
+
+          <view class="{{item.DETAIL[3].IsFinished ? 'circle' :'circle-unfinished' }} ">放行</view>
+          <text class='time' wx:if="{{item.DETAIL[3].IsFinished}}">{{item.DETAIL[3].FINISHEDDATE}}</text>
+
+        </view>
+      </view>
+      <button class='myBtn' bindtap="feedbackMain" data-index="{{index}}">状态反馈</button>
+    </view>
+
+    <!-- 加载更多 -->
+     <!-- <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>  -->
+    <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+    <view>
+      <loading wx:if="{{searchLoading}}">加载中</loading>
+    </view>
+  </scroll-view>
+
+</view>

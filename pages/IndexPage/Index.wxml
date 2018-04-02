@@ -1,0 +1,4 @@
+<!--pages/login/login.wxml-->
+<view>
+  <loading>载入中</loading>
+</view>

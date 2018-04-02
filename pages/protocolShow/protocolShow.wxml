@@ -1,0 +1,18 @@
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showProtocol}}">
+</view>
+<view class="modal-dialog" wx:if="{{showProtocol}}">
+  <view class="modal-title">《BestLOG8物流运输协议》
+</view>
+    <view class="modal-content">
+      <scroll-view scroll-y="true" style='height:100%'>
+      XXXXXXXXXXXXXXXXXXXXXXXXXXXxXXX XXXXXXXXXXXXXXXXXXXXXXXXxXXXXXX XXXXXXXXXXXXXXXXXXXXXxXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXxXXX XXXXXXXXXXXXXXXXXXXXXXXXxXXXXXX XXXXXXXXXXXXXXXXXXXXXxXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      XXXXXXXXXXXXXXXXXXXXXXXXxXXXXXX XXXXXXXXXXXXXXXXXXXXXxXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXxXXXXXX XXXXXXXXXXXXXXXXXXXXXxXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    </scroll-view>
+  </view>
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="protocolOK" data-status="cancel">取消
+    </view>
+      <view class="btn-confirm" bindtap="protocolOK" data-status="confirm">确定   
+    </view>
+  </view>
+</view>

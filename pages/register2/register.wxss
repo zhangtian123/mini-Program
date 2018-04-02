@@ -1,0 +1,35 @@
+/* pages/register2/register.wxss */
+@import "../login/login.wxss";
+
+.input-bg:nth-child(2) {
+  margin-bottom: 80rpx;
+}
+
+.myBtn{
+  margin-top:80rpx;
+}
+
+/*//////////验证码///////////*/
+.check {
+  width: 250rpx;
+  height: 65rpx;
+  color:  #df3c01;
+  border: 1px solid #dddadd;
+  border-color: #df3c01;
+  border-radius: 30px;
+  font-size: 25rpx;
+  margin-right: 10rpx;
+  background-color: #fff;
+}
+
+.alreadyCheck{
+  width: 250rpx;
+  height: 65rpx;
+  color:  gray;
+  border: 1px solid gray;
+  border-color: gray;
+  border-radius: 30px;
+  font-size: 25rpx;
+  margin-right: 10rpx;
+  background-color: #fff;
+}

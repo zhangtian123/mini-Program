@@ -1,0 +1,66 @@
+<!--template/registerDetail/registerDetail.wxml-->
+<view class="card2" style='margin-top:20rpx;'>
+  <view class='information'>
+    <text>用户名</text>
+    <text class='detail-info' wx:if="{{itemDetail.RegisterUser!=null}}">{{itemDetail.RegisterUser}}</text>
+  </view>
+</view>
+<view class="card2">
+  <image class="sticker" bindtap='tap_show' src='../../images/company.png' mode='aspectFit'></image>
+  <text>企业名称</text>
+  <view class="dashLine"></view>
+  <view class='information' style='margin-left:53rpx;'>
+    <text>中文</text>
+    <text class='detail-info' wx:if="{{itemDetail.COMNAME!=null}}">{{itemDetail.COMNAME}}</text>
+  </view>
+  <view class='information' style='margin-left:53rpx;'>
+    <text>英文</text>
+    <text class='detail-info' wx:if="{{itemDetail.COMNAMECN!=null}}">{{itemDetail.COMNAMECN}}</text>
+  </view>
+</view>
+<view class="card2">
+  <image class="sticker" bindtap='tap_show' src='../../images/address.png' mode='aspectFit'></image>
+  <text class='Text'>企业地址</text>
+  <view class="dashLine"></view>
+  <view class='information' style='margin-left:53rpx;'>
+    <text>中文</text>
+    <text class='detail-info' wx:if="{{itemDetail.REGADDRESS!=null}}">{{itemDetail.REGADDRESS}}</text>
+  </view>
+  <view class='information' style='margin-left:53rpx;'>
+    <text>英文</text>
+    <text class='detail-info' wx:if="{{itemDetail.REGADDRESSEN!=null}}">{{itemDetail.REGADDRESSEN}}</text>
+  </view>
+</view>
+<view class="card2">
+  <image class="sticker" bindtap='tap_show' src='../../images/info.png' mode='aspectFit'></image>
+  <text>其他信息</text>
+  <view class="dashLine"></view>
+  <view class='information' style='margin-left:53rpx;'>
+    <text>纳税号</text>
+    <text class='detail-info' wx:if="{{itemDetail.TAXNUMBER!=null}}">{{itemDetail.TAXNUMBER}}</text>
+  </view>
+  <view class='information' style='margin-left:53rpx;'>
+    <text>企业邮箱</text>
+    <text class='detail-info' wx:if="{{itemDetail.EMAIL!=null}}">{{itemDetail.EMAIL}}</text>
+  </view>
+  <view class='information' style='margin-left:53rpx;'>
+    <text>资质信息</text>
+  </view>
+  <view class='pictureBox'>
+    <image class='pictures' wx:for="{{pictures}}" wx:key="unique" src="{{item}}" data-index="{{index}}" bindtap="previewImage" mode='aspectFit'  />
+  </view>
+  <view style='display:flex;flex-direciton:row'>
+    <button class='myBtn' id="pass" bindtap='confirm' size='mini' style="{{itemDetail.ISAPPLY? 'display:none' :''}}">通过</button>
+    <button class='myBtn' id="refuse" bindtap='refuse' size='mini' style="{{itemDetail.ISAPPLY? 'display:none' :''}}">驳回</button>
+  </view>
+</view>
+<view>
+  <loading wx:if="{{showLoading}}">加载中</loading>
+</view>
+<view>
+  <loading wx:if="{{showDocuments}}">资质信息图片加载中</loading>
+</view>
+<!---驳回showModal-->
+<view>
+  <include src="../../tools/showModal/showModal.wxml" />
+</view>

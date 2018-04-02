@@ -1,0 +1,55 @@
+<!-- 导航菜单 -->
+
+
+<!--填写信息-->
+<view class="state" style='margin-top:25rpx;'>
+  <view>状态：提箱中</view>
+</view>
+<view class="info" style="display:flex;flex-direction:column">
+  <view style="display:flex;flex-direction:row;margin-top:20rpx">
+    <text>时间</text>
+    <picker mode="date" value="{{date}}" start="1978-01-01" end="2100-01-01" bindchange="bindDateChange">
+      <text class="picker">  {{dates}}</text>
+    </picker>
+    <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+      <text class="picker">  {{times}}</text>
+    </picker>
+  </view>
+  <view style="display:flex;flex-direction:row">
+    <text>箱号</text>
+    <input type="text" class="box-no" bindinput='boxNumberInput' bindblur='isBoxNO' placeholder='（格式为：XXXX1111111）' />
+  </view>
+  <view style="display:flex;flex-direction:row">
+    <text>铅封号</text>
+    <input type="text" class="seal-no" bindinput='sealNumberInput' bindblur='isSealNO' placeholder='（格式为：XXX111111）' />
+  </view>
+  <view style="display:flex;flex-direction:row">
+    <text>描述</text>
+  </view>
+  <view>
+    <textarea bindinput='remarkInput'></textarea>
+  </view>
+  <view>
+    <view style="display:flex;flex-direction:row;">
+      <text style='margin:10rpx 20rpx 0 0;'>选择照片</text>
+      <!-- <view class="upload-img-btn" bindtap="chooseImg">选择照片</view> -->
+      <image class='upload-img-btn' src='/images/camera.png' mode='aspectFit' bindtap="chooseImg"></image>
+    </view>
+    
+    <view class='imgs'>
+      <view class="img" wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+        <image src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg"></image>
+        <view class="delete-btn" data-index="{{index}}" catchtap="deleteImg">
+          <image src='../../images/delete.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<button class="fill-submit" bindtap='fillsubmit'>提交</button>
+
+
+<view>
+  <loading wx:if="{{showLoading}}">加载中</loading>
+</view>

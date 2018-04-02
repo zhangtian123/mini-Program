@@ -1,0 +1,173 @@
+<!--pages/shareStatusBackByOrder/shareStatusBackByOrder.wxml-->
+<view class='card' style='margin-top:15rpx;'>
+  <text wx:if = "{{isValidate}}">报价结果有效期为48小时，更多服务请关注微信小程序或者公众号</text>
+  <text wx:else>分享内容已经生成，有效期为48小时，请点右上角...分享</text>
+</view>
+<view class="card" >
+  <image class='pin' src='../../images/pin.png'></image>
+  <view class='information'>
+    <text>订单号</text>
+    <text class='detail-info' wx:if="{{item.ORDER.ORDERNO!=null}}"> {{item.ORDER.ORDERNO}}</text>
+  </view>
+  <view class="dashLine"></view>
+  <!-- <view class="information">
+        <text>客户名</text>
+        <text class='detail-info' wx:if="{{item.ORDER.CUSTOMSCOMPANY!=null}}"> {{item.ORDER.CUSTOMSCOMPANY}}</text>
+      </view> -->
+  <view class="information">
+    <text>客户委托号</text>
+    <text class='detail-info' wx:if="{{item.ORDER.CUSTOMSOP!=null}}"> {{item.ORDER.CUSTOMSOP}}</text>
+  </view>
+  <view class="information">
+    <text>SO NO</text>
+    <text class='detail-info' wx:if="{{item.ORDER.SONO!=null}}"> {{item.ORDER.SONO}}</text>
+  </view>
+  <view class="information">
+    <text>H/BL NO</text>
+    <text class='detail-info' wx:if="{{item.HBLNO!=null}}"> {{item.ORDER.HBLNO}}</text>
+  </view>
+  <view class="information">
+    <text>箱型箱量</text>
+    <text class='detail-info' wx:if="{{item.ORDER.CNTRNUMSTR!=null}}"> {{item.ORDER.CNTRNUMSTR}}</text>
+  </view>
+  <image class="expandArrow" bindtap='table_show' src='{{item.SHOW.showImageUrl}}' mode='aspectFit' data-index="{{index}}"></image>
+  <view class="{{item.SHOW.isShowTable? 'table' :'table-hide'}}">
+    <view class='Row'>
+      <view class='Column' wx:for-itemArray="idx" wx:for-item="itemName">
+        <view wx:if="{{item.ORDERTRACE[0]!=null}}">
+          <view class='circle'>接单</view>
+        </view>
+        <view wx:else>
+          <view class='circle-unfinished'>接单</view>
+        </view>
+        <text class='time'>{{item.ORDERTRACE[0].date}}</text>
+      </view>
+      <view class="line"></view>
+      <view class='Column' wx:for-itemArray="idx" wx:for-item="itemName">
+        <view wx:if="{{item.ORDERTRACE[1]!=null}}">
+          <view class='circle'>订舱</view>
+        </view>
+        <view wx:else>
+          <view class='circle-unfinished'>订舱</view>
+        </view>
+        <text wx:if="{{item.ORDERTRACE[1]!=null}}" class='time'>{{item.ORDERTRACE[1].date}}</text>
+      </view>
+      <view class="line"></view>
+      <view class='Column' wx:for-itemArray="idx" wx:for-item="itemName">
+        <view wx:if="{{item.ORDERTRACE[2]!=null}}">
+          <view class='circle'>提箱</view>
+        </view>
+        <view wx:else>
+          <view class='circle-unfinished'>提箱</view>
+        </view>
+        <text wx:if="{{item.ORDERTRACE[2]!=null}}" class='time'>{{item.ORDERTRACE[2].date}}</text>
+      </view>
+      <view class="line"></view>
+      <view class='Column' wx:for-itemArray="idx" wx:for-item="itemName">
+        <view wx:if="{{item.ORDERTRACE[3]!=null}}">
+          <view class='circle'>进场</view>
+        </view>
+        <view wx:else>
+          <view class='circle-unfinished'>进场</view>
+        </view>
+        <text wx:if="{{item.ORDERTRACE[3]!=null}}" class='time'>{{item.ORDERTRACE[3].date}}</text>
+      </view>
+      <view class="line1"></view>
+      <view class="line-v"></view>
+    </view>
+    <view class='Row'>
+      <view class="line-v"></view>
+      <view class="line1"></view>
+      <view class='Column' wx:for-itemArray="idx" wx:for-item="itemName">
+        <view wx:if="{{item.ORDERTRACE[7]!=null}}">
+          <view class='circle'>签发</view>
+        </view>
+        <view wx:else>
+          <view class='circle-unfinished'>签发</view>
+        </view>
+        <text wx:if="{{item.ORDERTRACE[7]!=null}}" class='time'>{{item.ORDERTRACE[7].date}}</text>
+      </view>
+      <view class="line"></view>
+      <view class='Column' wx:for-itemArray="idx" wx:for-item="itemName">
+        <view wx:if="{{item.ORDERTRACE[6]!=null}}">
+          <view class='circle'>对单</view>
+        </view>
+        <view wx:else>
+          <view class='circle-unfinished'>对单</view>
+        </view>
+        <text wx:if="{{item.ORDERTRACE[6]!=null}}" class='time'>{{item.ORDERTRACE[6].date}}</text>
+      </view>
+      <view class="line"></view>
+      <view class='Column' wx:for-itemArray="idx" wx:for-item="itemName">
+        <view wx:if="{{item.ORDERTRACE[5]!=null}}">
+          <view class='circle'>放行</view>
+        </view>
+        <view wx:else>
+          <view class='circle-unfinished'>放行</view>
+        </view>
+        <text wx:if="{{item.ORDERTRACE[5]!=null}}" class='time'>{{item.ORDERTRACE[5].date}}</text>
+      </view>
+      <view class="line"></view>
+      <view class='Column' wx:for-itemArray="idx" wx:for-item="itemName">
+        <view wx:if="{{item.ORDERTRACE[4]!=null}}">
+          <view class='circle'>申报</view>
+        </view>
+        <view wx:else>
+          <view class='circle-unfinished'>申报</view>
+        </view>
+        <text wx:if="{{item.ORDERTRACE[4]!=null}}" class='time'>{{item.ORDERTRACE[4].date}}</text>
+      </view>
+      <view class="line1"></view>
+      <view class="line-v1"></view>
+    </view>
+    <view class='Row'>
+      <view class="line-v1"></view>
+      <view class="line1"></view>
+      <view class='Column' wx:for-itemArray="idx" wx:for-item="itemName">
+        <view wx:if="{{item.ORDERTRACE[8]!=null}}">
+          <view class='circle'>对账</view>
+        </view>
+        <view wx:else>
+          <view class='circle-unfinished'>对账</view>
+        </view>
+        <text wx:if="{{item.ORDERTRACE[8]!=null}}" class='time'>{{item.ORDERTRACE[8].date}}</text>
+      </view>
+      <view class="line"></view>
+      <view class='Column' wx:for-itemArray="idx" wx:for-item="itemName">
+        <view wx:if="{{item.ORDERTRACE[9]!=null}}">
+          <view class='circle'>付款</view>
+        </view>
+        <view wx:else>
+          <view class='circle-unfinished'>付款</view>
+        </view>
+        <text wx:if="{{item.ORDERTRACE[9]!=null}}" class='time'>{{item.ORDERTRACE[9].date}}</text>
+      </view>
+      <view class="line"></view>
+      <view class='Column' wx:for-itemArray="idx" wx:for-item="itemName">
+        <view wx:if="{{item.ORDERTRACE[10]!=null}}">
+          <view class='circle'>开船</view>
+        </view>
+        <view wx:else>
+          <view class='circle-unfinished'>开船</view>
+        </view>
+        <text wx:if="{{item.ORDERTRACE[10]!=null}}" class='time'>{{item.ORDERTRACE[10].date}}</text>
+      </view>
+      <view class="line"></view>
+      <view class='Column' wx:for-itemArray="idx" wx:for-item="itemName">
+        <view wx:if="{{item.ORDERTRACE[11]!=null}}">
+          <view class='circle'>到港</view>
+        </view>
+        <view wx:else>
+          <view class='circle-unfinished'>到港</view>
+        </view>
+        <text wx:if="{{item.ORDERTRACE[11]!=null}}" class='time'>{{item.ORDERTRACE[11].date}}</text>
+      </view>
+    </view>
+
+  </view>
+  <view>
+  </view>
+</view>
+<view>
+  <loading wx:if="{{searchLoading}}">加载中</loading>
+</view>

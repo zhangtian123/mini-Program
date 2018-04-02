@@ -1,0 +1,49 @@
+<!--导航菜单-->
+<view class="navbar" style=" z-index:50">
+  <!--循环-->
+  <view wx:for="{{navbar}}" data-idx="{{index}}" wx:key="unique" class="item {{currentTab==index ? 'active' : ''}}" bindtap="navbarTap">
+    {{item}}
+  </view>
+</view>
+<!--填写信息-->
+<view hidden="{{currentTab !== 0}}" id="one">
+  <view class="state">
+    <view>状态：{{state}}</view>
+  </view>
+  <view class="info" style="display:flex;flex-direction:column">
+    <view style="display:flex;flex-direction:row;margin-top:20rpx">
+      <text>时间</text>
+      <picker mode="date" value="{{date}}" start="1978-01-01" end="2100-01-01" bindchange="bindDateChange">
+        <text class="picker">  {{dates}}</text>
+      </picker>
+      <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+        <text class="picker">  {{times}}</text>
+      </picker>
+    </view>
+    <view style="display:flex;flex-direction:row">
+      <text>描述</text>
+    </view>
+    <view>
+      <textarea bindinput='remarkInput'></textarea>
+    </view>
+  </view>
+  <button class="fill-submit" bindtap='fillsubmit'>提交</button>
+</view>
+<!--月度维保-->
+<view hidden="{{currentTab !== 1}}" id="one">
+  <view class="img-v">
+    <view class="upload-img-btn" bindtap="chooseImg">选择照片</view>
+    <view class='photo-submit' bindtap='fillsubmit'>提交</view>
+    <view class='imgs'>
+      <view class="img" wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+        <image src="{{item}}" data-index="{{index}}" mode="aspectFit" bindtap="previewImg"></image>
+        <view class="delete-btn" data-index="{{index}}" catchtap="deleteImg">
+          <image src='../../images/delete.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view>
+  <loading wx:if="{{showLoading}}">加载中</loading>
+</view>

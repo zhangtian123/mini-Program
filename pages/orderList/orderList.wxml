@@ -1,0 +1,128 @@
+<!--pages/orderList/orderList.wxml-->
+<view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start">
+
+  <!--左侧栏-->
+  <view style='z-index:10000; position:absolute;'>
+    <include src="../template/externalUser.wxml" />
+  </view>
+
+  <!--右侧栏-->
+  <view style='z-index:999;position:fixed;width:100%'>
+    <include src="../../tools/filterPage/orderlistFilterPage.wxml" />
+  </view>
+  
+  <view class="nav">
+    <image bindtap="tap_ch" src="../../images/menu.png" class="menu"></image>
+    <view class='typeListClass' bindtap='chooseTypeList'>
+      <text>{{typeData[typeIndex]}}</text>
+      <view class="icon"></view>
+      <view class="typeList" bindtap='chooseTypeList' style="{{isChoosed? '' :'display:none'}}">
+        <view wx:for="{{typeData}}" bindtap="selectType" hover-class='type-hover' class="type-show" data-index="{{index}}">{{item}}</view>
+      </view>
+    </view>
+
+    <image class="filter" bindtap="filter" src="{{filterSrc}}" mode='aspectFit'></image>
+  </view>
+
+  <scroll-view class='content' scroll-y="true" style='height:1500rpx' bindscrolltolower="scrollToLower">
+    <view class="card" wx:for="{{itemList}}">
+      <image class='pin' src='../../images/pin.png'></image>
+      <view class='information'>
+        <text class="userName">订单号</text>
+        <text class='detail-info' wx:if="{{item.ORDER.BILLNO!=null}}"> {{item.ORDER.BILLNO}}</text>
+      </view>
+      <view class="dashLine"></view>
+      <view class="information">
+        <text>客户委托号</text>
+        <text class='detail-info' wx:if="{{item.ORDER.REFNO!=null}}"> {{item.ORDER.REFNO}}</text>
+      </view>
+      <view class="information">
+        <text>货物名称</text>
+        <text class='detail-info' wx:if="{{item.ORDER.CARGONAME!=null}}"> {{item.ORDER.CARGONAME}}</text>
+      </view>
+      <view class="information">
+        <text>件毛体</text>
+        <text class='detail-info' wx:if="{{item.ORDER.PACK!=null}}">{{item.ORDER.PACK}}</text>
+      </view>
+      <view class="information">
+        <text>船名/航次</text>
+        <text class='detail-info' wx:if="{{item.ORDER.SEA_VESSEL!=null}}"> {{item.ORDER.SEA_VESSEL}}</text>
+      </view>
+      <view class="information">
+        <text>船公司/航线</text>
+        <text class='detail-info' wx:if="{{item.ORDER.SHIPOWNER!=null}}"> {{item.ORDER.SHIPOWNER}}</text>
+      </view>
+      <view class="information">
+        <text>箱型箱量</text>
+        <text class='detail-info' wx:if="{{item.ORDER.CNTRNUMSTR!=null}}"> {{item.ORDER.CNTRNUMSTR}}</text>
+      </view>
+      <image class="expandArrow" bindtap='table_show' src='{{item.SHOW.showImageUrl}}' mode='aspectFit' data-index="{{index}}"></image>
+      <view class="{{item.SHOW.isShowTable? 'table' :'table-hide'}}">
+        <view class='Row' style='margin-left:12%;'>
+          <view class='Column' wx:for-itemArray="idx" wx:for-item="itemName">
+            <view wx:if="{{item.ORDERTRACE[1]!=null}}">
+              <view class='circle'>申请</view>
+            </view>
+            <view wx:else>
+              <view class='circle-unfinished'>申请</view>
+            </view>
+            <text class='time' wx:if="{{item.ORDERTRACE[1]!=null}}">{{item.ORDERTRACE[1].date}}</text>
+          </view>
+          <view class="line"></view>
+          <view class='Column' wx:for-itemArray="idx" wx:for-item="itemName">
+            <view wx:if="{{item.ORDERTRACE[2]!=null}}">
+              <view class='circle'>预审</view>
+            </view>
+            <view wx:else>
+              <view class='circle-unfinished'>预审</view>
+            </view>
+            <text wx:if="{{item.ORDERTRACE[2]!=null}}" class='time'>{{item.ORDERTRACE[2].date}}</text>
+          </view>
+          <view class="line"></view>
+          <view class='Column' wx:for-itemArray="idx" wx:for-item="itemName">
+            <view wx:if="{{item.ORDERTRACE[3]!=null}}">
+              <view class='circle'>审核</view>
+            </view>
+            <view wx:else>
+              <view class='circle-unfinished'>审核</view>
+            </view>
+            <text wx:if="{{item.ORDERTRACE[3]!=null}}" class='time'>{{item.ORDERTRACE[3].date}}</text>
+          </view>
+          <view class="line1"></view>
+          <view class="line-v"></view>
+        </view>
+        <view class='Row' style='margin-left:41.5%;'>
+          <view class='Column' wx:for-itemArray="idx" wx:for-item="itemName">
+            <view wx:if="{{item.ORDERTRACE[5]!=null}}">
+              <view class='circle'>接收</view>
+            </view>
+            <view wx:else>
+              <view class='circle-unfinished'>接收</view>
+            </view>
+            <text wx:if="{{item.ORDERTRACE[5]!=null}}" class='time'>{{item.ORDERTRACE[5].date}}</text>
+          </view>
+          <view class="line"></view>
+
+          <view class='Column' wx:for-itemArray="idx" wx:for-item="itemName">
+            <view wx:if="{{item.ORDERTRACE[4]!=null}}">
+              <view class='circle'>分配</view>
+            </view>
+            <view wx:else>
+              <view class='circle-unfinished'>分配</view>
+            </view>
+            <text wx:if="{{item.ORDERTRACE[4]!=null}}" class='time'>{{item.ORDERTRACE[4].date}}</text>
+          </view>
+          <view class="line1"></view>
+          <view class="line-v1"></view>
+        </view>
+
+      </view>
+      <view>
+      </view>
+    </view>
+    <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+    <view>
+      <loading wx:if="{{searchLoading}}">加载中</loading>
+    </view>
+  </scroll-view>
+</view>

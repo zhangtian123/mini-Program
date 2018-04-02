@@ -1,0 +1,5 @@
+<!--pages/shareStatusBackInvalid/shareStatusBackInvalid.wxml-->
+<view class='card' style='margin-top:15rpx;'>
+  <text>分享已失效</text>
+</view>
+

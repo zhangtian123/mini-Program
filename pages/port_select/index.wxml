@@ -1,0 +1,111 @@
+<!--index.wxml-->
+<view class="page1">
+  <view class="page-top1" bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start">
+    <view style='z-index:10000;position:fixed;'>
+      <view wx:if="{{userflag=='CUSTOMER'}}">
+        <include src="../template/externalUser.wxml" />
+      </view>
+      <view wx:if="{{userflag=='USER'}}">
+         <include src="../template/internalUser.wxml" /> 
+         <!-- <include src="../template/externalUser.wxml" />      -->
+        <!-- <include src="../template/supplier.wxml" />   -->
+      </view>
+      <view wx:if="{{userflag=='TRAILER'||userflag=='DECLARATION'}}">
+        <include src="../template/supplier.wxml" />
+      </view>
+    </view>
+
+    <view class="nav">
+      <image bindtap="tap_ch" mode="aspectFit" src="../../images/menu.png" class='menu'></image>
+    </view>
+
+    <view class="content">
+      <view class="card">
+        <view class="search-title">港口信息</view>
+        <view>
+          <view bindtap="getStartPort" class="search-input">
+            <text class="section">装运港：{{start_port_eng}}</text>
+          </view>
+          <view bindtap="getDesPort" class="search-input">
+            <text class="section">目的港：{{des_port_eng}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="card">
+        <view class="search-title">货物信息</view>
+        <view class="search-input-col">
+          <view class="search-input" style="width:96%;">
+            <picker mode="date" bindchange="bindTimeChange" value="{{date}}" start="1970-01-01">
+              <view>
+                <text class="section">完货日期：{{date}}</text>
+              </view>
+            </picker>
+          </view>
+          <view class="row-list">
+            <view class="search-input" style="width:54%;">
+              <view class="section row-list" style="width:100%">
+                <text>货物件数：</text>
+                <input bindchange="getNum" type="number" maxlength="4" style="width:46%;margin-top:10rpx;" placeholder="{{num}}" />
+              </view>
+            </view>
+            <view class="search-input" style="width:40%;margin-left:1%">
+              <picker bindchange="bindUnitChange" value="{{unit_index}}" range-key='TYPENAMECH' range="{{packageType}}">
+                <view>
+                  <text class="section packagetype">{{packageType[unit_index].TYPENAMEEN}}</text>
+                </view>
+              </picker>
+            </view>
+          </view>
+          <view class="row-list">
+            <view class="search-input" style="width:45%;">
+              <view class="section row-list" style="width:100%">
+                <text>毛重：</text>
+                <input placeholder="{{weight}}" bindchange="getWeight" type="digit" style="width:45%;margin-top:10rpx;" />
+                <text>T</text>
+              </view>
+            </view>
+            <view class="search-input" style="width:49%;margin-left:1%">
+              <view class="section row-list" style="width:100%">
+                <text>体积：</text>
+                <input placeholder="{{vol}}" bindchange="getVol" type="digit" style="width:41%;margin-top:10rpx;" />
+                <text>m³</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="card">
+        <view class="search-title">箱量</view>
+        <view class="search-input-col">
+          <view class="row-list">
+            <view class="search-input" style="width:48%;">
+              <view class="section row-list" style="width:100%">
+                <text>20GP</text>
+                <image src="../../images/desc.png" bindtap="desc20gp" style='margin-left:20rpx;margin-right:20rpx'></image>
+                <text style="width:40rpx">{{num20gp}}</text>
+                <image src="../../images/addition.png" bindtap="add20gp" style='margin-left:20rpx'></image>
+              </view>
+            </view>
+            <view class="search-input" style="width:48%;margin-left:1%">
+              <view class="section row-list" style="width:100%">
+                <text>40GP</text>
+                <image src="../../images/desc.png" bindtap="desc40gp" style='margin-left:20rpx;margin-right:20rpx'></image>
+                <text style="width:35rpx;">{{num40gp}}</text>
+                <image style="margin-left:20rpx;" src="../../images/addition.png" bindtap="add40gp"></image>
+              </view>
+            </view>
+          </view>
+          <view class="search-input" style="width:48%;">
+            <view class="section row-list" style="width:100%">
+              <text>40HC</text>
+              <image src="../../images/desc.png" bindtap="desc40hc" style='margin-left:20rpx;margin-right:20rpx;'></image>
+              <text style="width:40rpx;">{{num40hc}}</text>
+              <image style="margin-left:20rpx;" src="../../images/addition.png" bindtap="add40hc"></image>
+            </view>
+          </view>
+        </view>
+        <button class="myBtn" bindtap="searchPrice">查询</button>
+      </view>
+    </view>
+  </view>
+</view>

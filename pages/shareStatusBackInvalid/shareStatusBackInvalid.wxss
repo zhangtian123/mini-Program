@@ -1,0 +1,9 @@
+/* pages/shareStatusBackInvalid/shareStatusBackInvalid.wxss */
+.card{
+  background-color: #fff;
+  padding:20rpx 30rpx;
+  margin-bottom: 15rpx;
+  border-radius: 15rpx;
+  margin: 0 20rpx 20rpx 20rpx;
+  box-shadow: 0 5rpx 5rpx #dddadd;
+}

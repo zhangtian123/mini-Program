@@ -1,0 +1,92 @@
+.filterBack {
+  margin-top: 80rpx;
+  width: 100%;
+  height: 40%;
+  background-color: white;
+  z-index: 999;
+  padding: 20rpx;
+}
+
+.type-show {
+  background-color: white;
+  margin-left: 10rpx;
+  border-bottom: 1px groove solid;
+  box-shadow: 0 5rpx 10rpx #d4d4d4;
+}
+
+.filterTypeListClass {
+  width: 25%;
+  height: 20rpx;
+  position: absolute;
+  margin: 2rpx 0rpx 5rpx 15%;
+  text-align: center;
+  font-size: 36rpx;
+  color: #79797a;
+}
+
+.filterTypeList {
+  width: 25%;
+  height: 15rpx;
+  position: absolute;
+  margin: 8% 0rpx 5rpx 17%;
+  font-size: 36rpx;
+  color: #79797a;
+  z-index: 999;
+}
+
+.filterText {
+  font-size: 36rpx;
+  color: #79797a;
+  margin-left: 18%;
+}
+
+.filterInput {
+  font-size: 36rpx;
+  color: #79797a;
+  margin-left: 43%;
+  width: 320rpx;
+  border-bottom: #79797a 2rpx solid;
+}
+
+.chooseTime {
+  font-size: 36rpx;
+  color: #79797a;
+  margin-left: 18.5%;
+  margin-top: 3%;
+}
+
+.radioGroup {
+  width: 80%;
+  height: 40%;
+  margin-left: 15%;
+}
+
+.radioItem {
+  width: 50%;
+}
+
+.dateBox {
+  margin-left: 20%;
+  margin-top: 16rpx;
+  width: 50%;
+  height: 50rpx;
+  font-size: 36rpx;
+  color: #79797a;
+}
+
+.from-to {
+  float: left;
+  margin-left: 15rpx;
+}
+
+.dateTime {
+  margin-left: 32%;
+}
+
+#makeSure {
+  width: 70%;
+  height: 70rpx;
+  line-height: 70rpx;
+  margin-top: 2%;
+  margin-left: 12%;
+}

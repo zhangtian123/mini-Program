@@ -1,0 +1,24 @@
+<!--page/one/index.wxml-->
+<!--上面的两行是按钮的view，要滑动的话需要把有Bindtouchmove的那些复制到view那儿-->
+  <view class="page-middle" wx:if="{{showModalStatus}}" bindtap="tap_view"/>
+  <view class="page-bottom" style="{{translate}}" wx:if="{{showModalStatus}}">
+    <view class="page-content">
+      <view class="userinfo">
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userinfoavatar}}" background-size="cover"></image>
+        <text class="userinfo-nickname">{{userinfonickname}}</text>
+      </view>
+      <view  class="wc">
+        <button class="mini-btn" hover-class="btn-hover" bindtap='feedback'>状态反馈</button>
+        <button class="mini-btn" hover-class="btn-hover" bindtap='priceResearch'>运价查询</button>
+        <button class="mini-btn" wx:if="{{!hasBinding}}" hover-class="btn-hover" bindtap='binding'>绑定微信</button>
+        <button class="mini-btn" wx:else hover-class="btn-hover" bindtap='unbinding'>解除绑定</button>
+        <button class="mini-btn1" hover-class="btn-hover" bindtap='exit'>退出</button>
+      </view>
+    </view>
+  <view>
+      <loading wx:if="{{isBinding}}">绑定中</loading>
+  </view>
+  <view>
+      <loading wx:if="{{isUnbinding}}">解除绑定中</loading>
+  </view> 
+  </view>

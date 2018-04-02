@@ -1,0 +1,76 @@
+/* pages/orderList/orderList.wxss */
+/* template/billVerify/billVerify.wxss */
+@import "../../tools/content.wxss";
+@import "../../tools/billTable.wxss";
+@import "../../tools/filterPage/traceFilterPage.wxss";
+@import "../template/template.wxss";
+
+/**item**/
+
+.circle {
+  background: linear-gradient(to left, #df3c01, #ff9a76);
+  color: white;
+  border-radius: 30rpx;
+  padding: 5rpx 20rpx;
+  box-shadow: 0 5rpx 10rpx #ff9a76;
+  height: 60rpx;
+   width: 75rpx;
+}
+
+.circle-unfinished {
+  background: #ededed;
+  color: #79797a;
+  border-radius: 30rpx;
+  padding: 5rpx 20rpx;
+   height: 60rpx;
+   width: 75rpx;
+}
+
+.Row {
+  display: flex;
+  flex-direction: row;
+  align-items:initial;
+}
+
+.Column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.line {
+  width: 80rpx;
+  height: 5rpx;
+  background: #ededed;
+  margin-top:30rpx;
+}
+
+.line1{
+  width: 10rpx;
+  height: 5rpx;
+  background:#ededed;
+  margin-top:30rpx;
+}
+
+.time{
+  margin-top: 10rpx;
+  font-size: 20rpx;
+  line-height: 30rpx;
+  text-align: center;
+}
+
+.line-v {
+  height: 130rpx;
+  width: 7rpx;
+  background: #ededed;
+  margin-top:30rpx;
+}
+
+.line-v1 {
+  height: 35rpx;
+  width: 7rpx;
+  background: #ededed;
+  margin-bottom:60rpx;
+}
+.pin{width: 50rpx; height: 50rpx;margin-top:-20rpx;margin-left:-20rpx;}
+.pin,.information:first-child{float: left;}

@@ -1,0 +1,78 @@
+@import "../../tools/content.wxss";
+@import "../../tools/showModal/showModal.wxss";
+@import "../template/template.wxss";
+.myBtn {
+  width: 60%;
+  line-height: 70rpx;
+  vertical-align: middle;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+.circle {
+  background: linear-gradient(to left, #df3c01, #ff9a76);
+  color: white;
+  border-radius: 30rpx;
+  padding: 5rpx 20rpx;
+  box-shadow: 0 5rpx 10rpx #ff9a76;
+  height: 60rpx;
+   width: 75rpx;
+}
+
+.circle-unfinished {
+  background: #ededed;
+  color: #79797a;
+  border-radius: 30rpx;
+  padding: 5rpx 20rpx;
+   height: 60rpx;
+   width: 75rpx;
+}
+
+.Row {
+  display: flex;
+  flex-direction: row;
+  align-items:initial;
+  justify-content:center;
+  
+}
+
+.Column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:20%;
+}
+
+.line {
+  width: 80rpx;
+  height: 5rpx;
+  background: #ededed;
+  margin-top:30rpx;
+}
+
+.line1{
+  width: 10rpx;
+  height: 5rpx;
+  background:#ededed;
+  margin-top:30rpx;
+}
+
+.time{
+  margin-top: 10rpx;
+  font-size: 20rpx;
+  line-height: 30rpx;
+  text-align: center;
+}
+
+.line-v {
+  height: 130rpx;
+  width: 7rpx;
+  background: #ededed;
+  margin-top:30rpx;
+}
+
+.line-v1 {
+  height: 35rpx;
+  width: 7rpx;
+  background: #ededed;
+  margin-bottom:60rpx;
+}

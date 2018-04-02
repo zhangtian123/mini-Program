@@ -1,0 +1,224 @@
+<!--index.wxml-->
+<view class="page1">
+  <view class="page-top1" bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start">
+    <view style='z-index:10000;position:fixed;'>
+      <include src="../template/externalUser.wxml" />
+
+    </view>
+
+    <view class="nav">
+      <image bindtap="tap_ch" mode="aspectFit" src="../../images/menu.png" class='menu'></image>
+    </view>
+
+    <scroll-view class='content' scroll-y="true" style='height:2000rpx' bindscrolltolower="scrollToLower">
+
+      <!-- 客户信息部分 -->
+      <view class="card">
+        <view class='input-title-b'>客户信息</view>
+        <view class="search-input-col">
+
+          <view class="search-input-row line">
+            <view class="input-title">客户名称</view>
+            <input bindinput='getName' class="input-normal" value='{{name}}' />
+          </view>
+
+          <view class="search-input-row line">
+            <view class="input-title">客户委托号</view>
+            <input bindinput='getRefno' class="input-normal" value='{{refno}}' placeholder='点击输入' />
+          </view>
+
+          <view class="search-input-row line">
+            <view class="input-title">销售</view>
+            <picker bindchange='bindSalesChange' value='{{index}}' range='{{sales}}'>
+              <input class="input-normal" value='{{sale}}' placeholder='点击选择'></input>
+            </picker>
+          </view>
+
+        </view>
+      </view>
+      <!-- 客户信息部分结束 -->
+
+      <!-- 货物信息部分 -->
+      <view class="card">
+        <view class="input-title-b">货物信息</view>
+        <view class="search-input-col">
+          <view class="search-input-row line">
+            <view class="input-title">货物名称</view>
+            <input bindinput='getGoodsName' class="input-normal" value='{{goods_name}}' placeholder='点击输入' />
+          </view>
+
+
+          <view class='search-input-row'>
+            <view class='line2 search-input-row'>
+              <view class="input-title2">件数</view>
+              <input bindinput='getNum' type='number' class="input-normal input-right" value='{{num==-1?"":num}}' placeholder-class='input-right' placeholder='点击输入' />
+            </view>
+            <view style="width:4%;"></view>
+            <view class='line2 search-input-row'>
+              <view class="input-title3">单位</view>
+              <view class='input-right'>
+                <picker bindchange='bindPackageTypeChange' range='{{packagetypes}}' value='index}}' range-key='TYPENAMECH'>
+                  <input value='{{packagetype}}' placeholder='点击选择' class="input-right input-normal"/>
+                </picker>
+              </view>
+            </view>
+          </view>
+
+          <view class='search-input-row'>
+            <view class='line2 search-input-row'>
+              <view class="input-title2">毛重/T</view>
+              <input bindinput='getWeight' type='digit' class="input-normal input-right" value='{{weight==-1?"":weight}}' placeholder-class='input-right' placeholder='点击输入' />
+            </view>
+            <view style="width:4%;"></view>
+            <view class='line2 search-input-row'>
+              <view class="input-title2">体积/m³</view>
+              <input bindinput='getVol' type='digit' class="input-normal input-right" value='{{vol==-1?"":vol}}' placeholder-class='input-right' placeholder='点击输入' />
+            </view>
+          </view>
+
+          <view class='search-input-row'>
+            <view class="row-list" style="width:31%">
+              <text>20GP</text>
+              <image src="../../images/desc.png" bindtap="desc20gp" style='margin-left:5rpx;width:38rpx;height:38rpx;margin-top:10rpx;'></image>
+              <text style="margin-left:5rpx;width:30rpx">{{num20gp}}</text>
+              <image src="../../images/addition.png" bindtap="add20gp" style='margin-left:5rpx;width:38rpx;height:38rpx;margin-top:10rpx;'></image>
+            </view>
+            <view style='width:3.5%;'></view>
+            <view class="row-list" style="width:31%">
+              <text>40GP</text>
+              <image src="../../images/desc.png" bindtap="desc40gp" style='margin-left:5rpx;width:38rpx;height:38rpx;margin-top:10rpx;'></image>
+              <text style="margin-left:5rpx;width:30rpx;">{{num40gp}}</text>
+              <image src="../../images/addition.png" bindtap="add40gp" style='margin-left:5rpx;width:38rpx;height:38rpx;margin-top:10rpx;'></image>
+            </view>
+            <view style='width:3.5%;'></view>
+            <view class="row-list" style="width:31%">
+              <text>40HC</text>
+              <image src="../../images/desc.png" bindtap="desc40hc" style='margin-left:5rpx;width:38rpx;height:38rpx;margin-top:10rpx;'></image>
+              <text style="margin-left:5rpx;width:30rpx">{{num40hc}}</text>
+              <image src="../../images/addition.png" bindtap="add40hc" style='margin-left:5rpx;width:38rpx;height:38rpx;margin-top:10rpx;'></image>
+            </view>
+          </view>
+
+          <view class="search-input-row line">
+            <view class="input-title">CRD</view>
+            <picker mode="date" value="{{date}}" start="1978-01-01" end="2100-01-01" bindchange="bindCRDDateChange">
+              <input class="input-normal" value='{{CRD_date}}' placeholder='yyyy-mm-dd'/>
+            </picker>
+            <view style='width:4%;'></view>
+            <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindCRDTimeChange">
+              <input class="input-normal" value='{{CRD_time}}' placeholder='hh:mm'/>
+            </picker>
+          </view>
+
+          <view class="search-input-row line">
+            <view class="input-title">ETD</view>
+            <picker mode="date" value="{{date}}" start="1978-01-01" end="2100-01-01" bindchange="bindETDDateChange">
+              <input class="input-normal" value='{{ETD_date}}' placeholder='yyyy-mm-dd'/>
+            </picker>
+            <view style='width:4%;'></view>
+            <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindETDTimeChange">
+              <input class="input-normal" value='{{ETD_time}}' placeholder='hh:mm'/>
+            </picker>
+          </view>
+
+        </view>
+      </view>
+      <!-- 货物信息部分结束 -->
+
+      <!-- 运输信息部分 -->
+      <view class="card">
+        <view class='input-title-b'>运输信息</view>
+        <view class="search-input-col">
+
+          <view class="search-input-row line">
+            <view class="input-title">装运港</view>
+            <input bindblur='clearStart' bindfocus='getStartPort' bindinput='getStartPort' class="input-normal" value='{{start}}' placeholder='{{start_port}}' />
+            <view></view>
+          </view>
+          <view wx:if='{{showstartlist}}' style='width:100%;'>
+            <view class="input-search">
+              <view class="input-result" wx:for="{{start_ports}}" wx-for-item="item" data-item="{{item}}" bindtap='bindStartPortChange'>
+                {{item}}
+                <view class="line"></view>
+              </view>
+            </view>
+          </view>
+
+          <view class="search-input-row line">
+            <view class="input-title">目的港</view>
+            <input bindblur='clearDes' bindfocus='getDesPort' bindinput='getDesPort' class="input-normal" value='{{des}}' placeholder='{{des_port}}' />
+            <view></view>
+          </view>
+          <view wx:if='{{showdeslist}}' style='width:100%;'>
+            <view class="input-search">
+              <view class="input-result" wx:for="{{des_ports}}" wx-for-item="item" data-item="{{item}}" bindtap='bindDesPortChange'>
+                {{item}}
+                <view class="line"></view>
+              </view>
+            </view>
+          </view>
+
+          <view class="search-input-row line">
+            <view class="input-title">船公司</view>
+            <picker bindchange='bindShipCompanyChange' value='{{index}}' range='{{shipcompanys}}'>
+              <input placeholder='点击选择' class="input-normal" value='{{shipcompany}}' />
+            </picker>
+          </view>
+
+          <view class="search-input-row line">
+            <view class="input-title">航线</view>
+            <picker bindchange='bindSailLineChange' value='{{index}}' range-key='LINECNNAME' range='{{saillines}}'>
+              <input value='{{sailline.SAILCODE}}' placeholder='点击选择' class="input-normal" />
+            </picker>
+          </view>
+
+          <view class="search-input-row line">
+            <view class="input-title">船名</view>
+            <picker range-key='NAMEEN' bindchange='bindShipNameChange' value='{{index}}' range='{{shipnames}}'>
+              <input placeholder='点击选择' class="input-normal" value='{{shipname.NAMEEN}}'></input>
+            </picker>
+          </view>
+
+          <view class="search-input-row line">
+            <view class="input-title">航次</view>
+            <input bindinput='getSailLineNum' class="input-normal" value='{{saillinenum}}' placeholder='点击输入' />
+          </view>
+
+        </view>
+      </view>
+      <!-- 运输信息部分结束 -->
+
+      <!-- 服务信息 -->
+      <view class="card">
+        <view class='input-title-b'>服务信息</view>
+
+        <view class="search-input-row line">
+          <view class="input-title">报关服务</view>
+          <picker bindchange='bindDeclareServiceChange' value='{{index}}' range='{{ds_list}}'>
+            <input placeholder='点击选择' class="input-normal" value='{{declare_service}}'></input>
+          </picker>
+        </view>
+
+        <view class="search-input-row line">
+          <view class="input-title">拖车服务</view>
+          <picker bindchange='bindVehicleServiceChange' value='{{index}}' range='{{vs_list}}'>
+            <input placeholder='点击选择' class="input-normal" value='{{vehicle_service}}'></input>
+          </picker>
+        </view>
+
+        <view class="search-input-row line">
+          <view class="input-title">海外服务</view>
+          <picker bindchange='bindOverSeasServiceChange' value='{{index}}' range='{{os_list}}'>
+            <input placeholder='点击选择' class="input-normal" value='{{overseas_service}}'></input>
+          </picker>
+        </view>
+      </view>
+      <!-- 服务信息部分结束 -->
+
+      <view class='footer'>
+        <button class="myBtn" style="width:60%;" bindtap="placeOrder">提交</button>
+      </view>
+      <loading wx:if="{{order_loading}}">下单信息提交中</loading>
+    </scroll-view>
+  </view>
+</view>

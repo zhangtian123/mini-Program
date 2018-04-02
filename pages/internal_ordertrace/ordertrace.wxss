@@ -1,0 +1,11 @@
+/* template/billVerify/billVerify.wxss */
+@import "../../tools/content.wxss";
+@import "../../tools/billTable.wxss";
+@import "../../tools/filterPage/traceFilterPage.wxss";
+@import "../template/template.wxss";
+@import "../ordertrace/ordertrace.wxss";
+/**item**/
+.pin2 {
+  width: 50rpx;
+  height: 50rpx;
+}

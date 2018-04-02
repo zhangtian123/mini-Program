@@ -1,0 +1,102 @@
+<!--template/billVerify/billVerify.wxml -->
+<view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start">
+  <view style='z-index:10000; position:absolute;'>
+    <include src="../template/internalUser.wxml" />
+  </view>
+  <view style='z-index:999;position:fixed;'>
+    <include src="../../tools/filterPage/billFilterPage.wxml" />
+  </view>
+
+  <view class="nav">
+    <image bindtap="tap_ch" src="../../images/menu.png" class="menu"></image>
+    <!--左侧栏-->
+    <view class='typeListClass' bindtap='chooseTypeList'>
+      <text>{{typeData[typeIndex]}}</text>
+      <view class="icon"></view>
+      <view class="typeList" bindtap='chooseTypeList' wx:if="{{isChoosed}}">
+        <view wx:for="{{typeData}}" bindtap="selectType" hover-class='type-hover' class="type-show" data-index="{{index}}">{{item}}</view>
+      </view>
+    </view>
+    <image class="filter" bindtap="filter" src="{{filterSrc}}" mode='aspectFit'></image>
+    <!--右侧栏-->
+  </view>
+
+  <scroll-view class='content' scroll-y="true" style='height:1500rpx' bindscrolltolower="scrollToLower">
+    <view class="card" wx:for="{{itemList}}" wx:item="{{item}}">
+      <view class="information">
+        <text>账单编号</text>
+        <text class='detail-info' wx:if="{{item.BILL.BILLNO!=null}}">{{item.BILL.BILLNO}}</text>
+        <image class='pin2' data-index="{{index}}" bindtap='shareOrder' src='../../images/share.png'></image>
+      </view>
+      <view class='ticket-style'>
+        <view class='circle-l'></view>
+        <view class="dashLine"></view>
+        <view class='circle-r'></view>
+      </view>
+      <view class="information">
+        <text>总金额</text>
+        <text class='detail-info' wx:if="{{item.BILL.TOTALAMOUNT!=null}}">￥{{item.BILL.TOTALAMOUNT}}</text>
+      </view>
+      <view class="information">
+        <text>往来单位</text>
+        <text class='detail-info' wx:if="{{item.BILL.CUSTOMER!=null}}">{{item.BILL.CUSTOMER}}</text>
+      </view>
+      <view class="information">
+        <text>通知日期</text>
+        <text class='detail-info' wx:if="{{item.BILL.BILLDATE!=null}}">{{item.BILL.BILLDATE}}</text>
+      </view>
+      <view class="information">
+        <text>最迟付款日期</text>
+        <text class='detail-info' wx:if="{{item.BILL.LASTDATE!=null}}">{{item.BILL.LASTDATE}}</text>
+      </view>
+      <view class="information">
+        <text>结算方式</text>
+        <text class='detail-info' wx:if="{{item.BILL.PAYTYPE!=null}}">{{item.BILL.PAYTYPE}}</text>
+      </view>
+      <view class="information">
+        <text>开户行</text>
+        <text class="detail-info" wx:if="{{item.BILL.BANKNAME!=null}}">{{item.BILL.BANKNAME}}</text>
+      </view>
+      <view class="information">
+        <text>开户行</text>
+        <text class="detail-info" wx:if="{{item.BILL.ACCOUNTNO!=null}}">{{item.BILL.ACCOUNTNO}}</text>
+      </view>
+      <image class="expandArrow" bindtap='table_show' src='{{item.SHOW.showImageUrl}}' mode='aspectFit' data-index="{{index}}"></image>
+      <view class="{{item.SHOW.isShowTable? 'table' :'table-hide'}}">
+        <view class='ticket-style'>
+          <view class='circle-l'></view>
+          <view class="dashLine"></view>
+          <view class='circle-r'></view>
+        </view>
+        <view class="tr">
+          <view class="th">账单条目</view>
+          <view class="th ">币别</view>
+          <view class="th ">金额</view>
+        </view>
+        <block wx:for="{{item.DETAIL}}" wx:item="{{item}}">
+          <view class="tr">
+            <view class="td">{{item.FeeName}}</view>
+            <view class="td">{{item.Currency}}</view>
+            <view class="td">{{item.Price}}</view>
+          </view>
+        </block>
+      </view>
+      <view style='display:flex;flex-direction:row;'>
+        <button class="myBtn" id='pass' wx:if="{{item.BILL.WTNODES=='Fee_CQK05'}}" bindtap='confirm' size="mini" data-index="{{index}}">通过</button>
+        <button class="myBtn" id='refuse' wx:if="{{item.BILL.WTNODES=='Fee_CQK05'}}" bindtap='refuse' size="mini" data-index="{{index}}">驳回</button>
+      </view>
+      <view class='circle'></view>
+    </view>
+
+    <!-- 加载更多 -->
+    <!-- <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view> -->
+    <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+    <view>
+      <loading wx:if="{{searchLoading}}">加载中</loading>
+    </view>
+  </scroll-view>
+  <!---驳回showModal-->
+  <view>
+    <include src="../../tools/showModal/showModal.wxml" />
+  </view>
+</view>

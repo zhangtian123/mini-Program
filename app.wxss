@@ -1,0 +1,84 @@
+/**app.wxss**/
+page,.page {
+  height: 100%;
+  font-family: 'Microsoft Yahei','PingFang SC', 'Helvetica Neue', Helvetica, 'Droid Sans Fallback' , sans-serif;
+  background-color: #ededed;
+  font-size: 36rpx;
+  color: #79797a;
+}
+
+/**侧边栏样式**/
+.page-bottom{
+  height: 100%;
+  width: 60%;
+  position: fixed; 
+  background-color:#fff;
+  z-index: 0;
+  opacity:0.9;
+}
+
+.page-middle{
+  height: 100%;
+  width: 100%;
+  position: fixed; 
+  background-color:#000;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+.wc{
+  color:  #79797a;
+  padding: 30rpx 0 30rpx 0rpx;
+}
+
+/****11.6*****/
+.page-content{
+  padding-top: 40rpx;
+}
+
+.page-top{
+  height: 100%;
+  width: 750rpx;
+  z-index: 0;
+  transition: All 0.4s ease; 
+  -webkit-transition: All 0.4s ease;
+}
+
+.page-top image{
+  position: absolute;
+  width: 68rpx;
+  height: 38rpx;
+  left: 20rpx;
+  top: 20rpx;
+}
+
+.c-state1{
+  transform: rotate(0deg) scale(1) translate(75%,0%); 
+  -webkit-transform: rotate(0deg) scale(1) translate(75%,0%); 
+}
+
+.c-state2{
+  transform: rotate(0deg) scale(.8) translate(75%,0%); 
+  -webkit-transform: rotate(0deg) scale(.8) translate(75%,0%); 
+}
+
+/**导航&正文样式**/
+.content {
+  padding-top: 85rpx;
+  line-height: 60rpx;
+}
+
+.nav {
+  background-color: #fff;
+  height: 60rpx;
+  border-bottom: 3rpx solid #d4d4d4;
+  padding: 10rpx 30rpx 0 30rpx;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+
+.nav image {
+  width: 50rpx;
+  height: 50rpx;
+}

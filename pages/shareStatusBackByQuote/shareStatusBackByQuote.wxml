@@ -1,0 +1,40 @@
+<!--pages/generatePrice/generatePrice.wxml-->
+<view class='card' style='margin-top:15rpx;'>
+  <text wx:if="{{isValidate}}">报价结果有效期为48小时，更多服务请关注微信小程序或者公众号</text>
+  <text wx:else>分享内容已经生成，有效期为48小时，请点右上角...分享</text>
+</view>
+<view class="content" style='margin-top:-8%;'>
+  <view class="card">
+    <view class="search-title" style='color:#006fbe;'>
+      <text>{{item.PORTLOADING}}-</text>
+      <text wx:if="{{item.ISDIRECT == 'true'}}">直达</text>
+      <text wx:else>非直达</text>
+      <text>-{{item.PORTDISCHARGE}}</text>
+    </view>
+    <view class="search-input-col" style='font-size:28rpx;'>
+      <view class="search-input-row line">
+        <view class="search-title" style='color:#006fbe;'>船公司/船期/航程：</view>
+        <view class="search-title">{{item.CARRIER}}/{{item.ETD}}/{{item.DAYNUM}}</view>
+      </view>
+      <view class="search-input-row line" style='font-size:28rpx;'>
+        <view class="search-title" style='color:#006fbe;'>有效期：</view>
+        <view class="search-title">{{item.BeginDate}}至{{item.EndDate}}</view>
+      </view>
+      <view class="search-input-row line" style='font-size:28rpx;'>
+        <view class="search-title" style='color:#006fbe;'>20GP/40GP/40HQ单价：</view>
+        <view class="search-title">{{item.PRICE20GP}}/{{item.PRICE40GP}}/{{item.PRICE40HQ}}</view>
+      </view>
+      <view class="search-input-row line" style='font-size:28rpx;'>
+        <view class="search-title" style='color:#006fbe;'>20GP/40GP/40HQ数量：</view>
+        <view class="search-title">{{item.QUANTITY20GP}}/{{item.QUANTITY40GP}}/{{item.QUANTITY40HQ}}</view>
+      </view>
+      <view class="search-input-col line" style='font-size:28rpx;'>
+        <view class="search-title" style='color:#006fbe;'>运费：</view>
+         <view class="search-title">{{totalFeeString}} = {{totalFee}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view>
+  <loading wx:if="{{searchLoading}}">加载中</loading>
+</view>

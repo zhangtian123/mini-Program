@@ -1,0 +1,78 @@
+<view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start">
+  <view style='z-index:10000; position:absolute;height:100%;'>
+    <include src="../template/supplier.wxml" />
+  </view>
+  <view style='z-index:999;position:fixed;'>
+    <include src="../../tools/filterPage/billFilterPage.wxml" />
+  </view>
+  <view class="nav">
+    <image bindtap="tap_ch" src="../../images/menu.png" mode='aspectFit' class="menu"></image>
+    <!--左侧栏-->
+  </view>
+  <scroll-view class='content' scroll-y="true" style='height:1500rpx' bindscrolltolower="scrollToLower">
+    <view class='card' wx:for="{{itemList}}" wx:item="{{item}}">
+      <view class="information">
+        派车单号
+        <text class='detail-info'>{{item.BILL.BILLNO}}</text>
+      </view>
+      <view class="dashLine"></view>
+      <view>
+        <text>集装箱号/箱型尺寸：{{item.BILL.CONTAINERNO}}</text>
+      </view>
+      <view>
+        <text>司机/车号：{{item.BILL.DRIVER}}</text>
+      </view>
+      <view>
+        <text>司机电话：{{item.BILL.TELEPHONE}}</text>
+      </view>
+      <text>派车状态:</text>
+      <view class='Row' style='margin-top:20rpx;'>
+        <view class='Column'>
+          <view class="{{item.DETAIL[1].IsFinished ? 'circle' :'circle-unfinished' }} ">接单</view>
+          <text class='time' wx:if="{{item.DETAIL[1].IsFinished}}">{{item.DETAIL[1].FINISHEDDATE}}</text>
+        </view>
+        <view class="line"></view>
+        <view class='Column'>
+          <view class="{{item.DETAIL[2].IsFinished && item.DETAIL[1].IsFinished ? 'circle' :'circle-unfinished' }} ">派车</view>
+          <text class='time' wx:if="{{item.DETAIL[2].IsFinished && item.DETAIL[1].IsFinished}}">{{item.DETAIL[2].FINISHEDDATE}}</text>
+        </view>
+        <view class="line"></view>
+        <view class='Column'>
+          <view class="{{item.DETAIL[3].IsFinished && item.DETAIL[2].IsFinished ? 'circle' :'circle-unfinished' }} ">提箱</view>
+          <text class='time' wx:if="{{item.DETAIL[3].IsFinished}}">{{item.DETAIL[3].FINISHEDDATE}}</text>
+        </view>
+        <view class="line"></view>
+        <view class='Column'>
+          <view class="{{item.DETAIL[4].IsFinished && item.DETAIL[3].IsFinished? 'circle' :'circle-unfinished' }} ">到场</view>
+          <text class='time' wx:if="{{item.DETAIL[4].IsFinished && item.DETAIL[3].IsFinished}}">{{item.DETAIL[4].FINISHEDDATE}}</text>
+        </view>
+        <view class="line1"></view>
+        <view class="line-v"></view>
+      </view>
+      <view class='Row'>
+        <view class="line-empty"></view>
+        <view class='Column'>
+          <view class="{{item.DETAIL[7].IsFinished && item.DETAIL[6].IsFinished ? 'circle' :'circle-unfinished' }} ">进港</view>
+          <text class='time' wx:if="{{item.DETAIL[7].IsFinished && item.DETAIL[6].IsFinished}}">{{item.DETAIL[7].FINISHEDDATE}}</text>
+        </view>
+        <view class="line"></view>
+        <view class='Column'>
+          <view class="{{item.DETAIL[6].IsFinished && item.DETAIL[5].IsFinished? 'circle' :'circle-unfinished' }} ">装完</view>
+          <text class='time' wx:if="{{item.DETAIL[6].IsFinished && item.DETAIL[5].IsFinished}}">{{item.DETAIL[6].FINISHEDDATE}}</text>
+        </view>
+        <view class="line"></view>
+        <view class='Column'>
+          <view class="{{item.DETAIL[5].IsFinished && item.DETAIL[4].IsFinished ? 'circle' :'circle-unfinished' }} ">装箱</view>
+          <text class='time' wx:if="{{item.DETAIL[5].IsFinished && item.DETAIL[4].IsFinished}}">{{item.DETAIL[5].FINISHEDDATE}}</text>
+        </view>
+        <view class="line1"></view>
+        <view class="line-v1"></view>
+      </view>
+      <button class='myBtn' bindtap="feedbackMain" data-index="{{index}}">状态反馈</button>
+    </view>
+    <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+    <view>
+      <loading wx:if="{{searchLoading}}">加载中</loading>
+    </view>
+  </scroll-view>
+</view>

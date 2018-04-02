@@ -1,0 +1,42 @@
+<!--pages/registerextra1/registerextra.wxml-->
+<scroll-view scroll-y="{{isScroll}}" style='height:{{screen_height}}px'>
+  <include src="../protocolShow/protocolShow.wxml" />
+  <view class="content">
+    <view class="infoview">
+      <image class="iconspace" src="/images/company.png" />
+      <text class="textspace">企业名称</text>
+    </view>
+    <input class="input-bg" placeholder='中文' type="text" bindinput="companyChineseNameInput" />
+    <input class="input-bg" placeholder='英文' type="text" bindinput="companyEnglishNameInput" />
+    <view class="infoview">
+      <image class="iconspace" src="/images/address.png" />
+      <text class="textspace">企业地址</text>
+    </view>
+    <input class="input-bg" placeholder='中文' type="text" bindinput="companyChineseAddressInput" />
+    <input class="input-bg" placeholder='英文' type="text" bindinput="companyEnglishAddressInput" />
+    <view class="infoview">
+      <image class="iconspace" src="/images/info.png" />
+      <text class="textspace">其他信息</text>
+    </view>
+    <input class="input-bg" value='{{taxNumber}}' placeholder='纳税号' type="text" bindinput="taxNumberInput" bindblur='isTaxNumber' />
+    <input class="input-bg" value='{{email}}' placeholder='联系邮箱' type="text" bindinput="emailInput" bindblur='isEmail' />
+    <text class="material">拍照上传资质材料</text>
+    <view class="img-v">
+      <view class='imgs'>
+        <view class="img" wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+          <image src="{{item}}" data-index="{{index}}" mode="aspectFit" bindtap="previewImg"></image>
+          <view class="delete-btn" data-index="{{index}}" catchtap="deleteImg">
+            <image src='../../images/delete.png'></image>
+          </view>
+        </view>
+        <image src='../../images/camera.png' class="{{imgs.length==3 ? 'camera-hide':'camera'}}" mode='aspectFit' bindtap="chooseImg"></image>
+      </view>
+    </view>
+    <view class='photo-submit' bindtap='fillsubmit'>提交</view>
+    <view style='text-align:center;font-size: 30rpx;'>
+      <text class='agree'>注册即代表同意</text>
+      <text style='color:red' bindtap='showProtocol'>《BestLOG8物流运输协议》</text>
+    </view>
+    <loading wx:if="{{register_loading}}">注册信息上传中</loading>
+  </view>
+</scroll-view>

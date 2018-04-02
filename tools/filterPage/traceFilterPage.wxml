@@ -1,0 +1,31 @@
+  <view class='filterBack' wx:if="{{isFiltered}}">
+    <view>
+      <view class='filterTypeListClass' bindtap='chooseFilterList'>
+        <text>{{filterTypeData[filterTypeIndex]}}</text>
+        <view class="icon"></view>
+      </view>
+      <view style="z-index:99" class="filterTypeList" style="{{filterIsChoosed? '' :'display:none'}}">
+        <view wx:for="{{filterTypeData}}" bindtap="filterSelectType" hover-class='type-hover' class="type-show" data-index="{{index}}">{{item}}</view>
+      </view>
+      <input class="filterInput" bindinput='OrderIDInput'></input>
+    </view>
+    <view class="chooseTime">
+      <text>预计抵达时间</text>
+    </view>
+    <view class="dateBox">
+      <text class="from-to">从</text>
+      <picker mode="date" value="{{date}}" start="1978-01-01" end="2100-01-01" bindchange="bindBeginDateChange">
+        <view class="dateTime"> {{beginDate}} </view>
+      </picker>
+    </view>
+    <view class="dateBox">
+      <text class="from-to">到</text>
+      <picker mode="date" value="{{date}}" start="1978-01-01" end="2100-01-01" bindchange="bindEndDateChange">
+        <view class="dateTime"> {{endDate}} </view>
+      </picker>
+    </view>
+    <view>
+      <button class="myBtn" id='makeSure' bindtap='filterConfirm' size="mini">确定</button>
+    </view>
+  </view>
+  <view class="page-middle" wx:if="{{isFiltered}}" bindtap="filter_view"></view>

@@ -1,0 +1,39 @@
+<view class="searchLetter touchClass">
+  <view wx:for="{{searchLetter}}" style="height:{{itemH}}px" wx:key="index" data-letter="{{item.name}}" catchtouchstart="searchStart" catchtouchmove="searchMove" catchtouchend="searchEnd">{{item.name}}</view>
+</view>
+<block wx:if="{{isShowLetter}}">
+  <view class="showSlectedLetter">
+    {{showLetter}}
+  </view>
+</block>
+<view>
+  <loading wx:if="{{showLoading}}">加载中</loading>
+</view>
+
+<scroll-view scroll-y="true" style="height:{{winHeight}}px;" bindscroll="bindScroll" scroll-top="{{scrollTop}}">
+  <view class="card4">
+    <text>当前选择港口：<text style="color:#006fbe">{{port}}</text></text>
+    <button class="myBtn" bindtap="getPort">确定</button>
+  </view>
+  <view class="card4">
+    <view class='input-bg'>
+      <image class='icon' src='/images/port.png'></image>
+      <input bindinput="inputSearch" bindfocus="focusSearch" class='textfield' placeholder="请输入港口名" bindblur='inputBlur' />
+    </view>
+    <view class="focus-search">
+      <view class="focus-result" wx:for="{{searchport}}" wx-for-item="item" data-item="{{item}}" bindtap='choosePort'>
+        {{item}}
+        <view class="line"></view>
+      </view>
+    </view>
+  
+
+  <view class="selection" wx:for="{{portList}}" wx:key="{{item.initial}}">
+    <view class="item_letter">{{item.initial}}</view>
+
+    <view class="item_port" wx:for="{{item.portInfo}}" wx:for-item="ct" data-port="{{ct.port}}" bindtap="bindPort">
+      {{ct.port}}
+    </view>
+  </view>
+  </view>
+</scroll-view>

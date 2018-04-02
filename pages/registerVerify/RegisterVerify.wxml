@@ -1,0 +1,47 @@
+<!--template/registerVerify/RegisterVerify.wxml-->
+<view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start">
+  <view style='z-index:10000; position:absolute;height:100%;'>
+    <include src="../template/internalUser.wxml" />
+  </view>
+  <view style='z-index:999;position:fixed;'>
+    <include src="../../tools/filterPage/billFilterPage.wxml" />
+  </view>
+  <view class="nav">
+    <image bindtap="tap_ch" src="../../images/menu.png" mode='aspectFit' class="menu"></image>
+    <image class="filter" bindtap="filter" src="{{filterSrc}}" mode='aspectFit'></image>
+    <!--右侧栏-->
+  </view>
+
+  <scroll-view class='content' scroll-y="true" style='height:1500rpx' bindscrolltolower="scrollToLower">
+    <view class="card1" wx:for="{{itemList}}" wx:item="{{item}}">
+      <view class='color-style'></view>
+      <view class='color-style-info'>
+        <view class="information">
+          <text class="userName" wx:if="{{item.RegisterUser!=null}}">用户名:  {{item.RegisterUser}}</text>
+          <text class="details" bindtap='showDetail' data-index="{{index}}">详情></text>
+        </view>
+        <view class="dashLine"></view>
+        <view class="information">
+          <text>所在单位</text>
+          <text class='detail-info' wx:if="{{item.ORGLEVEL!=null}}">{{item.ORGLEVEL}}</text>
+        </view>
+        <view class="information">
+          <text>申请日期</text>
+          <text class='detail-info' wx:if="{{item.CREATEDATE!=null}}">{{item.CREATEDATE}}</text>
+        </view>
+        <view style='display:flex;flex-direction:row;padding-top:20rpx;'>
+          <button class="myBtn" id='pass' bindtap='confirm' data-index="{{index}}" style="{{item.ISCHECKED? 'display:none' :''}}">通过</button>
+          <button class="myBtn" id='refuse' bindtap='refuse' data-index="{{index}}" style="{{item.ISCHECKED? 'display:none' :''}}">驳回</button>
+        </view>
+      </view>
+    </view>
+    <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+    <view>
+      <loading wx:if="{{searchLoading}}">加载中</loading>
+    </view>
+  </scroll-view>
+  <!---驳回showModal-->
+  <view>
+    <include src="../../tools/showModal/showModal.wxml" />
+  </view>
+</view>

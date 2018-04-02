@@ -1,0 +1,5 @@
+@import "../template/template.wxss";
+@import "../../tools/content.wxss";
+@import "../priceResearch/index.wxss";
+.content{padding-top:20rpx;}
+.myBtn{line-height: 70rpx;height: 70rpx;}

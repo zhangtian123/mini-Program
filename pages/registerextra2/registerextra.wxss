@@ -1,0 +1,108 @@
+/* pages/registerextra1/registerextra.wxss */
+@import "../login/login.wxss";
+@import "../protocolShow/protocolShow.wxss";
+
+Page{
+  overflow-y: hidden;
+}
+
+.scroll-view{
+  height:100%;
+}
+
+.content {
+  padding: 30rpx 50rpx 0 50rpx;
+}
+
+.iconspace {
+  height: 50rpx;
+  width: 50rpx;
+  vertical-align:text-bottom;
+}
+
+.infoview {
+  width: 100%;
+  height: 50rpx;
+  margin-top: 20rpx;
+}
+
+.infoview:nth-child(1) {
+  margin-top: 0rpx;
+}
+
+.textspace {
+  color: #0078cd;
+}
+
+.input-bg {
+  padding-left: 20rpx;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+  height: 70rpx;
+}
+
+/* logo space */
+.imagebtn {
+  margin-top: 20rpx;
+  text-align: center;
+  border-radius: 30rpx;
+  border-color: black;
+  width: 80%;
+  float: left;
+}
+
+/*//////////////////拍照////////////////////////*/
+.material {
+  font-size: 30rpx;
+  margin-left: 20rpx;
+}
+
+.img-v {
+  margin-top: 30rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.img image {
+  border: 2rpx dashed #dddadd;
+  width: 160rpx;
+  height: 220rpx;
+  margin: 0rpx 10rpx;
+}
+
+.imgs {
+  display: flex;
+  flex-direction: row;
+}
+
+.photo-submit {
+  text-align: center;
+  width: 100%;
+  color: white;
+  border: 1rpx solid #dddadd;
+  background: linear-gradient(to right, #36a2ef, #0078cd);
+  box-shadow: 0rpx 2rpx 6rpx #36a2ef;
+  border-radius: 40rpx;
+  line-height: 70rpx;
+  margin-bottom: 20rpx;
+}
+
+.delete-btn image {
+  width: 40rpx;
+  height: 40rpx;
+  position: relative;
+  top: -270rpx;
+  left: 140rpx;
+  border: none;
+}
+
+.camera {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.camera-hide {
+  display: none;
+}
