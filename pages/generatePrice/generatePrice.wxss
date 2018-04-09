@@ -16,7 +16,7 @@
 .input-normal{
   border: none;
   /* margin-left:20px; */
-  color:#006fbe;
+  /* color:#006fbe; */
 }
 .input-normal2{
   border: none;
