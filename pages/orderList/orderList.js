@@ -55,8 +55,8 @@ Page({
     filterTypeData: ['订单号', '客户委托号'],
     filterTypeIndex: 0,
     filterIsChoosed: false,
-    predicate:'REQUESTER == @0 and ISCHECK!=true',// 'CUSTOMER == @0 and isCheck==false',
-    values:app.data.customer,
+    predicate: 'REQUESTER == @0 and ISCHECK!=true',// 'CUSTOMER == @0 and isCheck==false',
+    values: app.data.customer,
     orderByProperty: 'BILLNO',
     //下拉加载
     searchPageNum: 1,   // 设置加载的第几次，默认是第一次
@@ -107,7 +107,7 @@ Page({
             })
             return;
           }
-          
+
           result = result + '';
           result = result.replace('[', '');
           result = result.replace(']', '');
@@ -141,7 +141,16 @@ Page({
               SHIPOWNER: jsonData.SEA_SHIPOWNER,
               SEA_SAILLINE: jsonData.SEA_SAILLINE,
               SEA_VESSEL: jsonData.SEA_VESSEL,
-              SEA_VOYNO: jsonData.SEA_VOYNO
+              SEA_VOYNO: jsonData.SEA_VOYNO,
+              SHIPOWNERAndSAILLINE:
+              (jsonData.SEA_SHIPOWNER != null && jsonData.SEA_SHIPOWNER != "undefined" ? jsonData.SEA_SHIPOWNER : "") + "/" +
+              ((jsonData.SEA_SAILLINE != null && jsonData.SEA_SAILLINE != "undefined") ? jsonData.SEA_SAILLINE : ""),
+              PWM: (jsonData.CTNS != null && jsonData.CTNS != "undefined" ? jsonData.CTNS : "") +
+              ((jsonData.PACK != null && jsonData.PACK != "undefined") ? jsonData.PACK : "") + "/" +
+              ((jsonData.WEIGHT != null && jsonData.WEIGHT != "undefined") ? jsonData.WEIGHT : "") + "/" +
+              ((jsonData.MEASURE != null && jsonData.MEASURE != "undefined") ? jsonData.MEASURE : ""),
+              VESSELAndVOYNO: (jsonData.SEA_VESSEL != null && jsonData.SEA_VESSEL != "undefined" ? jsonData.SEA_VESSEL : "") + "/" +
+              ((jsonData.SEA_VOYNO != null && jsonData.SEA_VOYNO != "undefined") ? jsonData.SEA_VOYNO : "")
             }
             res.push(tempResult)
           }
@@ -175,7 +184,7 @@ Page({
               var resData = res.data;
               var result = resData.result;
               var detailArray = [];
-console.log(result)
+              console.log(result)
               if (result == "[]") {
                 that.setData({
                   searchLoadingComplete: true, //把“已加载全部”设为true，显示
@@ -205,7 +214,7 @@ console.log(result)
                       BILLID: jsonData.BILLID
                     };
                     TRACE.push(tempResult);
-                  }else{
+                  } else {
                     var tempResult = {
                       date: jsonData.FINISHEDDATE.replace('T', ' '),
                       BILLID: jsonData.BILLID

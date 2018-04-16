@@ -1107,18 +1107,18 @@ Page({
   // 下单
   placeOrder: function () {
     var name = this.data.name
-    console.log(name)
+    // console.log(name)
     var refno = this.data.refno
-    console.log(refno)
+    // console.log(refno)
     var sale = this.data.sale
-console.log(sale)
+// console.log(sale)
 
     var goods_name = this.data.goods_name
-    console.log(goods_name)
+    // console.log(goods_name)
     var weight = this.data.weight==-1?'':this.data.weight
     var vol = this.data.vol==-1?'':this.data.vol
     var num = this.data.num==-1?'':this.data.num
-    console.log('vol'+vol+'weight'+weight+'num'+num)
+    // console.log('vol'+vol+'weight'+weight+'num'+num)
     var packagetype = this.data.packagetype
     var num20gp = this.data.num20gp
     var num40gp = this.data.num40gp
@@ -1126,20 +1126,20 @@ console.log(sale)
     var CRD = this.data.CRD
     var ETD = this.data.ETD
 
-    console.log(packagetype)
-    console.log(num20gp+num40gp+num40hc)
-    console.log(CRD+ETD)
+    // console.log(packagetype)
+    // console.log(num20gp+num40gp+num40hc)
+    // console.log(CRD+ETD)
 
     var start_port = this.data.start_port
     if (start_port == '--请选择或输入--') { start_port = '' }
     var des_port = this.data.des_port
     if (des_port == '--请选择或输入--') { des_port = '' }
-    console.log(start_port+des_port)
+    // console.log(start_port+des_port)
     var shipcom = this.data.shipcompany
     var sailline = this.data.sailline.SAILCODE
     var shipname = this.data.shipname.SHIPCODE
     var saillinenum = this.data.saillinenum
-    console.log(shipcom+sailline+shipname+saillinenum)
+    // console.log(shipcom+sailline+shipname+saillinenum)
 
     var declare_service = this.data.declare_service
     var vehicle_service = this.data.vehicle_service
@@ -1159,7 +1159,7 @@ console.log(sale)
       order_loading: true
     })
     var shippingOrder = {
-      REQUESTER: sale,
+      REQUESTER:name,
       REFNO: refno,
       SALES: sale,
       CARGONAME: goods_name,
@@ -1182,6 +1182,9 @@ console.log(sale)
       TCTYPE: vehicle_service,
       HYFWTYPE: overseas_service
     }
+
+    console.log(JSON.stringify(shippingOrder))
+
     wx.request({
       url: wsdlurl + 'PlaceShippingOrder',
       data: {

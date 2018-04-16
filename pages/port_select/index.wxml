@@ -97,7 +97,7 @@
           </view>
           <view class="search-input" style="width:48%;">
             <view class="section row-list" style="width:100%">
-              <text>40HC</text>
+              <text>40HQ</text>
               <image src="../../images/desc.png" bindtap="desc40hc" style='margin-left:20rpx;margin-right:20rpx;'></image>
               <text style="width:40rpx;">{{num40hc}}</text>
               <image style="margin-left:20rpx;" src="../../images/addition.png" bindtap="add40hc"></image>
