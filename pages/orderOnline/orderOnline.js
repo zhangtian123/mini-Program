@@ -531,26 +531,6 @@ Page({
 
   exit: function (e) {
     //格式化全局变量
-    name = app.data.customer
-    pro_num = ''
-    xiaoshou = ''
-    goods_name = ''
-    num = 0
-    // packagetype = ''
-    num20gp = 0
-    num40gp = 0
-    num40hc = 0
-    CRD = ''
-    ETD = ''
-    start_port = ''
-    des_port = ''
-    ship = ''
-    sailline = ''
-    shipname = ''
-    linenum = ''
-    declare_service = ''
-    vehicle_service = ''
-    overseas_service = ''
     // 跳转到登录界面
     wx.switchTab({
       url: '../login/login',
