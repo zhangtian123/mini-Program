@@ -1,5 +1,21 @@
 <!--pages/generatePrice/generatePrice.wxml-->
 <view class="content" style='margin-top:-8%;'>
+<view class="card">
+    <view class="search-input-col">
+      <view class="search-input-row line">
+        <view class="input-title">客户名称：</view>
+        <input bindinput='inputCustomer' value='{{customer}}' class="input-normal"/>
+      </view>
+      <view wx:if='{{showCustomerList}}' style='width:100%;'>
+        <view class="input-search">
+          <view class="input-result" wx:for="{{customerList}}" wx-for-item="item" data-index="{{index}}" data-item="{{item}}" bindtap='chooseCustomer'>
+            {{item}}
+            <view class="line"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
   <view class="card">
     <view class="search-title" style='color:#006fbe;'>
       <text>港口信息：{{item.PORTLOADING}}-</text>
@@ -82,24 +98,12 @@
       <view class="search-title" style='font-size:30rpx;'>{{totalFeeString}} = {{totalFee}}</view>
     </view>
   </view>
+   
   <view class="card">
-    <view class="input-title">备注</view>
     <view class="search-input-col">
       <view class="search-input-row line">
-        <view class="search-title">客户名称：</view>
-        <input bindinput='inputCustomer' value='{{customer}}' class="input-normal"/>
-      </view>
-      <view wx:if='{{showCustomerList}}' style='width:100%;'>
-        <view class="input-search">
-          <view class="input-result" wx:for="{{customerList}}" wx-for-item="item" data-index="{{index}}" data-item="{{item}}" bindtap='chooseCustomer'>
-            {{item}}
-            <view class="line"></view>
-          </view>
-        </view>
-      </view>
-      <view class="search-input-row line">
-        <view class="search-title">备注：</view>
-        <input bindinput='inputRemark' class="input-normal" />
+        <view class="input-title">备注：</view>
+        <input bindinput='inputRemark' class="input-normal" style='' />
       </view>
     </view>
   </view>
