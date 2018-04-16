@@ -89,8 +89,6 @@ Page({
     })
     var that = this;
     new Promise(function (resolve, reject) {
-      console.log(that.data.predicate)
-      console.log(that.data.values)
       wx.request({
         url: wsdlurl + 'GetAccountingList',
         data: {
@@ -123,7 +121,6 @@ Page({
             })
             return
           }
-          console.log(resData)
           var rowsCount = resData.rowsCount;
           result = result + '';
           result = result.replace('[', '');
@@ -139,7 +136,6 @@ Page({
           var res = []
           for (var i = 0; i < resultArray.length; i++) {
             var ithResult = resultArray[i];
-            console.log(ithResult)
             var jsonData = JSON.parse(ithResult)
             //获取账单ID，账单号，总金额币别，总金额，提交日期，最迟处理日期，往来单位，支付方式，银行，银行账号
             var tempResult = {
@@ -172,7 +168,6 @@ Page({
       for (var i = 0; i < res.length; i++) {
         var BILL = res[i];
         var BILLID = BILL.BILLID;
-        console.log(BILLID)
         new Promise((resolve, reject) => {
           wx.request({
             url: wsdlurl + 'GetAccountingDetails',
@@ -186,7 +181,6 @@ Page({
             // 设置请求的 header
             success: function (res) {
               var resData = res.data;
-              console.log(resData)
               var detailArray = [];
               var result = resData.result;
               if (result == "[]") {
@@ -258,7 +252,6 @@ Page({
             }
           }
           itemList = itemList.concat(item)
-          console.log(itemList)
           that.setData({
             itemList: itemList
           })
@@ -382,7 +375,6 @@ Page({
                 searchLoading: false
               })
               var resData = res.data;
-              console.log(resData)
               var result = resData.result;
               var jsonData = JSON.parse(result);
               var info = jsonData.Info;
@@ -413,7 +405,6 @@ Page({
             }
           })
         } else {
-          console.log('cancel');
         }
       }
     })
@@ -484,7 +475,6 @@ Page({
         })
         var resData = res.data;
         var resData = res.data;
-        console.log(resData)
         var result = resData.result;
         var jsonData = JSON.parse(result);
         var info = jsonData.Info;
@@ -599,7 +589,6 @@ Page({
               // success
               var resData = res.data;
               var result = resData.result
-              console.log(resData)
               if (result != '' && result != null) {
                 resolve(result)
               } else {
@@ -642,7 +631,6 @@ Page({
               // success
               var resData = res.data;
               var nodeValue = resData.result;
-              console.log(nodeValue)
               that.setData({
                 isBinding: false
               })
@@ -713,7 +701,6 @@ Page({
         // success
         var resData = res.data;
         var nodeValue = resData.result
-        console.log(nodeValue)
         that.setData({
           isUnbinding: false
         })
@@ -889,7 +876,6 @@ Page({
     var time = utils.formatTime1(new Date());
     var pre = '';
     var v = '';
-    console.log(this.data.beginDate == time)
     if (this.data.isSelfDefineTime==false){
       //系统分类
       if(radioBeginDate==''){

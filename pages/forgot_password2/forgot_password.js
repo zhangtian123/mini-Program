@@ -88,7 +88,6 @@ Page({
               content: '用户名不存在',
             })
           }
-          console.log(result + "aaa");
           resolve(result);
         },
         fail: function () {
@@ -153,7 +152,6 @@ Page({
   },
 
   getVerificationCode: function () {
-    console.log(this.data.countNumber)
     if (this.data.countNumber != 0 && this.data.countNumber != 60) {
       return
     }
@@ -175,7 +173,6 @@ Page({
         // success
         var resData = res.data;
         var result = resData.result;
-        console.log(resData.result)
         if (result == false) {
           wx.showModal({
             title: '提示',
@@ -243,7 +240,6 @@ Page({
       that.setData({
         verificationResult: res
       })
-      console.log(that.data.verificationResult)
     })
   },
 
@@ -292,7 +288,6 @@ Page({
             // success
             var resData = res.data;
             var result = resData.result;
-            console.log(result)
             resolve(result);
           },
           fail: function () {
@@ -374,7 +369,6 @@ Page({
   },
 
   onLoad: function () {
-    console.log('onLoad')
     var that = this
     wx.setNavigationBarTitle({
       title: '忘记密码',

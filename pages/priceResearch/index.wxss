@@ -150,12 +150,12 @@
 .pin2 {
   width: 50rpx;
   height: 50rpx;
-  margin: 0 0 0 0rpx;
+  margin: 0 0 0 30rpx;
 }
 .sum {
   color: #df3c01;
   font-size: 36rpx;
-  width: 60rpx;
+  width: 150rpx;
   text-align: right;
 }
 

@@ -21,13 +21,10 @@ function formatDate(timeS) {
   year = parseInt(year)
   var mon = timeS.substring(5, 7)
   mon = parseInt(mon)
-  console.log('mon:' + mon)
   //传参日期为输入的完货日期+2
   var day = timeS.substring(8, 10)
-  console.log('day:' + day)
   day = parseInt(day);
   day += 2
-  console.log('day:' + day)
   if (mon == 1 || mon == 3 || mon == 5 || mon == 7 || mon == 8 || mon == 10 || mon == 12) {
     if (day > 31) {
       mon++;
@@ -99,7 +96,6 @@ Page({
   },
 
   changePort: function () {
-    console.log(this.data.des_port)
     wx.switchTab({
       url: '../port_select_out/port_select_out',
     })
@@ -198,7 +194,6 @@ Page({
     this.setData({
       isBinding: true
     })
-    console.log(this.data.isBinding)
     var app = getApp();
     var that = this;
     wx.login({
@@ -231,7 +226,6 @@ Page({
               var XMLParser = new Parser.DOMParser();
               var doc = XMLParser.parseFromString(resData, function (response) { });
               var result = doc.getElementsByTagName("ContactCompanyBll_GetOpenIDResult");
-              console.log(resData)
               var tempResult = result[0]
               var nodeValue = null;
               if (tempResult.childNodes.length != 0) {
@@ -467,7 +461,6 @@ Page({
     this.setData({
       num20gp: temp
     })
-    console.log(temp)
   },
 
   desc40gp: function (e) {
@@ -565,20 +558,17 @@ Page({
         var result = resData.result
         var array = [];
         if (result == null || result == '') {
-          console.log('resulthaha' + result)
           wx.showToast({
             title: '未查询到数据',
           })
           return;
         }
         var nodeValue = result;
-        // console.log(nodeValue)
         nodeValue = nodeValue + '';
         nodeValue = nodeValue.replace('[', '');
         nodeValue = nodeValue.replace(']', '');
         nodeValue = nodeValue.replace(new RegExp('},{', 'g'), '} , {');
         var resultArray = nodeValue.split(' , ');
-        // console.log('resultArray' + resultArray.length);
         for (var i = 0; i < resultArray.length; i++) {
           var ithResult = resultArray[i];
           var jsonData = JSON.parse(ithResult);
@@ -597,7 +587,6 @@ Page({
             TotalPrice: jsonData.TotalPrice.toFixed(2),
             BILLID: jsonData.BILLID
           }
-          console.log(tempResult)
           array.push(tempResult);
         }
         that.setData({
@@ -621,9 +610,7 @@ Page({
     var index = e.target.dataset.index;
     var pricelist = this.data.pricelist;
     var ithPrice = pricelist[index];
-    console.log(ithPrice)
     var BILLID = ithPrice.BILLID;
-    console.log(BILLID)
     var that = this;
     wx.navigateTo({
       url: '../shareStatusBackByPrice/shareStatusBackByPrice?BILLID=' + BILLID,
@@ -651,11 +638,6 @@ Page({
       packageType: app.data.packageType,
       userinfonickname: app.data.userCode,
     })
-    console.log('out:' + this.data.start_port_eng)
-    console.log(this.data.des_port_eng)
     this.getPrice();
-    console.log(this.data.num20gp)
-    console.log(this.data.num40gp)
-    console.log(this.data.num40hc)
   }
 })

@@ -88,7 +88,6 @@ Page({
               content: '用户名已存在',
             })
           }
-          console.log(result + "aaa");
           resolve(result);
         },
         fail: function () {
@@ -143,7 +142,6 @@ Page({
       })
       return;
     }
-    console.log(this.data.countNumber)
     if (this.data.countNumber != 0 && this.data.countNumber != 60) {
       return
     }
@@ -165,7 +163,6 @@ Page({
         // success
         var resData = res.data;
         var result=resData.result;
-        console.log(result)
         if (result == false) {
           wx.showModal({
             title: '提示',
@@ -263,7 +260,6 @@ Page({
             var resData = res.data;
             var result=resData.result;
             if (result == false) {
-              console.log('result is false')
               that.setData({
                 VerificationCodeFlag: false
               })
@@ -271,7 +267,6 @@ Page({
               that.setData({
                 VerificationCodeFlag: true
               })
-              console.log('into' + that.data.VerificationCodeFlag)
             }
             var res = that.data.VerificationCodeFlag;
             resolve(res)
@@ -288,7 +283,6 @@ Page({
           }
         })
       }).then(res => {
-        console.log(res)
         if (res == false) {
           wx.showModal({
             title: '提示',
@@ -333,22 +327,17 @@ Page({
         try {
           wx.setStorageSync('id_token', res.data.id_token)
         } catch (e) {
-          console.log('there is no id_token')
         }
         wx.redirectTo({
           url: '../components/welcome/welcome'
         })
-        console.log(res.data);
       },
       fail: function (res) {
-        console.log(res.data);
-        console.log('is failed')
       }
     })
   },
 
   onLoad: function () {
-    console.log('onLoad')
     var that = this
     wx.setNavigationBarTitle({
       title: '注册',
@@ -356,7 +345,6 @@ Page({
   },
 
   onShow: function () {
-    console.log('index is show')
   },
 
   shuaxin: function () {
@@ -366,15 +354,12 @@ Page({
   },
 
   onReady: function () {
-    console.log('register is on ready')
   },
 
   onHide: function () {
-    console.log('register is on hide')
   },
 
   onUnload: function () {
-    console.log('register is on unload')
   },
 
   boo: function () {

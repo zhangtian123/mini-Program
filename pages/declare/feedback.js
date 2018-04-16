@@ -154,7 +154,6 @@ Page({
       for (var i = 0; i < res.length; i++) {
         var BILL = res[i];
         var BILLID = BILL.BILLID;
-        console.log(BILLID)
         new Promise((resolve, reject) => {
           wx.request({
             url: wsdlurl + 'GetNodeViewInfos',
@@ -187,7 +186,6 @@ Page({
                 var finishNode = [];
                 for (var i = 0; i < resultArray.length; i++) {
                   var ithResult = resultArray[i];
-                  console.log(ithResult)
                   var jsonData = JSON.parse(ithResult);
                   var NODECODE = jsonData.NODECODE;
                   var index = finishNode.indexOf(NODECODE)
@@ -257,7 +255,6 @@ Page({
             }
           }
           itemList = itemList.concat(item)
-          console.log(itemList)
           that.setData({
             itemList: itemList
           })
@@ -298,7 +295,6 @@ Page({
       if (ithDetail.IsFinished == false) {
         var nodeCode = ithDetail.NODECODE;
         var BILLID = BILL.BILLID;
-        console.log('feedback BILLID:'+BILLID)
         var BILLNO = BILL.BILLNO;
         var BILLCODE = BILL.BILLCODE;
         switch (nodeCode) {
@@ -384,7 +380,6 @@ Page({
               // success
               var resData = res.data;
               var result = resData.result
-              console.log(resData)
               if (result != '' && result != null) {
                 resolve(result)
               } else {
@@ -427,7 +422,6 @@ Page({
               // success
               var resData = res.data;
               var nodeValue = resData.result;
-              console.log(nodeValue)
               that.setData({
                 isBinding: false
               })
@@ -498,7 +492,6 @@ Page({
         // success
         var resData = res.data;
         var nodeValue = resData.result
-        console.log(nodeValue)
         that.setData({
           isUnbinding: false
         })

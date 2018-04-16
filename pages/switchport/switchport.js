@@ -41,7 +41,6 @@ Page({
     this.setData({
       inputSearchText:text
     })
-    console.log(this.data.inputSearchText)
     if (this.data.inputSearchText == '' || this.data.inputSearchText == null) {
       this.setData({
         searchport: []
@@ -70,7 +69,6 @@ Page({
         var temIndex = searchLetter.indexOf(reg);
         var portLists = this.data.portList;
         var temPortInfo = this.data.portList[temIndex].portInfo;
-        console.log(temPortInfo)
         for (var i = 0; i < temPortInfo.length; i++) {
           if (regx.test(temPortInfo[i].port)) {
             var temPort = temPortInfo[i].port;
@@ -84,7 +82,6 @@ Page({
     }
   },
   inputBlur:function(){
-    console.log(this.data.inputSearchText=='')
     if (this.data.inputSearchText == '' || this.data.inputSearchText==null){
       this.setData({
         searchport:[]
@@ -104,7 +101,6 @@ Page({
     if (this.data.togetStart == 0 && this.data.port != "") {
       getApp().data.des_port_eng = (this.data.port).split("-")[0]
       getApp().data.des_port = (this.data.port).split("-")[1]
-      console.log(getApp().data.des_port_eng)
     } else if (this.data.togetStart == 1 && this.data.port != "") {
       getApp().data.start_port_eng = (this.data.port).split("-")[0]
       getApp().data.start_port = (this.data.port).split("-")[1]
@@ -114,7 +110,6 @@ Page({
         url: '../port_select/index',
       })
     } else {
-      console.log('out')
       wx.switchTab({
         url: '../port_select_out/port_select_out',
       })
@@ -157,7 +152,6 @@ Page({
           nodeValue = nodeValue.replace(']', '');
           nodeValue = nodeValue.replace(new RegExp('},{', 'g'), '} , {');
           var resultArray = nodeValue.split(' , ');
-          console.log(resultArray)
           var array = [];
           for (var i = 0; i < resultArray.length; i++) {
             var ithResult = resultArray[i];
@@ -179,7 +173,6 @@ Page({
         }
       })
     }).then(res => {
-      console.log("res:" + res)
       var portList = port.portList(res);
       that.setData({
         showLoading: false,
@@ -187,7 +180,6 @@ Page({
       })
     })
     var sysInfo = wx.getSystemInfoSync();
-    console.log(sysInfo);
     var winHeight = sysInfo.windowHeight;
     //添加要匹配的字母范围值
     //1、更加屏幕高度设置子元素的高度
@@ -207,7 +199,6 @@ Page({
       togetStart: options.togetStart,
       fromin: options.fromin
     })
-    console.log('fromin:' + this.data.fromin);
   },
 
   onReady: function () {
@@ -267,7 +258,6 @@ Page({
     var tHeight = this.data.tHeight;
     var bHeight = this.data.bHeight;
     var showLetter = 0;
-    console.log(pageY);
     if (startPageY - pageY > 0) { //向上移动
       if (pageY < tHeight) {
         this.nowLetter(pageY, this);
@@ -311,7 +301,6 @@ Page({
   },
 
   bindScroll: function (e) {
-    console.log(e.detail)
   },
 
   setScrollTop: function (that, showLetter) {
@@ -341,7 +330,6 @@ Page({
   },
 
   clickLetter: function (e) {
-    console.log(e.currentTarget.dataset.letter)
     var showLetter = e.currentTarget.dataset.letter;
     this.setData({
       showLetter: showLetter,
@@ -358,7 +346,6 @@ Page({
 
   //选择热门城市
   bindHotPort: function (e) {
-    console.log("bindHotPort")
     this.setData({
       port: e.currentTarget.dataset.port
     })

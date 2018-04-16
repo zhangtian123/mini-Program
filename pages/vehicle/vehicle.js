@@ -129,7 +129,6 @@ Page({
       for (var i = 0; i < res.length; i++) {
         var BILL = res[i];
         var BILLID = BILL.BILLID;
-        console.log(BILLID)
         var BILLNO = BILL.BILLNO;
         var BILLCODE = BILL.BILLCODE;
         new Promise((resolve, reject) => {
@@ -168,7 +167,6 @@ Page({
                   var finishNode = [];
                   for (var i = 0; i < resultArray.length; i++) {
                     var ithResult = resultArray[i];
-                    console.log(ithResult)
                     var jsonData = JSON.parse(ithResult);
                     var NODECODE = jsonData.NODECODE;
                     var index = finishNode.indexOf(NODECODE)
@@ -241,7 +239,6 @@ Page({
             }
           }
           itemList = itemList.concat(item)
-          console.log(itemList)
           that.setData({
             itemList: itemList
           })
@@ -260,7 +257,6 @@ Page({
     var index = e.target.dataset.index;//the index of order
     var data = this.data.itemList;
     var ithData = data[index];
-    console.log(ithData)
     var detail = ithData.DETAIL;
     var BILL = ithData.BILL;
     var resultIndex = 0;
@@ -270,10 +266,8 @@ Page({
       if (ithDetail.IsFinished == false) {
         tempNodeCode = null;
         var nodeCode = ithDetail.NODECODE;
-        console.log(nodeCode);
         var BILLNO = BILL.BILLNO;
         var BILLID = BILL.BILLID;
-        console.log('vehicle BILLID:'+BILLID)
         var BILLCODE = BILL.BILLCODE;
         switch (nodeCode) {
           case 'FMS_TCMX01':
@@ -390,7 +384,6 @@ Page({
     if (tempNodeCode != null) {//如果DETAIL数据都是IsFinished：true
       var BILLNO = BILL.BILLNO;
       var BILLID = BILL.BILLID;
-      console.log('vehicle BILLID:' + BILLID)
       var BILLCODE = BILL.BILLCODE;
       switch (tempNodeCode) {
         case 'FMS_TCMX01':
@@ -584,7 +577,6 @@ Page({
               // success
               var resData = res.data;
               var result = resData.result
-              console.log(resData)
               if (result != '' && result != null) {
                 resolve(result)
               } else {
@@ -627,7 +619,6 @@ Page({
               // success
               var resData = res.data;
               var nodeValue = resData.result;
-              console.log(nodeValue)
               that.setData({
                 isBinding: false
               })
@@ -698,7 +689,6 @@ Page({
         // success
         var resData = res.data;
         var nodeValue = resData.result
-        console.log(nodeValue)
         that.setData({
           isUnbinding: false
         })

@@ -151,7 +151,6 @@ Page({
       for (var i = 0; i < res.length; i++) {
         var BILL = res[i];
         var BILLID = BILL.BILLID;
-        console.log(BILLID)
         new Promise((resolve, reject) => {
           wx.request({
             url: wsdlurl + 'GetNodeViewInfos',
@@ -244,7 +243,6 @@ Page({
             }
           }
           itemList = itemList.concat(item)
-          console.log(itemList)
           that.setData({
             itemList: itemList
           })
@@ -434,7 +432,6 @@ Page({
               // success
               var resData = res.data;
               var result = resData.result
-              console.log(resData)
               if (result != '' && result != null) {
                 resolve(result)
               } else {
@@ -477,7 +474,6 @@ Page({
               // success
               var resData = res.data;
               var nodeValue = resData.result;
-              console.log(nodeValue)
               that.setData({
                 isBinding: false
               })
@@ -548,7 +544,6 @@ Page({
         // success
         var resData = res.data;
         var nodeValue = resData.result
-        console.log(nodeValue)
         that.setData({
           isUnbinding: false
         })
@@ -737,7 +732,6 @@ Page({
         success: function (res) {
           var resData = res.data;
           var result = resData.result;
-          console.log(result)
           resolve(result);
         }
       })
@@ -757,7 +751,6 @@ Page({
           success: function (res) {
             var resData = res.data;
             var result = resData.result;
-            console.log(result)
             if (result == true) {
               var isValidate = true;
               if (app.data.customer) {

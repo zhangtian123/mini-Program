@@ -75,7 +75,6 @@ Page({
   },
 
   bindDateChange: function (e) {
-    console.log(e.detail.value)
     this.setData({
       dates: e.detail.value
     })
@@ -85,7 +84,6 @@ Page({
   },
 
   bindTimeChange: function (e) {
-    console.log(e.detail.value)
     this.setData({
       times: e.detail.value
     })
@@ -116,7 +114,6 @@ Page({
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths;
         var imgs = that.data.imgs;
-        // console.log(tempFilePaths + '----');
         for (var i = 0; i < tempFilePaths.length; i++) {
           if (imgs.length >= 3) {
             that.setData({
@@ -127,7 +124,6 @@ Page({
             imgs.push(tempFilePaths[i]);
           }
         }
-        // console.log(imgs);
         that.setData({
           imgs: imgs
         });
@@ -171,7 +167,6 @@ Page({
           name: '1.jpg',
           header: { "Content-Type": "multipart/form-data" },
           success: function (res) {
-            console.log("上传结果 " + res.data);
             if (res.statusCode != 200) {
               wx.showModal({
                 title: '提示',
@@ -187,7 +182,6 @@ Page({
             }
           },
           fail: function (e) {
-            console.log(e);
             wx.showModal({
               title: '提示',
               content: '上传失败',
@@ -204,7 +198,6 @@ Page({
         that.setData({
           uploadedImage: uploadedImage
         })
-        console.log(that.data.uploadedImage)
       })
 
     }
@@ -215,7 +208,6 @@ Page({
     that.setData({
       showLoading: true
     })
-    console.log('declaring BILLID:'+this.data.BILLID)
     var Declaration = {
       BILLID: this.data.BILLID,
       BILLCODE: this.data.BILLCODE,
@@ -224,9 +216,7 @@ Page({
       RowState: 16
     };
     Declaration = JSON.stringify(Declaration);//将json转成字符串传值
-    console.log(Declaration)
     var NodeCode = this.data.nodeCode;
-    console.log(NodeCode)
     // var UserCode = 'admin'  //app.data.userCode;
     // var UserCode = 'VIRTUAL_CUSTOMS_01'
     var UserCode = 'VIRTUAL_USER';
@@ -238,7 +228,6 @@ Page({
           v = c == 'x' ? r : (r & 0x3 | 0x8);
         return v.toString(16);
       });
-      console.log(uploadedImage[i])
       var Document = {
         DOCUMENTID: guid3,
         FILENAME: uploadedImage[i],
@@ -268,11 +257,9 @@ Page({
         // success
         var resData = res.data;
         var result = resData.result;
-        console.log(result)
         var jsonres = JSON.parse(result);
         var status = jsonres.Status;
         var info = jsonres.Info;
-        console.log(resData);
         if (status == 0) {
           wx.showToast({
             title: '状态反馈成功！',

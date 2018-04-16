@@ -97,8 +97,6 @@ Page({
             var resData = res.data;
             var status = resData.statusCode;
             var jsonData = resData.result;
-            console.log('status' + status)
-            console.log(jsonData)
             //获取登录状态
             if (status == -1) {
               wx.showModal({
@@ -179,7 +177,6 @@ Page({
           wx.login({
             success: function (loginCode) {
               //method中设置你想调用的方法名
-              console.log('GETOPENID')
               wx.request({
                 url: wsdlurl + 'GetOpenID',
                 data: {
@@ -193,7 +190,6 @@ Page({
                 success: function (res) {
                   // success
                   var resData = res.data;
-                  console.log(resData)
                   var result = resData.result;
                   if (result == app.data.OPENID) {
                     wx.setStorage({

@@ -116,7 +116,6 @@ Page({
           result = first + last;
           result = result.replace(new RegExp('},{', 'g'), '} $%,%$ {')
           var resultArray = result.split(' $%,%$ ')
-          console.log(resultArray)
           var res = [];
           if (resultArray.length != 0 && resultArray.length < that.data.callbackcount && that.data.itemList.length == 0) {
             that.setData({
@@ -167,7 +166,6 @@ Page({
       for (var i = 0; i < res.length; i++) {
         var BILL = res[i];
         var BILLID = BILL.BILLID;
-        console.log(BILLID)
         new Promise((resolve, reject) => {
           wx.request({
             url: wsdlurl + 'GetNodeViewInfos',
@@ -184,7 +182,6 @@ Page({
               var resData = res.data;
               var result = resData.result;
               var detailArray = [];
-              console.log(result)
               if (result == "[]") {
                 that.setData({
                   searchLoadingComplete: true, //把“已加载全部”设为true，显示
@@ -279,7 +276,6 @@ Page({
             }
           }
           itemList = itemList.concat(item)
-          console.log(itemList)
           that.setData({
             itemList: itemList
           })
@@ -474,7 +470,6 @@ Page({
               // success
               var resData = res.data;
               var result = resData.result
-              console.log(resData)
               if (result != '' && result != null) {
                 resolve(result)
               } else {
@@ -517,7 +512,6 @@ Page({
               // success
               var resData = res.data;
               var nodeValue = resData.result;
-              console.log(nodeValue)
               that.setData({
                 isBinding: false
               })
@@ -588,7 +582,6 @@ Page({
         // success
         var resData = res.data;
         var nodeValue = resData.result
-        console.log(nodeValue)
         that.setData({
           isUnbinding: false
         })

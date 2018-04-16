@@ -38,43 +38,35 @@ Page({
     refno: '',
     sale: '',
     sales: [],
-    // s_index: 0,
-    // sales_flag: 0,
     goods_name: '',
     num: -1,
     packagetypes: {},
     packagetype:'',
-    // pt_index: 0,
     weight: -1,
     vol: -1,
     num20gp: 0,
     num40gp: 0,
     num40hc: 0,
-    CRD_date: '',//utils.formatTime1(new Date),
-    CRD_time: '',//utils.formatTime2(new Date),
-    CRD: '',//utils.formatTime1(new Date) + utils.formatTime2(new Date),
-    ETD_date: '',//utils.formatTime1(new Date),
-    ETD_time: '',//utils.formatTime2(new Date),
-    ETD: '',//utils.formatTime1(new Date) + utils.formatTime2(new Date),
+    CRD_date: '',
+    CRD_time: '',
+    CRD: '',
+    ETD_date: '',
+    ETD_time: '',
+    ETD: '',
     start_port: '--请选择或输入--',
     showstartlist: false,
     start: '',
     start_ports: [],
-    // sp_length: 0,
     des_port: '--请选择或输入--',
     showdeslist: false,
     des: '',
     des_ports: [],
-    // dp_length: 0,
     shipcompany: '',
     shipcompanys: {},
-    // sc_index: 0,
     sailline: '',
     saillines: [],
-    // al_index: 0,
     shipname: '',
     shipnames: [],
-    // sn_index: 0,
     saillinenum: '',
     declare_service: '',
     ds_list: [],
@@ -111,7 +103,6 @@ Page({
     this.setData({
       start_port: temp,
       start_ports: [],
-      // sp_length:0,
       showstartlist: false,
       start: ''
     })
@@ -119,15 +110,12 @@ Page({
   // change目的港
   bindDesPortChange: function (e) {
     var temp = e.currentTarget.dataset.item
-    console.log(temp)
     this.setData({
       des_port: temp,
       des_ports: [],
       showdeslist: false,
-      // dp_length:0,
       des: ''
     })
-    console.log(this.data.des_port)
   },
   clearStart: function () {
     if (this.data.showstartlist) {
@@ -367,7 +355,6 @@ Page({
               // success
               var resData = res.data;
               var result = resData.result
-              console.log(resData)
               if (result != '' && result != null) {
                 resolve(result)
               } else {
@@ -410,7 +397,6 @@ Page({
               // success
               var resData = res.data;
               var nodeValue = resData.result;
-              console.log(nodeValue)
               that.setData({
                 isBinding: false
               })
@@ -481,7 +467,6 @@ Page({
         // success
         var resData = res.data;
         var nodeValue = resData.result
-        console.log(nodeValue)
         that.setData({
           isUnbinding: false
         })
@@ -596,26 +581,20 @@ Page({
         success: function (res) {
           // success
           var resData = res.data;
-          // console.log('---------zt-----------'+resData)
           var nodeValue = resData.result
           nodeValue = nodeValue + '';
           nodeValue = nodeValue.replace('[', '');
           nodeValue = nodeValue.replace(']', '');
           nodeValue = nodeValue.replace(new RegExp('},{', 'g'), '} , {');
           var resultArray = nodeValue.split(' , ');
-          // console.log('---------zt-----------' +resultArray)
-          // resolve(resultArray);
           var array = []
-          // array.push('点击选择')
           for (var i = 0; i < resultArray.length; i++) {
             var ithResult = resultArray[i];
-            console.log('---------zt-----------' + ithResult)
             var jsonData = JSON.parse(ithResult);
             var OriginalValues = jsonData.OriginalValues;
             //包装类型英文名
             array.push(jsonData.USERNAME + '|' + jsonData.USERCODE);
           }
-          console.log(array)
           resolve(array)
         },
         fail: function () {
@@ -630,11 +609,9 @@ Page({
         }
       })
     }).then(res => {
-      // arr.concat(res)
       this.setData({
         sales: res
       })
-      // console.log(this.data.sales)
     })
   },
   // 获取装运港
@@ -661,29 +638,21 @@ Page({
         success: function (res) {
           // success
           var resData = res.data;
-          // console.log('---------zt-----------'+resData)
           var nodeValue = resData.result
           nodeValue = nodeValue + '';
           nodeValue = nodeValue.replace('[', '');
           nodeValue = nodeValue.replace(']', '');
           nodeValue = nodeValue.replace(new RegExp('},{', 'g'), '} , {');
           var resultArray = nodeValue.split(' , ');
-          // console.log('---------zt-----------' +resultArray)
-          // resolve(resultArray);
           var array = []
           array.push('--请选择或输入--')
           for (var i = 0; i < resultArray.length; i++) {
             var ithResult = resultArray[i];
-            console.log('---------zt-----------' + ithResult)
             var jsonData = JSON.parse(ithResult);
             var OriginalValues = jsonData.OriginalValues;
             //包装类型英文名
             array.push(jsonData.NAMECH + '|' + jsonData.NAMEEN);
           }
-          console.log(array)
-          // that.setData({
-          //   start_ports:array
-          // })
           resolve(array)
         },
         fail: function () {
@@ -712,7 +681,6 @@ Page({
     var predicate = 'PORTTYPE==@0 AND NAMEEN.CONTAINS(@1) '
     var values = 'shipping,' + t
     var iCounts = 5
-    // var that = this
     new Promise((resolve, reject) => {
       wx.request({
         url: wsdlurl + 'GetPorts',
@@ -729,26 +697,21 @@ Page({
         success: function (res) {
           // success
           var resData = res.data;
-          // console.log('---------zt-----------'+resData)
           var nodeValue = resData.result
           nodeValue = nodeValue + '';
           nodeValue = nodeValue.replace('[', '');
           nodeValue = nodeValue.replace(']', '');
           nodeValue = nodeValue.replace(new RegExp('},{', 'g'), '} , {');
           var resultArray = nodeValue.split(' , ');
-          // console.log('---------zt-----------' +resultArray)
-          // resolve(resultArray);
           var array = []
           array.push('--请选择或输入--')
           for (var i = 0; i < resultArray.length; i++) {
             var ithResult = resultArray[i];
-            console.log('---------zt-----------' + ithResult)
             var jsonData = JSON.parse(ithResult);
             var OriginalValues = jsonData.OriginalValues;
             //包装类型英文名
             array.push(jsonData.NAMECH + '|' + jsonData.NAMEEN);
           }
-          console.log(array)
           resolve(array)
         },
         fail: function () {
@@ -763,7 +726,6 @@ Page({
         }
       })
     }).then(res => {
-      console.log(res.length)
       that.setData({
         des_ports: res,
         showdeslist: true
@@ -805,13 +767,11 @@ Page({
           var array = []
           for (var i = 0; i < resultArray.length; i++) {
             var ithResult = resultArray[i];
-            console.log('---------zt-----------' + ithResult)
             var jsonData = JSON.parse(ithResult);
             var OriginalValues = jsonData.OriginalValues;
             //包装类型英文名
             array.push(jsonData.SHORTNAME);
           }
-          console.log(array)
           resolve(array)
         },
         fail: function () {
@@ -826,7 +786,6 @@ Page({
         }
       })
     }).then(res => {
-      console.log(res.length)
       if (res.length == 0) {
         wx.showModal({
           title: '提示',
@@ -887,7 +846,6 @@ Page({
 
           for (var i = 0; i < resultArray.length; i++) {
             var ithResult = resultArray[i];
-            console.log('---------zt-----------' + ithResult)
             var jsonData = JSON.parse(ithResult);
             var OriginalValues = jsonData.OriginalValues;
             //包装类型英文名
@@ -897,7 +855,6 @@ Page({
             }
             array.push(str);
           }
-          console.log(array)
           resolve(array)
         },
         fail: function () {
@@ -912,7 +869,6 @@ Page({
         }
       })
     }).then(res => {
-      console.log(res.length)
       if (res.length == 0) {
         wx.showModal({
           title: '提示',
@@ -950,7 +906,6 @@ Page({
         success: function (res) {
           // success
           var resData = res.data;
-          // console.log('---------zt-----------'+resData)
           var nodeValue = resData.result
           nodeValue = nodeValue + '';
           nodeValue = nodeValue.replace('[', '');
@@ -960,7 +915,6 @@ Page({
           var array = []
           for (var i = 0; i < resultArray.length; i++) {
             var ithResult = resultArray[i];
-            console.log('---------zt-----------' + ithResult)
             var jsonData = JSON.parse(ithResult);
             var OriginalValues = jsonData.OriginalValues;
             //包装类型英文名
@@ -970,7 +924,6 @@ Page({
             }
             array.push(str);
           }
-          console.log(array)
           resolve(array)
         },
         fail: function () {
@@ -985,7 +938,6 @@ Page({
         }
       })
     }).then(res => {
-      console.log(res.length)
       if (res.length == 0) {
         wx.showModal({
           title: '提示',
@@ -1026,7 +978,6 @@ Page({
         success: function (res) {
           // success
           var resData = res.data;
-          // console.log('---------zt-----------'+resData)
           var nodeValue = resData.result
           nodeValue = nodeValue + '';
           nodeValue = nodeValue.replace('[', '');
@@ -1036,13 +987,11 @@ Page({
           var array = []
           for (var i = 0; i < resultArray.length; i++) {
             var ithResult = resultArray[i];
-            console.log('---------zt-----------' + ithResult)
             var jsonData = JSON.parse(ithResult);
             var OriginalValues = jsonData.OriginalValues;
             //包装类型英文名
             array.push(jsonData.CODEATTRNAME);
           }
-          console.log(array)
           resolve(array)
         },
         fail: function () {
@@ -1087,18 +1036,13 @@ Page({
   // 下单
   placeOrder: function () {
     var name = this.data.name
-    // console.log(name)
     var refno = this.data.refno
-    // console.log(refno)
     var sale = this.data.sale
-// console.log(sale)
 
     var goods_name = this.data.goods_name
-    // console.log(goods_name)
     var weight = this.data.weight==-1?'':this.data.weight
     var vol = this.data.vol==-1?'':this.data.vol
     var num = this.data.num==-1?'':this.data.num
-    // console.log('vol'+vol+'weight'+weight+'num'+num)
     var packagetype = this.data.packagetype
     var num20gp = this.data.num20gp
     var num40gp = this.data.num40gp
@@ -1106,20 +1050,14 @@ Page({
     var CRD = this.data.CRD
     var ETD = this.data.ETD
 
-    // console.log(packagetype)
-    // console.log(num20gp+num40gp+num40hc)
-    // console.log(CRD+ETD)
-
     var start_port = this.data.start_port
     if (start_port == '--请选择或输入--') { start_port = '' }
     var des_port = this.data.des_port
     if (des_port == '--请选择或输入--') { des_port = '' }
-    // console.log(start_port+des_port)
     var shipcom = this.data.shipcompany
     var sailline = this.data.sailline.SAILCODE
     var shipname = this.data.shipname.SHIPCODE
     var saillinenum = this.data.saillinenum
-    // console.log(shipcom+sailline+shipname+saillinenum)
 
     var declare_service = this.data.declare_service
     var vehicle_service = this.data.vehicle_service
@@ -1163,7 +1101,6 @@ Page({
       HYFWTYPE: overseas_service
     }
 
-    console.log(JSON.stringify(shippingOrder))
 
     wx.request({
       url: wsdlurl + 'PlaceShippingOrder',
@@ -1184,7 +1121,6 @@ Page({
         var result = resData.result;
         result = JSON.parse(result)
         var status = result.Status
-        console.log(status)
         var info = result.Info
         if (status == 0) {
           wx.showToast({
@@ -1234,7 +1170,6 @@ Page({
     this.getService("TRAILERTYPE");
     // 获取单位list
     var arr = app.data.packageType
-    console.log('--------package---------------' + arr)
 
     this.setData({
       name: app.data.customer,
@@ -1242,9 +1177,6 @@ Page({
       start_port: '--请选择或输入--',
       des_port: '--请选择或输入--',
     })
-
-
-    console.log(this.data.packagetype)
     wx.setNavigationBarTitle({
       title: '在线下单',
     })

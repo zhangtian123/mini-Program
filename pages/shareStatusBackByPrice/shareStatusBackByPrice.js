@@ -31,7 +31,6 @@ Page({
     //分享多条
     var predicate = 'BILLID == @0';
     var values = this.data.BILLID;
-    console.log(values)
     wx.request({
       url: wsdlurl + 'GetQuoteFCLList',
       data: {
@@ -53,7 +52,6 @@ Page({
         var result = resData.result
         var array = [];
         if (result == null || result == '') {
-          console.log('resulthaha' + result)
           wx.showToast({
             title: '未查询到数据',
           })
@@ -66,7 +64,6 @@ Page({
         nodeValue = nodeValue.replace(new RegExp('},{', 'g'), '} , {');
         var resultArray = nodeValue.split(' , ');
         var jsonData = JSON.parse(resultArray[0]);
-        console.log(jsonData)
         var tempResult = {
           SAILLINE: jsonData.SAILLINE,
           SAILINGDATE: jsonData.SAILINGDATE,

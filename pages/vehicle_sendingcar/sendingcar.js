@@ -97,12 +97,7 @@ Page({
           // success
           var resData = res.data;
           var result = resData.result;
-          console.log(result)
           if (result == "[]") {
-            // wx.showModal({
-            //   title: '提示',
-            //   content: '没有' + Suplier + '公司对应的司机数据',
-            // })
             that.setData({
               isDriversEmpty: '没有司机数据'
             })
@@ -112,8 +107,6 @@ Page({
             result = result.replace(']', '');
             result = result.replace(new RegExp('},{', 'g'), '} , {')
             var resultArray = result.split(' , ')
-
-            console.log(resultArray);
             var driverName = []
             for (var i = 0; i < resultArray.length; i++) {
               var ithResult = resultArray[i];
@@ -188,7 +181,6 @@ Page({
   },
 
   bindDateChange: function (e) {
-    console.log(e.detail.value)
     this.setData({
       dates: e.detail.value
     })
@@ -198,7 +190,6 @@ Page({
   },
 
   bindTimeChange: function (e) {
-    console.log(e.detail.value)
     this.setData({
       times: e.detail.value
     })
@@ -208,14 +199,12 @@ Page({
   },
 
   bindDriverChange: function (e) {
-    console.log(e.detail.value)
     this.setData({
       driverIndex: e.detail.value
     })
   },
 
   bindTruckChange: function (e) {
-    console.log(e.detail.value)
     this.setData({
       truckIndex: e.detail.value
     })
@@ -296,7 +285,6 @@ Page({
           name: '1.jpg',
           header: { "Content-Type": "multipart/form-data" },
           success: function (res) {
-            console.log("上传结果 " + res.data);
             if (res.statusCode != 200) {
               wx.showModal({
                 title: '提示',
@@ -312,7 +300,6 @@ Page({
             }
           },
           fail: function (e) {
-            console.log(e);
             wx.showModal({
               title: '提示',
               content: '上传失败',
@@ -329,7 +316,6 @@ Page({
         that.setData({
           uploadedImage: uploadedImage
         })
-        console.log(that.data.uploadedImage)
       })
 
     }
@@ -349,7 +335,6 @@ Page({
       RowState: 16
     };
     Trailer = JSON.stringify(Trailer);//将json转成字符串传值
-    console.log(Trailer)
     var NodeCode = this.data.nodeCode;
     // var UserCode = 'admin'// app.data.userCode;
     // var UserCode = 'VIRTUAL_TRAILER_01';
@@ -362,7 +347,6 @@ Page({
           v = c == 'x' ? r : (r & 0x3 | 0x8);
         return v.toString(16);
       });
-      console.log(uploadedImage[i])
       var Document = {
         DOCUMENTID: guid3,
         FILENAME: uploadedImage[i],
@@ -395,7 +379,6 @@ Page({
         var jsonres = JSON.parse(result);
         var status = jsonres.Status;
         var info = jsonres.Info;
-        console.log(resData);
         if (status == 0) {
           wx.showToast({
             title: '状态反馈成功！',

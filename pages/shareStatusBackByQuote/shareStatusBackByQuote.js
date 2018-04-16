@@ -34,7 +34,6 @@ Page({
     var predicate = 'QUOTEREPORTSEAID == @0';
     var values = this.data.QUOTEREPORTSEAID;
     var that = this;
-    console.log(values)
     wx.request({
       url: wsdlurl + 'GetCrQuoteReportSeaList',
       data: {
@@ -61,7 +60,6 @@ Page({
         nodeValue = nodeValue.replace(new RegExp('},{', 'g'), '} , {');
         var resultArray = nodeValue.split(' , ');
         var jsonData = JSON.parse(resultArray[0]);
-        console.log(jsonData)
         var tempResult = {
           SAILLINE: jsonData.SAILLINE,
           // SAILINGDATE: jsonData.SAILINGDATE,
@@ -109,7 +107,6 @@ Page({
           totalFeeString: totalFeeString,
           totalFee:totalFee
         })
-        console.log(tempResult)
         that.setData({
           item: tempResult,
         })

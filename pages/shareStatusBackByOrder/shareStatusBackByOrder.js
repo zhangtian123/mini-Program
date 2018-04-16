@@ -68,7 +68,6 @@ Page({
           result = first + last;
           result = result.replace(new RegExp('},{', 'g'), '} $%,%$ {')
           var resultArray = result.split(' $%,%$ ')
-          console.log(resultArray)
           var jsonData = JSON.parse(resultArray[0]);
           var tempResult = {
             ORDERID: jsonData.ORDERID,
@@ -81,7 +80,6 @@ Page({
             BILLID: jsonData.BILLID,
             CNTRNUMSTR: jsonData.CNTRNUMSTR,
           }
-          console.log(tempResult)
           that.setData({
             BILL: tempResult
           })

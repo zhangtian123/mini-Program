@@ -93,7 +93,6 @@ Page({
             searchLoading: false  //把"上拉加载"的变量设为false，隐藏
           })
           var resData = res.data;
-          console.log(resData)
           var result=resData.result;
           if(result=="[]"){
             wx.showToast({
@@ -149,7 +148,6 @@ Page({
       })
     }).then(res => {
       var itemList = that.data.itemList;
-      console.log(res)
       itemList = itemList.concat(res);
       that.setData({
         itemList: itemList
@@ -206,7 +204,6 @@ Page({
       predicate: pre,
       values: ""
     })
-    console.log(pre);
     this.getData()
   },
 
@@ -283,7 +280,6 @@ Page({
               var jsonres = JSON.parse(result);
               var status = jsonres.Status;
               var info = jsonres.Info;
-              console.log(status)
               if (status == 0) {
                 wx.showToast({
                   title: '审核通过！',
@@ -382,7 +378,6 @@ Page({
         var jsonres = JSON.parse(result);
         var status = jsonres.Status;
         var info = jsonres.Info;
-        console.log('status ' + status)
         if (info == '') {
           wx.showToast({
             title: '驳回成功！',
@@ -502,7 +497,6 @@ Page({
               // success
               var resData = res.data;
               var result = resData.result
-              console.log(resData)
               if (result != '' && result != null) {
                 resolve(result)
               } else {
@@ -545,7 +539,6 @@ Page({
               // success
               var resData = res.data;
               var nodeValue = resData.result;
-              console.log(nodeValue)
               that.setData({
                 isBinding: false
               })
@@ -616,7 +609,6 @@ Page({
         // success
         var resData = res.data;
         var nodeValue = resData.result
-        console.log(nodeValue)
         that.setData({
           isUnbinding: false
         })
@@ -777,7 +769,6 @@ Page({
     var time = utils.formatTime1(new Date());
     var pre = '';
     var v = '';
-    console.log(this.data.beginDate == time)
     if (this.data.isSelfDefineTime==false){
       //系统分类
       if(radioBeginDate==''){

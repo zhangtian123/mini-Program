@@ -20,13 +20,13 @@ function formatDate(timeS) {
   year = parseInt(year)
   var mon = timeS.substring(5, 7)
   mon = parseInt(mon)
-  console.log('mon:' + mon)
+
   //传参日期为输入的完货日期+2
   var day = timeS.substring(8, 10)
-  console.log('day:' + day)
+
   day = parseInt(day);
   day += 2
-  console.log('day:' + day)
+
   if (mon == 1 || mon == 3 || mon == 5 || mon == 7 || mon == 8 || mon == 10 || mon == 12)
     if (day > 31) {
       mon++;
@@ -53,7 +53,7 @@ function formatDate(timeS) {
     }
   if (mon < 10) mon = "0" + mon
   if (day < 10) day = "0" + day
-  console.log(year + "-" + mon + "-" + day)
+
   return year + "-" + mon + "-" + day
 }
 
@@ -109,7 +109,7 @@ Page({
   },
 
   changePort: function () {
-    console.log(this.data.des_port)
+
     wx.redirectTo({
       url: '../port_select/index',
     })
@@ -153,9 +153,9 @@ Page({
     var index = e.target.dataset.index;
     var pricelist = this.data.pricelist;
     var ithPrice = pricelist[index];
-    console.log(ithPrice)
+
     var BILLID = ithPrice.BILLID;
-    console.log(BILLID)
+
     var that = this;
 
     wx.navigateTo({
@@ -251,7 +251,6 @@ Page({
               // success
               var resData = res.data;
               var result = resData.result
-              console.log(resData)
               if (result != '' && result != null) {
                 resolve(result)
               } else {
@@ -294,7 +293,6 @@ Page({
               // success
               var resData = res.data;
               var nodeValue = resData.result;
-              console.log(nodeValue)
               that.setData({
                 isBinding: false
               })
@@ -365,7 +363,6 @@ Page({
         // success
         var resData = res.data;
         var nodeValue = resData.result
-        console.log(nodeValue)
         that.setData({
           isUnbinding: false
         })
@@ -492,7 +489,6 @@ Page({
     this.setData({
       num20gp: temp
     })
-    console.log(temp)
   },
 
   desc40gp: function (e) {
@@ -590,7 +586,6 @@ Page({
         var result = resData.result
         var array = [];
         if (result == null || result == '') {
-          console.log('resulthaha' + result)
           wx.showToast({
             title: '未查询到数据',
           })
@@ -620,7 +615,6 @@ Page({
             TotalPrice: jsonData.TotalPrice.toFixed(2),
             BILLID: jsonData.BILLID
           }
-          console.log(tempResult)
           array.push(tempResult);
         }
         that.setData({
@@ -686,8 +680,6 @@ Page({
         })
         break;
     }
-    console.log('out:' + this.data.start_port_eng)
-    console.log(this.data.des_port_eng)
     this.getPrice();
   }
 })
