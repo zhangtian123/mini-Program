@@ -113,7 +113,6 @@
             <text wx:if="{{item.ORDERTRACE[4]!=null}}" class='time'>{{item.ORDERTRACE[4].date}}</text>
           </view>
           <view class="line1"></view>
-          <view class="line-v1"></view>
         </view>
 
       </view>
