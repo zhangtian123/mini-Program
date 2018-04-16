@@ -91,7 +91,7 @@
           <view class="line1"></view>
           <view class="line-v"></view>
         </view>
-        <view class='Row' style='margin-left:36%;'>
+        <view class='Row' style='margin-left:37%;'>
           <view class='Column' wx:for-itemArray="idx" wx:for-item="itemName">
             <view wx:if="{{item.ORDERTRACE[5]!=null}}">
               <view class='circle'>订舱接收</view>
