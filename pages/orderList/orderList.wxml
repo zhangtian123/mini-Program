@@ -58,46 +58,46 @@
       </view>
       <image class="expandArrow" bindtap='table_show' src='{{item.SHOW.showImageUrl}}' mode='aspectFit' data-index="{{index}}"></image>
       <view class="{{item.SHOW.isShowTable? 'table' :'table-hide'}}">
-        <view class='Row' style='margin-left:12%;'>
+        <view class='Row' style='margin-left:0%;'>
           <view class='Column' wx:for-itemArray="idx" wx:for-item="itemName">
             <view wx:if="{{item.ORDERTRACE[1]!=null}}">
-              <view class='circle'>申请</view>
+              <view class='circle'>订单申请</view>
             </view>
             <view wx:else>
-              <view class='circle-unfinished'>申请</view>
+              <view class='circle-unfinished'>订单申请</view>
             </view>
             <text class='time' wx:if="{{item.ORDERTRACE[1]!=null}}">{{item.ORDERTRACE[1].date}}</text>
           </view>
           <view class="line"></view>
           <view class='Column' wx:for-itemArray="idx" wx:for-item="itemName">
             <view wx:if="{{item.ORDERTRACE[2]!=null}}">
-              <view class='circle'>预审</view>
+              <view class='circle'>订单预审</view>
             </view>
             <view wx:else>
-              <view class='circle-unfinished'>预审</view>
+              <view class='circle-unfinished'>订单预审</view>
             </view>
             <text wx:if="{{item.ORDERTRACE[2]!=null}}" class='time'>{{item.ORDERTRACE[2].date}}</text>
           </view>
           <view class="line"></view>
           <view class='Column' wx:for-itemArray="idx" wx:for-item="itemName">
             <view wx:if="{{item.ORDERTRACE[3]!=null}}">
-              <view class='circle'>审核</view>
+              <view class='circle'>订单审核</view>
             </view>
             <view wx:else>
-              <view class='circle-unfinished'>审核</view>
+              <view class='circle-unfinished'>订单审核</view>
             </view>
             <text wx:if="{{item.ORDERTRACE[3]!=null}}" class='time'>{{item.ORDERTRACE[3].date}}</text>
           </view>
           <view class="line1"></view>
           <view class="line-v"></view>
         </view>
-        <view class='Row' style='margin-left:41.5%;'>
+        <view class='Row' style='margin-left:36%;'>
           <view class='Column' wx:for-itemArray="idx" wx:for-item="itemName">
             <view wx:if="{{item.ORDERTRACE[5]!=null}}">
-              <view class='circle'>接收</view>
+              <view class='circle'>订舱接收</view>
             </view>
             <view wx:else>
-              <view class='circle-unfinished'>接收</view>
+              <view class='circle-unfinished'>订舱接收</view>
             </view>
             <text wx:if="{{item.ORDERTRACE[5]!=null}}" class='time'>{{item.ORDERTRACE[5].date}}</text>
           </view>
@@ -105,10 +105,10 @@
 
           <view class='Column' wx:for-itemArray="idx" wx:for-item="itemName">
             <view wx:if="{{item.ORDERTRACE[4]!=null}}">
-              <view class='circle'>分配</view>
+              <view class='circle'>订单分配</view>
             </view>
             <view wx:else>
-              <view class='circle-unfinished'>分配</view>
+              <view class='circle-unfinished'>订单分配</view>
             </view>
             <text wx:if="{{item.ORDERTRACE[4]!=null}}" class='time'>{{item.ORDERTRACE[4].date}}</text>
           </view>

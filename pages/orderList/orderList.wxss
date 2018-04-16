@@ -13,8 +13,9 @@
   border-radius: 30rpx;
   padding: 5rpx 20rpx;
   box-shadow: 0 5rpx 10rpx #ff9a76;
+  font-size: 30rpx;
   height: 60rpx;
-   width: 75rpx;
+   width: 130rpx;
 }
 
 .circle-unfinished {
@@ -22,8 +23,9 @@
   color: #79797a;
   border-radius: 30rpx;
   padding: 5rpx 20rpx;
+  font-size: 30rpx;
    height: 60rpx;
-   width: 75rpx;
+   width: 130rpx;
 }
 
 .Row {
