@@ -42,15 +42,15 @@
       </view>
       <view class="information">
         <text>件毛体</text>
-        <text class='detail-info' wx:if="{{item.ORDER.PACK!=null}}">{{item.ORDER.PACK}}</text>
+        <text class='detail-info' wx:if="{{item.ORDER.PWM!=null}}">{{item.ORDER.PWM}}</text>
       </view>
       <view class="information">
         <text>船名/航次</text>
-        <text class='detail-info' wx:if="{{item.ORDER.SEA_VESSEL!=null}}"> {{item.ORDER.SEA_VESSEL}}</text>
+        <text class='detail-info' wx:if="{{item.ORDER.VESSELAndVOYNO!=null}}"> {{item.ORDER.VESSELAndVOYNO}}</text>
       </view>
       <view class="information">
         <text>船公司/航线</text>
-        <text class='detail-info' wx:if="{{item.ORDER.SHIPOWNER!=null}}"> {{item.ORDER.SHIPOWNER}}</text>
+        <text class='detail-info' wx:if="{{item.ORDER.SHIPOWNERAndSAILLINE!=null}}"> {{item.ORDER.SHIPOWNERAndSAILLINE}}</text>
       </view>
       <view class="information">
         <text>箱型箱量</text>

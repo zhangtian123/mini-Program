@@ -141,7 +141,16 @@ Page({
               SHIPOWNER: jsonData.SEA_SHIPOWNER,
               SEA_SAILLINE: jsonData.SEA_SAILLINE,
               SEA_VESSEL: jsonData.SEA_VESSEL,
-              SEA_VOYNO: jsonData.SEA_VOYNO
+              SEA_VOYNO: jsonData.SEA_VOYNO,
+              SHIPOWNERAndSAILLINE:
+              (jsonData.SEA_SHIPOWNER != null && jsonData.SEA_SHIPOWNER != "undefined" ? jsonData.SEA_SHIPOWNER : "") + "/" +
+              ((jsonData.SEA_SAILLINE != null && jsonData.SEA_SAILLINE != "undefined") ? jsonData.SEA_SAILLINE : ""),
+              PWM: (jsonData.CTNS != null && jsonData.CTNS != "undefined" ? jsonData.CTNS : "") +
+              ((jsonData.PACK != null && jsonData.PACK != "undefined") ? jsonData.PACK : "") + "/" +
+              ((jsonData.WEIGHT != null && jsonData.WEIGHT != "undefined") ? jsonData.WEIGHT : "") + "/" +
+              ((jsonData.MEASURE != null && jsonData.MEASURE != "undefined") ? jsonData.MEASURE : ""),
+              VESSELAndVOYNO: (jsonData.SEA_VESSEL != null && jsonData.SEA_VESSEL != "undefined" ? jsonData.SEA_VESSEL : "") + "/" +
+              ((jsonData.SEA_VOYNO != null && jsonData.SEA_VOYNO != "undefined") ? jsonData.SEA_VOYNO : "")
             }
             res.push(tempResult)
           }
