@@ -82,8 +82,6 @@ getData: function () {
     })
     var that = this;
     new Promise(function (resolve, reject) {
-      console.log(that.data.predicate)
-      console.log(that.data.values)
       wx.request({
         url: wsdlurl + 'GetAccountingList',
         data: {
@@ -107,7 +105,6 @@ getData: function () {
           // success
           var resData = res.data;
           var result = resData.result;
-          console.log(result)
           if (result == "[]") {
             that.setData({
               searchLoadingComplete: true, //把“没有数据”设为true，显示
@@ -117,7 +114,6 @@ getData: function () {
             })
             return
           }
-          console.log(resData)
           var rowsCount = resData.rowsCount;
           result = result + '';
           result = result.replace('[', '');
@@ -133,7 +129,6 @@ getData: function () {
           var res = []
           for (var i = 0; i < resultArray.length; i++) {
             var ithResult = resultArray[i];
-            console.log(ithResult)
             var jsonData = JSON.parse(ithResult)
             //获取账单ID，账单号，总金额币别，总金额，提交日期，最迟处理日期，往来单位，支付方式，银行，银行账号
             var tempResult = {
@@ -166,7 +161,6 @@ getData: function () {
       for (var i = 0; i < res.length; i++) {
         var BILL = res[i];
         var BILLID = BILL.BILLID;
-        console.log(BILLID)
         new Promise((resolve, reject) => {
           wx.request({
             url: wsdlurl + 'GetAccountingDetails',
@@ -180,7 +174,6 @@ getData: function () {
             // 设置请求的 header
             success: function (res) {
               var resData = res.data;
-              console.log(resData)
               var detailArray = [];
               var result = resData.result;
               if (result == "[]") {
@@ -252,7 +245,6 @@ getData: function () {
             }
           }
           itemList = itemList.concat(item)
-          console.log(itemList)
           that.setData({
             itemList: itemList
           })
@@ -313,7 +305,6 @@ getData: function () {
       predicate: pre,
       values: v,
     })
-    console.log('pre ' + pre)
     this.getData();
     this.chooseTypeList();
   },
@@ -376,7 +367,6 @@ getData: function () {
                 searchLoading: false
               })
               var resData = res.data;
-              console.log(resData)
               var result = resData.result;
               var jsonData = JSON.parse(result);
               var info = jsonData.Info;
@@ -407,7 +397,6 @@ getData: function () {
             }
           })
         } else {
-          console.log('cancel');
         }
       }
     })
@@ -479,7 +468,6 @@ getData: function () {
         })
         var resData = res.data;
         var resData = res.data;
-        console.log(resData)
         var result = resData.result;
         var jsonData = JSON.parse(result);
         var info = jsonData.Info;
@@ -600,7 +588,6 @@ getData: function () {
               // success
               var resData = res.data;
               var result = resData.result
-              console.log(resData)
               if (result != '' && result != null) {
                 resolve(result)
               } else {
@@ -643,7 +630,6 @@ getData: function () {
               // success
               var resData = res.data;
               var nodeValue = resData.result;
-              console.log(nodeValue)
               that.setData({
                 isBinding: false
               })
@@ -729,7 +715,6 @@ getData: function () {
         var doc = XMLParser.parseFromString(resData, function (response) { });
         var result = doc.getElementsByTagName("ContactCompanyBll_BindingOpenIDResult");
         var nodeValue = result[0].firstChild.nodeValue;
-        console.log(nodeValue)
         that.setData({
           isUnbinding: false
         })

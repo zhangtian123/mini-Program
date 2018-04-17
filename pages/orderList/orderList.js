@@ -55,8 +55,8 @@ Page({
     filterTypeData: ['订单号', '客户委托号'],
     filterTypeIndex: 0,
     filterIsChoosed: false,
-    predicate:'REQUESTER == @0 and ISCHECK!=true',// 'CUSTOMER == @0 and isCheck==false',
-    values:app.data.customer,
+    predicate: 'REQUESTER == @0 and ISCHECK!=true',// 'CUSTOMER == @0 and isCheck==false',
+    values: app.data.customer,
     orderByProperty: 'BILLNO',
     //下拉加载
     searchPageNum: 1,   // 设置加载的第几次，默认是第一次
@@ -107,7 +107,7 @@ Page({
             })
             return;
           }
-          
+
           result = result + '';
           result = result.replace('[', '');
           result = result.replace(']', '');
@@ -116,7 +116,6 @@ Page({
           result = first + last;
           result = result.replace(new RegExp('},{', 'g'), '} $%,%$ {')
           var resultArray = result.split(' $%,%$ ')
-          console.log(resultArray)
           var res = [];
           if (resultArray.length != 0 && resultArray.length < that.data.callbackcount && that.data.itemList.length == 0) {
             that.setData({
@@ -167,7 +166,6 @@ Page({
       for (var i = 0; i < res.length; i++) {
         var BILL = res[i];
         var BILLID = BILL.BILLID;
-        console.log(BILLID)
         new Promise((resolve, reject) => {
           wx.request({
             url: wsdlurl + 'GetNodeViewInfos',
@@ -184,7 +182,6 @@ Page({
               var resData = res.data;
               var result = resData.result;
               var detailArray = [];
-console.log(result)
               if (result == "[]") {
                 that.setData({
                   searchLoadingComplete: true, //把“已加载全部”设为true，显示
@@ -214,7 +211,7 @@ console.log(result)
                       BILLID: jsonData.BILLID
                     };
                     TRACE.push(tempResult);
-                  }else{
+                  } else {
                     var tempResult = {
                       date: jsonData.FINISHEDDATE.replace('T', ' '),
                       BILLID: jsonData.BILLID
@@ -279,7 +276,6 @@ console.log(result)
             }
           }
           itemList = itemList.concat(item)
-          console.log(itemList)
           that.setData({
             itemList: itemList
           })
@@ -474,7 +470,6 @@ console.log(result)
               // success
               var resData = res.data;
               var result = resData.result
-              console.log(resData)
               if (result != '' && result != null) {
                 resolve(result)
               } else {
@@ -517,7 +512,6 @@ console.log(result)
               // success
               var resData = res.data;
               var nodeValue = resData.result;
-              console.log(nodeValue)
               that.setData({
                 isBinding: false
               })
@@ -588,7 +582,6 @@ console.log(result)
         // success
         var resData = res.data;
         var nodeValue = resData.result
-        console.log(nodeValue)
         that.setData({
           isUnbinding: false
         })

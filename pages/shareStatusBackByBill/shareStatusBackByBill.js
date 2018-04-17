@@ -49,8 +49,6 @@ Page({
       that.setData({
         values: 'Dunning,Fee_CQK05,' + that.data.BILLID,
       })
-      console.log(that.data.predicate)
-      console.log(that.data.values)
       wx.request({
         url: wsdlurl + 'GetAccountingList',
         data: {
@@ -155,13 +153,11 @@ Page({
               isShowTable: false,
               showImageUrl: '../../images/expand-arrow-down.png'
             }
-            console.log(detailArray)
             var item = {
               BILL: that.data.BILL,
               DETAIL: detailArray,
               SHOW: SHOW
             }
-            console.log(item)
             that.setData({
               item: item
             })
@@ -227,7 +223,6 @@ Page({
                 searchLoading: false
               })
               var resData = res.data;
-              console.log(resData)
               var result = resData.result;
               var jsonData = JSON.parse(result);
               var info = jsonData.Info;
@@ -258,7 +253,6 @@ Page({
             }
           })
         } else {
-          console.log('cancel');
         }
       }
     })
@@ -329,7 +323,6 @@ Page({
         })
         var resData = res.data;
         var resData = res.data;
-        console.log(resData)
         var result = resData.result;
         var jsonData = JSON.parse(result);
         var info = jsonData.Info;

@@ -31,7 +31,6 @@ function getOpenid(code) {
     success: function (res) {
       // success
       var resData = res.data;
-      console.log(resData)
       var XMLParser = new Parser.DOMParser();
       var doc = XMLParser.parseFromString(resData, function (response) { });
     },

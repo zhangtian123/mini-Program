@@ -158,7 +158,6 @@ Page({
         // success
         var ans = [];
         var resData = res.data;
-        console.log(resData)
         var nodeValue = resData.result
         nodeValue = nodeValue + '';
         nodeValue = nodeValue.replace('[', '');
@@ -169,7 +168,6 @@ Page({
         var array = [];
         for (var i = 0; i < resultArray.length; i++) {
           var ithResult = resultArray[i];
-          console.log(ithResult)
           var jsonData = JSON.parse(ithResult);
           var OriginalValues = jsonData.OriginalValues;
           //包装类型英文名
@@ -183,7 +181,6 @@ Page({
         that.setData({
           packageType: array
         })
-        console.log(app.data.packageType)
       },
       fail: function () {
         wx.showModal({
@@ -218,6 +215,5 @@ Page({
       vol: app.data.vol,
       num: app.data.num
     })
-    console.log(this.data.date)
   }
 })

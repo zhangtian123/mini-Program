@@ -158,7 +158,6 @@ Page({
     var taxNumber = this.data.taxNumber
     if (taxNumber != '' && taxNumber != null) {
       if (taxNumber.length == 15) {//
-        console.log(15)
         var addressCode = taxNumber.substring(0, 6);
         // 校验地址码
         var check = this.checkAddressCode(addressCode);
@@ -229,7 +228,6 @@ Page({
     var that = this
     wx.getSavedFileList({
       success: function (res) {
-        console.log(res.fileList.length)
         if (res.fileList.length > 0) {
           wx.removeSavedFile({
             filePath: res.fileList[0].filePath,
@@ -266,7 +264,6 @@ Page({
               }),
                 wx.getSavedFileList({
                   success: function (res) {
-                    console.log(res.fileList.length)
                   }
                 })
             }
@@ -292,7 +289,6 @@ Page({
             print = "test"
           }
         })
-        console.log('success')
         wx.getSavedFileList({
           success: function (res) {
             if (res.fileList.length > 2) {
@@ -319,16 +315,12 @@ Page({
           // show the file list
           wx.getSavedFileList({
             success: function (res) {
-              console.log(res.fileList.length)
             }
           })
         // Get image info
         wx.getImageInfo({
           src: res.tempFilePaths[0],
           success: function (res) {
-            console.log(res.width)
-            console.log(res.height)
-            console.log(res.path)
           }
         })
       }
@@ -357,7 +349,6 @@ Page({
   },
 
   onShow: function () {
-    console.log('index is show')
   },
 
   boo: function () {
@@ -441,7 +432,6 @@ Page({
           name: '1.jpg',
           header: { "Content-Type": "multipart/form-data" },
           success: function (res) {
-            console.log("上传结果 " + res.data);
             if (res.statusCode != 200) {
               wx.showModal({
                 title: '提示',
@@ -457,7 +447,6 @@ Page({
             }
           },
           fail: function (e) {
-            console.log(e);
             wx.showModal({
               title: '提示',
               content: '上传失败',
@@ -474,7 +463,6 @@ Page({
         that.setData({
           uploadedImage: uploadedImage
         })
-        console.log(that.data.uploadedImage)
       })
 
     }
@@ -506,7 +494,6 @@ Page({
       REGDATE: new Date(),
       RowState: 4
     }
-    console.log(Contactor)
     // 注册企业信息
     var Company = {
       BILLID: guid2,
@@ -538,7 +525,6 @@ Page({
         filePath: path,
         name: filename,
         success: function (res) {
-          console.log('图片上传成功' + path)
         },
         fail: function (res) {
 
@@ -568,7 +554,6 @@ Page({
         var result = resData.result;
         result = JSON.parse(result)
         var status = result.Status
-        console.log(status)
         var info = result.Info
         if (status == 0) {
           wx.showModal({

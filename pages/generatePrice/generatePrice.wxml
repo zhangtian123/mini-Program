@@ -94,7 +94,7 @@
   </view>
   <view class="card">
     <view class="input-title">总价：{{totalFee}}</view>
-    <view class="search-input-row line">
+    <view wx:if="{{totalFee!=0}}" class="search-input-row line">
       <view class="search-title" style='font-size:30rpx;'>{{totalFeeString}} = {{totalFee}}</view>
     </view>
   </view>

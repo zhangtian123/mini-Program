@@ -79,7 +79,6 @@ Page({
   onLoad: function (options) {
     var that = this;
     var data = JSON.parse(options.data);
-    console.log(data)
     this.setData({
       state: data.state,
       BILLID: data.BILLID,
@@ -134,7 +133,6 @@ Page({
           typeArray: typeArray,
           typeIndex: 0
         })
-        console.log(that.data.typeArray)
       },
       fail: function () {
         wx.showModal({
@@ -161,7 +159,6 @@ Page({
   },
 
   bindTimeChange: function (e) {
-    console.log(e.detail.value)
     this.setData({
       times: e.detail.value
     })
@@ -181,7 +178,6 @@ Page({
           name: '1.jpg',
           header: { "Content-Type": "multipart/form-data" },
           success: function (res) {
-            console.log("上传结果 " + res.data);
             if (res.statusCode != 200) {
               wx.showModal({
                 title: '提示',
@@ -197,7 +193,6 @@ Page({
             }
           },
           fail: function (e) {
-            console.log(e);
             wx.showModal({
               title: '提示',
               content: '上传失败',
@@ -214,7 +209,6 @@ Page({
         that.setData({
           uploadedImage: uploadedImage
         })
-        console.log(that.data.uploadedImage)
       })
 
     }
@@ -255,10 +249,8 @@ Page({
         REMARK: this.data.remark,
         RowState: 16
       };
-      console.log(Trailer)
       Trailer = JSON.stringify(Trailer);//将json转成字符串传值
       var NodeCode = this.data.nodeCode;
-      console.log(NodeCode)
       // var UserCode = 'admin'//app.data.userCode;
       // var UserCode = 'VIRTUAL_TRAILER_01';
       var UserCode = 'VIRTUAL_USER'; 
@@ -270,7 +262,6 @@ Page({
             v = c == 'x' ? r : (r & 0x3 | 0x8);
           return v.toString(16);
         });
-        console.log(uploadedImage[i])
         var Document = {
           DOCUMENTID: guid3,
           FILENAME: uploadedImage[i],
@@ -303,7 +294,6 @@ Page({
           var jsonres = JSON.parse(result);
           var status = jsonres.Status;
           var info = jsonres.Info;
-          console.log(status);
           if (status == 0) {
             wx.showToast({
               title: '状态反馈成功！',

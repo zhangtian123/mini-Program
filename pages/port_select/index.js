@@ -173,7 +173,6 @@ Page({
               // success
               var resData = res.data;
               var nodeValue = resData.result;
-              console.log(nodeValue)
               that.setData({
                 isBinding: false
               })
@@ -244,7 +243,6 @@ Page({
         // success
         var resData = res.data;
         var nodeValue = resData.result
-        console.log(nodeValue)
         that.setData({
           isUnbinding: false
         })
@@ -367,7 +365,6 @@ Page({
     wx.switchTab({
       url: '../login/login',
     })
-    console.log('app.data.date' + app.data.date)
   },
 
   getNum: function (e) {
@@ -486,7 +483,6 @@ Page({
         var array = [];
         for (var i = 0; i < resultArray.length; i++) {
           var ithResult = resultArray[i];
-          console.log(ithResult)
           var jsonData = JSON.parse(ithResult);
           var OriginalValues = jsonData.OriginalValues;
           //包装类型英文名
@@ -500,7 +496,6 @@ Page({
         that.setData({
           packageType: array
         })
-        console.log(app.data.packageType)
       },
       fail: function () {
         wx.showModal({
@@ -559,12 +554,10 @@ Page({
         })
         break;
     }
-    console.log(this.data.userflag)
     if (options.fromlog == 1) {
       this.setData({
         showModalStatus: true
       })
     }
-    console.log(this.data.date)
   }
 })

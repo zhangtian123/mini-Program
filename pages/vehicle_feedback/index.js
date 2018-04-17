@@ -81,7 +81,6 @@ Page({
   },
 
   bindTimeChange: function (e) {
-    console.log(e.detail.value)
     this.setData({
       times: e.detail.value
     })
@@ -115,7 +114,6 @@ Page({
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success: function (res) {
-        console.log(res)
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths;
         var imgs = that.data.imgs;
@@ -171,7 +169,6 @@ Page({
           name: '1.jpg',
           header: { "Content-Type": "multipart/form-data" },
           success: function (res) {
-            console.log("上传结果 " + res.data);
             if (res.statusCode != 200) {
               wx.showModal({
                 title: '提示',
@@ -187,7 +184,6 @@ Page({
             }
           },
           fail: function (e) {
-            console.log(e);
             wx.showModal({
               title: '提示',
               content: '上传失败',
@@ -204,7 +200,6 @@ Page({
         that.setData({
           uploadedImage: uploadedImage
         })
-        console.log(that.data.uploadedImage)
       })
      
     }
@@ -222,7 +217,6 @@ Page({
       RowState: 16
     };
     Trailer = JSON.stringify(Trailer);//将json转成字符串传值
-    console.log(Trailer)
     var NodeCode = that.data.nodeCode;
     // var UserCode = 'admin' //app.data.userCode;
     var UserCode ='VIRTUAL_USER';
@@ -235,7 +229,6 @@ Page({
           v = c == 'x' ? r : (r & 0x3 | 0x8);
         return v.toString(16);
       });
-      console.log(uploadedImage[i])
       var Document = {
         DOCUMENTID: guid3,
         FILENAME: uploadedImage[i],
@@ -268,7 +261,6 @@ Page({
         var jsonres = JSON.parse(result);
         var status = jsonres.Status;
         var info = jsonres.Info;
-        console.log(resData);
         if (status == 0) {
           wx.showToast({
             title: '状态反馈成功！',

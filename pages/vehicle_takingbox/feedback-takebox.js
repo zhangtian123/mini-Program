@@ -117,7 +117,6 @@ Page({
   },
 
   bindDateChange: function (e) {
-    console.log(e.detail.value)
     this.setData({
       dates: e.detail.value
     })
@@ -127,7 +126,6 @@ Page({
   },
 
   bindTimeChange: function (e) {
-    console.log(e.detail.value)
     this.setData({
       times: e.detail.value
     })
@@ -210,7 +208,6 @@ Page({
           name: '1.jpg',
           header: { "Content-Type": "multipart/form-data" },
           success: function (res) {
-            console.log("上传结果 " + res.data);
             if (res.statusCode != 200) {
               wx.showModal({
                 title: '提示',
@@ -226,7 +223,6 @@ Page({
             }
           },
           fail: function (e) {
-            console.log(e);
             wx.showModal({
               title: '提示',
               content: '上传失败',
@@ -243,7 +239,6 @@ Page({
         that.setData({
           uploadedImage: uploadedImage
         })
-        console.log(that.data.uploadedImage)
       })
 
     }
@@ -276,7 +271,6 @@ Page({
         RowState: 16
       };
       Trailer = JSON.stringify(Trailer);//将json转成字符串传值
-      console.log(Trailer)
       var NodeCode = this.data.nodeCode;
       // var UserCode = 'admin'//app.data.userCode;
       // var UserCode = 'VIRTUAL_TRAILER_01';
@@ -289,7 +283,6 @@ Page({
             v = c == 'x' ? r : (r & 0x3 | 0x8);
           return v.toString(16);
         });
-        console.log(uploadedImage[i])
         var Document = {
           DOCUMENTID: guid3,
           FILENAME: uploadedImage[i],
@@ -322,7 +315,6 @@ Page({
           var jsonres = JSON.parse(result);
           var status = jsonres.Status;
           var info = jsonres.Info;
-          console.log(resData);
           if (status == 0) {
             wx.showToast({
               title: '状态反馈成功！',

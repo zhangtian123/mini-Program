@@ -85,7 +85,7 @@
         </view>
         <view class="search-input" style="width:48%;">
           <view class="section row-list" style="width:100%">
-            <text>40HC</text>
+            <text>40HQ</text>
             <image src="../../images/desc.png" bindtap="desc40hc" style='margin-left:20rpx;margin-right:20rpx;'></image>
             <text style="width:40rpx;">{{num40hc}}</text>
             <image style="margin-left:20rpx;" src="../../images/addition.png" bindtap="add40hc"></image>
@@ -103,8 +103,8 @@
               航程<text wx:if="{{item.DAYNUM!=null}}" class='key-info'>{{item.DAYNUM}}</text>
               航线<text wx:if="{{item.SAILLINE!=null}}" class='key-info'>{{item.SAILLINE}}</text>
               <text class='sum'>￥{{item.TotalPrice}}</text>
-              <text style='color: #006fbe; margin:0 0 0 60rpx;font-size:32rpx' data-index="{{index}}" bindtap='generatePrice' >生成报价></text>
-              <!-- <image class='pin2' data-index="{{index}}" bindtap='generatePrice' src='../../images/share.png'></image> -->
+              <!-- <text style='color: #006fbe; margin:0 0 0 60rpx;font-size:32rpx' data-index="{{index}}" bindtap='generatePrice' >生成报价></text> -->
+               <image class='pin2' data-index="{{index}}" bindtap='generatePrice' src='../../images/share.png'></image> 
               <!-- <button  class='share' bindtap='generatePrice' data-index="{{index}}">生成报价</button> -->
             </view>
             <view class="row-list">

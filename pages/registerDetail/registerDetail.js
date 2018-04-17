@@ -90,7 +90,6 @@ Page({
               var jsonres = JSON.parse(result);
               var status = jsonres.Status;
               var info = jsonres.Info;
-              console.log(status)
               if (status == 0) {
                 wx.showToast({
                   title: '审核通过！',
@@ -185,7 +184,6 @@ Page({
         var jsonres = JSON.parse(result);
         var status = jsonres.Status;
         var info = jsonres.Info;
-        console.log('status ' + status)
         if (info == '') {
           wx.showToast({
             title: '驳回成功！',
@@ -227,7 +225,6 @@ Page({
     wx.setNavigationBarTitle({
       title: '注册审核详情',
     })
-    console.log(data.BILLID)
     var BILLID = data.BILLID;
     var predicate = '';
     var values = '';
@@ -290,7 +287,6 @@ Page({
         }
       })
     }).then(res => {
-      console.log(res)
       
       var storagePathArray = res.storagePathArray;
       var fileNameArray = res.fileNameArray;
@@ -298,7 +294,6 @@ Page({
         var STORAGEPATH = storagePathArray[i].replace(new RegExp('\/','g'),'%2F');
         var FILENAME = fileNameArray[i];
         new Promise(function (resolve, reject) {
-          console.log(STORAGEPATH)
           wx.downloadFile({
             url: encodeURI(wsdlurl + 'Download?filePath=' + STORAGEPATH) ,
             method: 'GET',
@@ -306,8 +301,6 @@ Page({
               "Content-Type": "multipart/form-data",
             },
             success: function (res) {
-              console.log('download')
-              console.log(res.tempFilePath)
               resolve(res.tempFilePath);
             },
             fail: function () {
@@ -323,7 +316,6 @@ Page({
           that.setData({
             pictures: pictures
           })
-          console.log(pictures)
         })
 
       }

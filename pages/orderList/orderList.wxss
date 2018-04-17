@@ -12,7 +12,7 @@
   color: white;
   border-radius: 30rpx;
   padding: 5rpx 20rpx;
-  box-shadow: 0 5rpx 10rpx #ff9a76;
+   box-shadow: 0 5rpx 10rpx #ff9a76; 
   font-size: 30rpx;
   height: 60rpx;
    width: 120rpx;
@@ -62,10 +62,12 @@
 }
 
 .line-v {
-  height: 130rpx;
+  height: 140rpx;
   width: 7rpx;
   background: #ededed;
   margin-top:30rpx;
+  z-index: 9;
+  margin-bottom: -28rpx;
 }
 
 .line-v1 {

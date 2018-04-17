@@ -77,7 +77,6 @@ Page({
         var result = resData.result
         var array = [];
         if (result == null || result == '') {
-          console.log('resulthaha' + result)
           wx.showToast({
             title: '未查询到数据',
           })
@@ -90,7 +89,6 @@ Page({
         nodeValue = nodeValue.replace(new RegExp('},{', 'g'), '} , {');
         var resultArray = nodeValue.split(' , ');
         var jsonData = JSON.parse(resultArray[0]);
-        console.log(jsonData)
         var tempResult = {
           BILLID: jsonData.BILLID,
           BILLNO: jsonData.BILLNO,
@@ -120,7 +118,6 @@ Page({
           PRICE40GP: tempResult.PRICE40GP,
           PRICE40HQ: tempResult.PRICE40HQ,
         })
-        console.log(tempResult)
       },
       fail: function () {
         // fail
@@ -214,8 +211,6 @@ Page({
       ISDIRECT: that.data.item.ISDIRECT,
       ETD: curDate
     }
-    console.log(quote)
-    console.log(detail)
     new Promise(function (resolve, reject) {
       wx.request({
         url: wsdlurl + 'SetCrQuoteReportSeaByApp',
@@ -230,7 +225,6 @@ Page({
         // 设置请求的 header
         success: function (res) {
           // success
-          console.log(res.data)
           var result = res.data;
           resolve(result);
         },
@@ -247,11 +241,9 @@ Page({
       })
     }).then(res => {
       var result = res.result+"";
-      console.log(result)
       var ids = result.split(',');
       var shareID = ids[0];
       var BILLID = ids[1];
-      console.log(ids)
       wx.request({
         url: wsdlurl + 'ValidOcShareLog',
         data: {
@@ -269,7 +261,6 @@ Page({
           })
           var resData = res.data;
           var result = resData.result;
-          console.log(result)
           if (result == true) {
             var isValidate = true;
             if (app.data.customer) {
@@ -279,7 +270,6 @@ Page({
             else {
               //重定向之后，打开的
             }
-            console.log(BILLID)
             wx.navigateTo({
               url: '../shareStatusBackByQuote/shareStatusBackByQuote?isValidate=' + isValidate + '&QUOTEREPORTSEAID=' + BILLID
             })
@@ -402,6 +392,7 @@ Page({
       totalFeeString += this.data.QUANTITY40HQ + 'x' + this.data.PRICE40HQ + '(40HQ)';
       totalFee += this.data.QUANTITY40HQ * this.data.PRICE40HQ;
     }
+    
     this.setData({
       totalFeeString: totalFeeString,
       totalFee: totalFee

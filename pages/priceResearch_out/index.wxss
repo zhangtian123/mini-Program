@@ -1,7 +1,7 @@
 @import "../template/template.wxss";
 @import "../../tools/content.wxss";
 .port{
-  width: 50%;  
+  width: 50%;   
   height: 80%;  
   margin: auto;  
   position: absolute;  
@@ -149,7 +149,7 @@
 .sum{
   color: #df3c01;
   font-size: 36rpx;
-  width: 180rpx;
+  width: 150rpx;
   text-align: right;
 }
 

@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.5.4",
 	"appid": "wx6d1b0b1fa7f7afe8",
-	"projectname": "HighFive",
+	"projectname": "mini-Program",
 	"condition": {
 		"search": {
 			"current": -1,
