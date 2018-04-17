@@ -85,7 +85,7 @@ Page({
           that.setData({
             BILL: tempResult
           })
-          resolve(res)
+          resolve(tempResult)
         }
       })
     }).then(res => {
