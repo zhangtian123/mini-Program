@@ -104,7 +104,7 @@ Page({
       start_port: temp,
       start_ports: [],
       showstartlist: false,
-      start: ''
+      start: '',
     })
   },
   // change目的港
@@ -114,7 +114,7 @@ Page({
       des_port: temp,
       des_ports: [],
       showdeslist: false,
-      des: ''
+      des: '',
     })
   },
   clearStart: function () {
@@ -317,11 +317,18 @@ Page({
   tap_view: function (e) {
     this.setData(
       {
-        showModalStatus: false
+        showModalStatus: false,
       }
     );
   },
-
+  tap_desk:function(){
+    this.setData(
+      {
+        showstartlist:false,
+        showdeslist:false
+      }
+    );
+  },
   tap_start: function (e) {
     utils.tap_start(e, this)
   },

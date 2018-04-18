@@ -10,7 +10,7 @@
       <image bindtap="tap_ch" mode="aspectFit" src="../../images/menu.png" class='menu'></image>
     </view>
 
-    <scroll-view class='content' scroll-y="true" style='height:2000rpx' bindscrolltolower="scrollToLower">
+    <scroll-view class='content' scroll-y="true" style='height:2000rpx' bindscrolltolower="scrollToLower" bindtap='tap_desk'>
 
       <!-- 客户信息部分 -->
       <view class="card">
@@ -58,7 +58,7 @@
               <view class="input-title3">单位</view>
               <view class='input-right'>
                 <picker bindchange='bindPackageTypeChange' range='{{packagetypes}}' value='index}}' range-key='TYPENAMECH'>
-                  <input value='{{packagetype}}' placeholder='点击选择' class="input-right input-normal"/>
+                  <input value='{{packagetype}}' placeholder='点击选择' class="input-right input-normal" />
                 </picker>
               </view>
             </view>
@@ -66,13 +66,13 @@
 
           <view class='search-input-row'>
             <view class='line2 search-input-row'>
-              <view class="input-title2">毛重/T</view>
-              <input bindinput='getWeight' type='digit' class="input-normal input-right" value='{{weight==-1?"":weight}}' placeholder-class='input-right' placeholder='点击输入' />
+              <view class="input-title2">毛重</view>
+              <input bindinput='getWeight' type='digit' class="input-normal input-right" value='{{weight==-1?"":weight}}' placeholder-class='input-right' placeholder='T' />
             </view>
             <view style="width:4%;"></view>
             <view class='line2 search-input-row'>
-              <view class="input-title2">体积/m³</view>
-              <input bindinput='getVol' type='digit' class="input-normal input-right" value='{{vol==-1?"":vol}}' placeholder-class='input-right' placeholder='点击输入' />
+              <view class="input-title2">体积</view>
+              <input bindinput='getVol' type='digit' class="input-normal input-right" value='{{vol==-1?"":vol}}' placeholder-class='input-right' placeholder='m³' />
             </view>
           </view>
 
@@ -102,22 +102,22 @@
           <view class="search-input-row line">
             <view class="input-title">CRD</view>
             <picker mode="date" value="{{date}}" start="1978-01-01" end="2100-01-01" bindchange="bindCRDDateChange">
-              <input class="input-normal" value='{{CRD_date}}' placeholder='yyyy-mm-dd'/>
+              <input class="input-normal" value='{{CRD_date}}' placeholder='yyyy-mm-dd' />
             </picker>
             <view style='width:4%;'></view>
             <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindCRDTimeChange">
-              <input class="input-normal" value='{{CRD_time}}' placeholder='hh:mm'/>
+              <input class="input-normal" value='{{CRD_time}}' placeholder='hh:mm' />
             </picker>
           </view>
 
           <view class="search-input-row line">
             <view class="input-title">ETD</view>
             <picker mode="date" value="{{date}}" start="1978-01-01" end="2100-01-01" bindchange="bindETDDateChange">
-              <input class="input-normal" value='{{ETD_date}}' placeholder='yyyy-mm-dd'/>
+              <input class="input-normal" value='{{ETD_date}}' placeholder='yyyy-mm-dd' />
             </picker>
             <view style='width:4%;'></view>
             <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindETDTimeChange">
-              <input class="input-normal" value='{{ETD_time}}' placeholder='hh:mm'/>
+              <input class="input-normal" value='{{ETD_time}}' placeholder='hh:mm' />
             </picker>
           </view>
 
@@ -132,7 +132,7 @@
 
           <view class="search-input-row line">
             <view class="input-title">装运港</view>
-            <input bindblur='clearStart' bindfocus='getStartPort' bindinput='getStartPort' class="input-normal" value='{{start}}' placeholder='{{start_port}}' />
+            <input bindfocus='getStartPort' bindinput='getStartPort' class="input-normal" value='{{start}}' placeholder='{{start_port}}' />
             <view></view>
           </view>
           <view wx:if='{{showstartlist}}' style='width:100%;'>
@@ -146,7 +146,7 @@
 
           <view class="search-input-row line">
             <view class="input-title">目的港</view>
-            <input bindblur='clearDes' bindfocus='getDesPort' bindinput='getDesPort' class="input-normal" value='{{des}}' placeholder='{{des_port}}' />
+            <input bindfocus='getDesPort' bindinput='getDesPort' class="input-normal" value='{{des}}' placeholder='{{des_port}}' />
             <view></view>
           </view>
           <view wx:if='{{showdeslist}}' style='width:100%;'>

@@ -31,7 +31,7 @@
 }
 
 .line2{
-  width:48%; 
+  /* width:100%;  */
   border-bottom: 1px solid #ededed;
 }
 
@@ -52,8 +52,8 @@
 
 .input-result{
   margin-left:3%;
-  height:70rpx;
-  line-height:70rpx;
+  /* height:70rpx; */
+  /* line-height:70rpx; */
 }
 
 .footer{
