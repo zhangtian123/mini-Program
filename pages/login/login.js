@@ -51,11 +51,11 @@ Page({
       userPassword: e.detail.value
     })
   },
-
+  
   logIn: function () {
     var that = this
-    var userCode = this.data.userName
-    var password = this.data.userPassword
+    var userCode = wx.getStorageSync("UserCode") != '' ? wx.getStorageSync("UserCode") : this.data.userName
+    var password = wx.getStorageSync("Password") != '' ? wx.getStorageSync("Password"): this.data.userPassword 
     var systemCode = "BestFMS8"
     var statusCode = 0
     if (userCode == '')//用户名为空
@@ -124,10 +124,6 @@ Page({
                 icon: 'success',
                 duration: 1000
               })
-              that.setData({
-                userName: '',
-                userPassword: ''
-              })
               jsonData = JSON.parse(jsonData);
               var tempResult = {
                 UserID: jsonData.UserID,
@@ -147,6 +143,12 @@ Page({
               app.data.customer = jsonData.Customer
               app.data.OPENID = jsonData.OpenID
               app.data.USERID = jsonData.UserID
+              wx.setStorageSync('UserCode', jsonData.UserCode)
+              wx.setStorageSync('Password', that.data.userPassword)
+              that.setData({
+                userName: '',
+                userPassword: ''
+              })
               if (app.data.OPENID != null && app.data.OPENID != '' && app.data.OPENID != 'null') {
                 app.globalData.hasBinding = true
               }
@@ -211,8 +213,10 @@ Page({
       })
     }
   },
-
   onLoad: function () {
+    if(wx.getStorageSync("UserCode")!='' && wx.getStorageSync("Password")!=""){
+      this.logIn();
+    }
   },
 
   onShow: function () {

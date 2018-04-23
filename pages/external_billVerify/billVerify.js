@@ -773,7 +773,8 @@ Page({
     app.data.num = 0
     app.data.packageType = []
     app.data.allports = []
-
+    wx.setStorageSync('UserCode', '')
+    wx.setStorageSync('Password', '')
     // 跳转到登录界面
     wx.switchTab({
       url: '../login/login',

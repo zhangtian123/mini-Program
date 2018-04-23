@@ -524,6 +524,8 @@ Page({
   exit: function (e) {
     //格式化全局变量
     // 跳转到登录界面
+    wx.setStorageSync('UserCode', '')
+    wx.setStorageSync('Password', '')
     wx.switchTab({
       url: '../login/login',
     })
