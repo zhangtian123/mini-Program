@@ -275,7 +275,13 @@ Page({
     });
     this.chooseFilterList();
   },
-
+  closeTypeList: function () {
+    if (this.data.isChoosed) {
+      this.setData({
+        isChoosed: false
+      });
+    }
+  },
   chooseFilterList: function () {
     if (this.data.filterIsChoosed) {
       this.setData({

@@ -286,7 +286,13 @@ Page({
       });
     }
   },
-
+  closeTypeList: function () {
+    if (this.data.isChoosed) {
+      this.setData({
+        isChoosed: false
+      });
+    }
+  },
   selectType: function (e) {
     this.setData({
       typeIndex: e.currentTarget.dataset.index

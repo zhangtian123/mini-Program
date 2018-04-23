@@ -26,7 +26,7 @@
 
   </view>
 
-  <scroll-view class='content' scroll-y="true" style='height:1500rpx' bindscrolltolower="scrollToLower">
+  <scroll-view class='content' scroll-y="true" style='height:1500rpx' bindscrolltolower="scrollToLower"  bindtap='closeTypeList'>
     <view class="card" wx:for="{{itemList}}" wx:item="{{item}}">
       <view class="information">
         <text>账单编号</text>

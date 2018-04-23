@@ -887,6 +887,13 @@ Page({
       });
     }
   },
+  closeTypeList:function(){
+    if (this.data.isChoosed) {
+      this.setData({
+        isChoosed: false
+      });
+    }
+  },
 
   radioChange: function (e) {
     var filterRadioButton = this.data.filterRadioButton;// ['过去一周', '过去一个月', '过去三个月', '过去半年'],
