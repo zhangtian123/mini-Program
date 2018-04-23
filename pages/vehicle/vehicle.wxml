@@ -17,10 +17,10 @@
       </view>
       <view class="dashLine"></view>
       <view>
-        <text>集装箱号/箱型尺寸：{{item.BILL.CONTAINERNO}}</text>
+        <text>集装箱号/箱型尺寸：{{item.BILL.CONTAINERNO}}/{{item.BILL.SIZE}}</text>
       </view>
       <view>
-        <text>司机/车号：{{item.BILL.DRIVER}}</text>
+        <text>司机/车号：{{item.BILL.DRIVER}}/{{item.BILL.TRUCKNO}}</text>
       </view>
       <view>
         <text>司机电话：{{item.BILL.TELEPHONE}}</text>
@@ -43,7 +43,7 @@
         </view>
         <view class="line"></view>
         <view class='Column'>
-          <view class="{{item.DETAIL[4].IsFinished && item.DETAIL[3].IsFinished? 'circle' :'circle-unfinished' }} ">到场</view>
+          <view class="{{item.DETAIL[4].IsFinished && item.DETAIL[3].IsFinished? 'circle' :'circle-unfinished' }} ">到厂</view>
           <text class='time' wx:if="{{item.DETAIL[4].IsFinished && item.DETAIL[3].IsFinished}}">{{item.DETAIL[4].FINISHEDDATE}}</text>
         </view>
         <view class="line1"></view>

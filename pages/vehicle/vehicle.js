@@ -102,12 +102,12 @@ Page({
               BILLID: jsonData.BILLID,
               BILLNO: jsonData.BILLNO,
               BILLCODE: jsonData.BILLCODE,
-              CONTAINERNO: jsonData.CONTAINERNO,
-              SIZE: jsonData.SIZE,
+              CONTAINERNO: jsonData.CONTAINERNO != null ? jsonData.CONTAINERNO:'',
+              SIZE: jsonData.SIZE == null ? '' : jsonData.SIZE,
               TYPE: jsonData.TYPE,
-              TRUCKNO: jsonData.TRUCKNO,
-              DRIVER: jsonData.DRIVER,
-              TELEPHONE: jsonData.TELEPHONE,
+              TRUCKNO: jsonData.TRUCKNO != null ? jsonData.TRUCKNO:'',
+              DRIVER: jsonData.DRIVER != null ? jsonData.DRIVER:'',
+              TELEPHONE: jsonData.TELEPHONE != null ? jsonData.TELEPHONE:'',
               DETAIL: result
             }
             res.push(tempResult)
@@ -239,6 +239,7 @@ Page({
             }
           }
           itemList = itemList.concat(item)
+          console.log(itemList)
           that.setData({
             itemList: itemList
           })
@@ -381,115 +382,11 @@ Page({
         tempNodeCode = ithDetail.NODECODE;
       }
     }
-    if (tempNodeCode != null) {//如果DETAIL数据都是IsFinished：true
-      var BILLNO = BILL.BILLNO;
-      var BILLID = BILL.BILLID;
-      var BILLCODE = BILL.BILLCODE;
-      switch (tempNodeCode) {
-        case 'FMS_TCMX01':
-        //创建,下一步接单
-          var state = '接单中'
-          var data = {
-            state: state,
-            BILLID: BILLID,
-            BILLNO: BILLNO,
-            BILLCODE: BILLCODE,
-            nodeCode: 'FMS_TCMX05'
-          }
-          data = JSON.stringify(data);//将json转成字符串传值
-          wx.navigateTo({
-            url: '../vehicle_feedback/index?data=' + data,
-          })
-          break;
-        case 'FMS_TCMX05':
-          //接单，下一步派车
-          var state = '派车中'
-          var data = {
-            state: state,
-            BILLID: BILLID,
-            BILLNO: BILLNO,
-            BILLCODE: BILLCODE,
-            nodeCode: 'FMS_TCMX06'
-          }
-          data = JSON.stringify(data);//将json转成字符串传值
-          wx.navigateTo({
-            url: '../vehicle_sendingcar/sendingcar?data=' + data,
-          })
-          break;
-        case 'FMS_TCMX06':
-          //派车，下一步提箱
-          var state = '提箱中'
-          var data = {
-            BILLID: BILLID,
-            BILLNO: BILLNO,
-            BILLCODE: BILLCODE,
-            nodeCode:'FMS_TCMX07'
-          }
-          data = JSON.stringify(data);//将json转成字符串传值
-          wx.navigateTo({
-            url: '../vehicle_takingbox/feedback-takebox?data=' + data,
-          })
-          break;
-        case 'FMS_TCMX07':
-          //提箱,下一步到场
-          var state = '到场中'
-          var data = {
-            BILLID: BILLID,
-            BILLNO: BILLNO,
-            BILLCODE: BILLCODE,
-            nodeCode: 'FMS_TCMX10'
-          }
-          data = JSON.stringify(data);//将json转成字符串传值
-          wx.navigateTo({
-            url: '../vehicle_feedback/index?data=' + data,
-          })
-          break;
-        case 'FMS_TCMX10':
-          //到场,下一步装箱
-          var state = '装箱中'
-          var data = {
-            state: state,
-            BILLID: BILLID,
-            BILLNO: BILLNO,
-            BILLCODE: BILLCODE,
-            nodeCode: nodeCode
-          }
-          data = JSON.stringify(data);//将json转成字符串传值
-          wx.navigateTo({
-            url: '../vehicle_feedback/index?data=' + data,
-          })
-          break;
-        case 'FMS_TCMX09':
-          //装箱，下一步装完
-          var state = '装完中'
-          var data = {
-            state: state,
-            BILLID: BILLID,
-            BILLNO: BILLNO,
-            BILLCODE: BILLCODE,
-            nodeCode: 'FMS_TCMX08'
-          }
-          data = JSON.stringify(data);//将json转成字符串传值
-          wx.navigateTo({
-            url: '../vehicle_loaded/loaded?data=' + data,
-          })
-          break;
-        case 'FMS_TCMX08':
-          //装完 ,下一步进港
-          var state = '进港中'
-          var data = {
-            BILLID: BILLID,
-            BILLNO: BILLNO,
-            BILLCODE: BILLCODE,
-            nodeCode: 'FMS_TCMX11'
-          }
-          data = JSON.stringify(data);//将json转成字符串传值
-          wx.navigateTo({
-            url: '../vehicle_feedback/index?data=' + data,
-          })
-          break
-        case 'FMS_TCMX11':
-      }
+    if (tempNodeCode == "FMS_TCMX11") {//如果DETAIL数据都是IsFinished：true
+      wx.showModal({
+        title: '提示',
+        content: '该拖车单已经完成！',
+      })
     }
   },
 

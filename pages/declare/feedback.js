@@ -182,12 +182,16 @@ Page({
                 result = result.replace(']', '');
                 result = result.replace(new RegExp('},{', 'g'), '} , {')
                 var resultArray = result.split(' , ')
-
                 var finishNode = [];
                 for (var i = 0; i < resultArray.length; i++) {
                   var ithResult = resultArray[i];
+                  ithResult = ithResult.replace('[', '');
+                  ithResult = ithResult.replace(']','');
                   var jsonData = JSON.parse(ithResult);
                   var NODECODE = jsonData.NODECODE;
+                  if (NODECODE != 'FMS_BG03' && NODECODE != 'FMS_BG04' && NODECODE !='FMS_BG05'){
+                    continue;
+                  }
                   var index = finishNode.indexOf(NODECODE)
                   if (index == -1) {
                     finishNode.push(NODECODE);
@@ -289,7 +293,7 @@ Page({
     var ithItem = itemList[index];
     var BILL = ithItem.BILL;
     var DETAIL = ithItem.DETAIL;
-
+    var finalNode = null;
     for (var i = 0; i < DETAIL.length; i++) {
       var ithDetail = DETAIL[i];
       if (ithDetail.IsFinished == false) {
@@ -347,9 +351,16 @@ Page({
             break;
         }
         break;
+      }else{
+          finalNode = ithDetail.NODECODE;
       }
     }
-
+    if (finalNode == "FMS_BG05"){
+      wx.showModal({
+        title: '提示',
+        content: '该报关单已经完成！',
+      })
+    }
   },
 
   priceResearch: function () {

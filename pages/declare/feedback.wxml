@@ -20,19 +20,19 @@
       <text>报关状态</text>
       <view class='Row' style='margin-top:20rpx;'>
         <view class='Column'>
-          <view class="{{item.DETAIL[1].IsFinished ? 'circle' :'circle-unfinished' }} ">接单</view>
+          <view class="{{item.DETAIL[0].IsFinished ? 'circle' :'circle-unfinished' }} ">接单</view>
+          <text class='time' wx:if="{{item.DETAIL[0].IsFinished}}">{{item.DETAIL[0].FINISHEDDATE}}</text>
+        </view>
+        <view class="line"></view>
+        <view class='Column'>
+          <view class="{{item.DETAIL[1].IsFinished ? 'circle' :'circle-unfinished' }} ">申报</view>
           <text class='time' wx:if="{{item.DETAIL[1].IsFinished}}">{{item.DETAIL[1].FINISHEDDATE}}</text>
         </view>
         <view class="line"></view>
         <view class='Column'>
-          <view class="{{item.DETAIL[2].IsFinished ? 'circle' :'circle-unfinished' }} ">申报</view>
-          <text class='time' wx:if="{{item.DETAIL[2].IsFinished}}">{{item.DETAIL[2].FINISHEDDATE}}</text>
-        </view>
-        <view class="line"></view>
-        <view class='Column'>
 
-          <view class="{{item.DETAIL[3].IsFinished ? 'circle' :'circle-unfinished' }} ">放行</view>
-          <text class='time' wx:if="{{item.DETAIL[3].IsFinished}}">{{item.DETAIL[3].FINISHEDDATE}}</text>
+          <view class="{{item.DETAIL[2].IsFinished ? 'circle' :'circle-unfinished' }} ">放行</view>
+          <text class='time' wx:if="{{item.DETAIL[2].IsFinished}}">{{item.DETAIL[2].FINISHEDDATE}}</text>
 
         </view>
       </view>
