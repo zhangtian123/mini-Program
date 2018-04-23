@@ -9,7 +9,7 @@
     <image bindtap="tap_ch" src="../../images/menu.png" mode='aspectFit' class="menu"></image>
     <!--左侧栏-->
   </view>
-  <scroll-view class='content' scroll-y="true" style='height:1500rpx' bindscrolltolower="scrollToLower">
+  <scroll-view class='content' scroll-y="true" style='height:1500rpx' bindscrolltolower="scrollToLower"  bindscrolltoupper="refresh" >
     <view class='card' wx:for="{{itemList}}" wx:item="{{item}}">
       <view class="information">
         派车单号

@@ -821,6 +821,15 @@ Page({
       that.getData();
     }
   },
+  refresh: function () {
+    let that = this;
+    if (!that.data.searchLoading && !that.data.searchLoadingComplete) {
+      that.setData({
+        searchPageNum: 1 //每次触发上拉事件，把searchPageNum+1
+      });
+      that.getData();
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

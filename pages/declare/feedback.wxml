@@ -10,7 +10,7 @@
   </view>
 
   <!--正文-->
-  <scroll-view class='content' scroll-y="true" style='height:1500rpx' bindscrolltolower="scrollToLower">
+  <scroll-view class='content' scroll-y="true" style='height:1500rpx' bindscrolltolower="scrollToLower" bindscrolltoupper="refresh" >
     <view class='card' wx:for="{{itemList}}" wx:item="{{item}}">
       <view class="information">
         报关单号

@@ -24,7 +24,7 @@
     <image class="filter" bindtap="filter" src="{{filterSrc}}" mode='aspectFit'></image>
   </view>
 
-  <scroll-view class='content' scroll-y="true" style='height:1500rpx' bindscrolltolower="scrollToLower"  bindtap='closeTypeList'>
+  <scroll-view class='content' scroll-y="true" style='height:1500rpx' bindscrolltolower="scrollToLower"  bindscrolltoupper="refresh"   bindtap='closeTypeList'>
     <view class="card" wx:for="{{itemList}}">
       <image class='pin' src='../../images/pin.png'></image>
       <view class='information'>

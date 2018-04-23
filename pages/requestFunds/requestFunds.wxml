@@ -19,7 +19,7 @@
     <image class="filter" bindtap="filter" src="{{filterSrc}}" mode='aspectFit'></image>
     <!--右侧栏-->
   </view>
-  <scroll-view class='content' scroll-y="true" style='height:1500rpx' bindscrolltolower="scrollToLower" bindtap='closeTypeList'>
+  <scroll-view class='content' scroll-y="true" style='height:1500rpx' bindscrolltolower="scrollToLower" bindscrolltoupper="refresh"  bindtap='closeTypeList'>
     <view class="card" wx:for="{{itemList}}" wx:item="{{item}}">
 
       <view class="information">

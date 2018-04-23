@@ -12,7 +12,7 @@
     <!--右侧栏-->
   </view>
 
-  <scroll-view class='content' scroll-y="true" style='height:1500rpx' bindscrolltolower="scrollToLower">
+  <scroll-view class='content' scroll-y="true" style='height:1500rpx' bindscrolltolower="scrollToLower" bindscrolltoupper="refresh" >
     <view class="card1" wx:for="{{itemList}}" wx:item="{{item}}">
       <view class='color-style'></view>
       <view class='color-style-info'>
