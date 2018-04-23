@@ -19,7 +19,7 @@
     <image class="filter" bindtap="filter" src="{{filterSrc}}" mode='aspectFit'></image>
     <!--右侧栏-->
   </view>
-  <scroll-view class='content' scroll-y="true" style='height:1500rpx' bindscrolltolower="scrollToLower">
+  <scroll-view class='content' scroll-y="true" style='height:1500rpx' bindscrolltolower="scrollToLower" >
     <view class="card" wx:for="{{itemList}}" wx:item="{{item}}">
 
       <view class="information">
@@ -57,7 +57,7 @@
         <text class="detail-info" wx:if="{{item.BILL.BANKNAME!=null}}">{{item.BILL.BANKNAME}}</text>
       </view>
       <view class="information">
-        <text>开户行</text>
+        <text>银行账号</text>
         <text class="detail-info" wx:if="{{item.BILL.ACCOUNTNO!=null}}">{{item.BILL.ACCOUNTNO}}</text>
       </view>
        <image class="expandArrow" bindtap='table_show' src='{{item.SHOW.showImageUrl}}' mode='aspectFit' data-index="{{index}}"></image>
