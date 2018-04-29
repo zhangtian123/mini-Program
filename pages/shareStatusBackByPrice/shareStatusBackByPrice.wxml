@@ -5,20 +5,25 @@
 </view>
 <view >
   <view class="card" >
-    <view class="col-list">
+    <view class="row-list key-info" style="margin-bottom:10rpx;">
+      <text>{{item.PORTLOADING}}-</text>
+      <text wx:if="{{item.ISDIRECT == 'true'}}">直达</text>
+      <text wx:else>非直达</text>
+      <text>-{{item.PORTDISCHARGE}}</text>
+    </view>
+    <view class="col-list" style="margin-bottom:10rpx;">
       <view class="row-list" style='align-items: baseline;margin: 0 0 10rpx 0;'>
         船期
         <text wx:if="{{item.SAILINGDATE!=null}}" class='key-info'>{{item.SAILINGDATE}}</text> 航程
         <text wx:if="{{item.DAYNUM!=null}}" class='key-info'>{{item.DAYNUM}}</text> 航线
         <text wx:if="{{item.SAILLINE!=null}}" class='key-info'>{{item.SAILLINE}}</text>
-        <text class='sum'>￥{{item.TotalPrice}}</text>
       </view>
-      <view class="row-list">
+      <view class="row-list" style="margin-bottom:10rpx;">
         <view class="col-list" style='align-items: baseline;'>
           <text style='margin: 0 0 10rpx 0;'>有效期：{{item.STARTDATE}}~{{item.ENDDATE}}</text>
-          <text style='margin: 0 0 10rpx 0;'>20GP/40GP/40HQ：{{num20gp}}/{{num40gp}}/{{num40hc}}</text>
+          <text style='margin: 0 0 10rpx 0;'>20GP/40GP/40HQ：{{item.PRICE20GP}}/{{item.PRICE40GP}}/{{item.PRICE40HQ}}</text>
           <view class="line" style='margin: 0 0 10rpx 0;'></view>
-          <text class="count">明细：{{num20gp}}×{{item.PRICE20GP}}+{{num40gp}}×{{item.PRICE40GP}}+{{num40hc}}×{{item.PRICE40HQ}}</text>
+          <text  class='count' style='margin-top:10rpx;'>运费：￥{{item.TotalPrice}}</text>
         </view>
         <image wx:if="{{index==0}}" src="../../images/fast.png" class="oo-image"></image>
         <image wx:if="{{index==1}}" src="../../images/low_price.png" class="oo-image"></image>

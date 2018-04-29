@@ -64,6 +64,7 @@ Page({
         nodeValue = nodeValue.replace(new RegExp('},{', 'g'), '} , {');
         var resultArray = nodeValue.split(' , ');
         var jsonData = JSON.parse(resultArray[0]);
+        console.log(jsonData)
         var tempResult = {
           SAILLINE: jsonData.SAILLINE,
           SAILINGDATE: jsonData.SAILINGDATE,

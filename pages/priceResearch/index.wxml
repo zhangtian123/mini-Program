@@ -103,9 +103,8 @@
               航程<text wx:if="{{item.DAYNUM!=null}}" class='key-info'>{{item.DAYNUM}}</text>
               航线<text wx:if="{{item.SAILLINE!=null}}" class='key-info'>{{item.SAILLINE}}</text>
               <text class='sum'>￥{{item.TotalPrice}}</text>
-              <!-- <text style='color: #006fbe; margin:0 0 0 60rpx;font-size:32rpx' data-index="{{index}}" bindtap='generatePrice' >生成报价></text> -->
-               <image class='pin2' data-index="{{index}}" bindtap='generatePrice' src='../../images/share.png'></image> 
-              <!-- <button  class='share' bindtap='generatePrice' data-index="{{index}}">生成报价</button> -->
+              <image  wx:if="{{userflag=='USER'}}" class='pin2' data-index="{{index}}" bindtap='generatePrice' src='../../images/share.png'></image> 
+              <image wx:if="{{userflag=='CUSTOMER'}}" class='pin2' data-index="{{index}}" bindtap='share' src='../../images/share.png'></image> 
             </view>
             <view class="row-list">
               <view class="col-list" style='align-items: baseline;'>

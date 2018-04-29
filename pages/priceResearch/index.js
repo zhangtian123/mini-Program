@@ -153,13 +153,20 @@ Page({
     var index = e.target.dataset.index;
     var pricelist = this.data.pricelist;
     var ithPrice = pricelist[index];
-
     var BILLID = ithPrice.BILLID;
-
     var that = this;
-
     wx.navigateTo({
       url: '../generatePrice/generatePrice?BILLID=' + BILLID,
+    })
+  },
+  share:function(e){
+    var index = e.target.dataset.index;
+    var pricelist = this.data.pricelist;
+    var ithPrice = pricelist[index];
+    var BILLID = ithPrice.BILLID;
+    var that = this;
+    wx.navigateTo({
+      url: '../shareStatusBackByPrice/shareStatusBackByPrice?BILLID=' + BILLID,
     })
   },
   requestFunds: function (e) {
