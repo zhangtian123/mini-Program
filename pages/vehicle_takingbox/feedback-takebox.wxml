@@ -2,7 +2,8 @@
 
 
 <!--填写信息-->
-<view class="state" style='margin-top:25rpx;'>
+<view id="one">
+<view class="state">
   <view>状态：提箱中</view>
 </view>
 <view class="info" style="display:flex;flex-direction:column">
@@ -36,7 +37,7 @@
       <image class='upload-img-btn' src='/images/camera.png' mode='aspectFit' bindtap="chooseImg"></image>
     </view>
     
-    <view class='imgs'>
+    <view class='imgs' style="margin-left:25rpx;">
       <view class="img" wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
         <image src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg"></image>
         <view class="delete-btn" data-index="{{index}}" catchtap="deleteImg">
@@ -48,6 +49,8 @@
 </view>
 
 <button class="fill-submit" bindtap='fillsubmit'>提交</button>
+
+</view>
 
 
 <view>

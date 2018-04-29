@@ -65,7 +65,7 @@ picker{
 
 .box-no{
   margin:10rpx 0 0 66rpx;
-  border-bottom: 2rpx solid #dddadd
+  border-bottom: 2rpx solid #dddadd;
 }
 
 .seal-no{
@@ -77,9 +77,9 @@ textarea{
   width:70%;
   height: 120rpx;
   border: 2rpx solid #dddadd;
-  margin: -10rpx 0 40rpx 20%;
+  margin: -40rpx 0 40rpx 20%;
   border-radius: 30rpx;
-  padding: 20rpx;
+  padding: 10rpx 10rpx;
   line-height: 60rpx;
 }
 
@@ -105,9 +105,9 @@ textarea{
 
 .img image{
   border: 2rpx dashed #dddadd;
-  width: 220rpx;
+  width: 180rpx;
   height: 270rpx;
-   margin: 20rpx 6rpx;
+  margin: 20rpx 6rpx;
 }
 
 .imgs{
@@ -131,7 +131,7 @@ textarea{
   width:40rpx;
   height: 40rpx;
   position: relative;
-  top: -340rpx;
-  left: 200rpx;
+  top: -350rpx;
+  left: 160rpx;
   border: none;
 }
