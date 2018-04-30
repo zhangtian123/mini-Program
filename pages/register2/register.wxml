@@ -20,7 +20,7 @@
 </view>
   <view class='input-bg' style='display:flex;flex-direction:row;  align-items: center;'>
     <input class="textfield" value='{{verificationCode}}' bindinput='verificationCodeInput' style='margin-left:40rpx;' placeholder='请输入验证码' />
-    <button class="{{countNumber==60 ? 'check' : 'alreadyCheck'}}"  bindtap='getVerificationCode'>{{getCode}}</button>
+    <button class="{{countNumber==300 ? 'check' : 'alreadyCheck'}}"  bindtap='getVerificationCode'>{{getCode}}</button>
 </view>
   <!--Next button  -->
   <button class="myBtn" bindtap="next">下一步</button>

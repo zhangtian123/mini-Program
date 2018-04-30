@@ -49,11 +49,12 @@
 }
 
 .oo-image {
+  position:absolute;
   width: 150rpx;
   height: 150rpx;
   opacity: 0.5;
   z-index: 0;
-  margin-left: 80rpx;
+  margin-left: 70%; 
   margin-top: 20rpx;
 }
 
@@ -149,7 +150,7 @@
 .sum{
   color: #df3c01;
   font-size: 36rpx;
-  width: 150rpx;
+  width: 120rpx;
   text-align: right;
 }
 
