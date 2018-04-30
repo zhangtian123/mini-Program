@@ -1,4 +1,4 @@
-// pages/forgot_password2/forgot_password.js
+﻿// pages/forgot_password2/forgot_password.js
 var app = getApp()
 var Promise = require('../../plugins/es6-promise.js')
 var Parser = require('../../lib/dom-parser');
@@ -18,7 +18,7 @@ function timeDown(that) {
   var countNumber = that.data.countNumber;
   if (countNumber == 0) {
     that.setData({
-      countNumber: 300,
+      countNumber: 60,
       getCode: '重新获取'
     })
     return;
@@ -50,7 +50,7 @@ Page({
     eyeImage: '/images/eye-open.png',
     isPassword: true,
     getCode: '获取验证码',
-    countNumber: 300,
+    countNumber: 60,
   },
 
   //事件处理函数
@@ -152,10 +152,10 @@ Page({
   },
 
   getVerificationCode: function () {
-    if (this.data.countNumber != 0 && this.data.countNumber != 300) {
+    if (this.data.countNumber != 0 && this.data.countNumber != 60) {
       return
     }
-    if (this.data.countNumber == 300) {
+    if (this.data.countNumber == 60) {
       timeDown(this);
     }
     var MobileNo = this.data.userPhonenumber

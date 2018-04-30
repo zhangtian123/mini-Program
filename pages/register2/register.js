@@ -1,4 +1,4 @@
-// pages/register2/register.js
+﻿// pages/register2/register.js
 var app = getApp()
 var Parser = require('../../lib/dom-parser');
 //wsdlurl中设置需要访问的webservice的url地址
@@ -18,7 +18,7 @@ function timeDown (that) {
   var countNumber = that.data.countNumber;
   if (countNumber == 0) {
     that.setData({
-      countNumber: 300,
+      countNumber: 60,
       getCode: '重新获取'
     })
     return;
@@ -49,7 +49,7 @@ Page({
     eyeImage: '/images/eye-close.png',
     isPassword: true,
     getCode:'获取验证码',
-    countNumber:300,
+    countNumber:60,
   },
 
   //事件处理函数
@@ -142,10 +142,10 @@ Page({
       })
       return;
     }
-    if (this.data.countNumber != 0 && this.data.countNumber != 300) {
+    if (this.data.countNumber != 0 && this.data.countNumber != 60) {
       return
     }
-    if (this.data.countNumber==300){
+    if (this.data.countNumber==60){
       timeDown(this);
     }
     var MobileNo = this.data.userPhonenumber
