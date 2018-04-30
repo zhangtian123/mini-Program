@@ -86,6 +86,7 @@ textarea{
   border-radius: 30rpx;
   padding: 20rpx;
   line-height: 60rpx;
+  width:95%;
 }
 
 .fill-submit{
