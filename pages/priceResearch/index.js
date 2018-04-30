@@ -1,4 +1,4 @@
-//index.js
+﻿//index.js
 //获取应用实例
 var app = getApp()
 var utils = require('../../utils/util.js');
@@ -614,6 +614,7 @@ Page({
             SAILLINE: jsonData.SAILLINE,
             SAILINGDATE: jsonData.SAILINGDATE,
             DAYNUM: jsonData.DAYNUM,
+	    CARRIER: jsonData.CARRIER,
             PORTLOADING: jsonData.PORTLOADING,
             PORTDISCHARGE: jsonData.PORTDISCHARGE,
             STARTDATE: (jsonData.STARTDATE).substring(0, 10),

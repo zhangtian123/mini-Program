@@ -1,4 +1,4 @@
-// pages/shareStatusBackByPrice/shareStatusBackByPrice.js
+﻿// pages/shareStatusBackByPrice/shareStatusBackByPrice.js
 var app = getApp()
 var utils = require('../../utils/util.js');
 var Parser = require('../../lib/dom-parser');
@@ -69,6 +69,7 @@ Page({
           SAILLINE: jsonData.SAILLINE,
           SAILINGDATE: jsonData.SAILINGDATE,
           DAYNUM: jsonData.DAYNUM,
+	  CARRIER: jsonData.CARRIER,
           PORTLOADING: jsonData.PORTLOADING,
           PORTDISCHARGE: jsonData.PORTDISCHARGE,
           STARTDATE: (jsonData.STARTDATE).substring(0, 10),

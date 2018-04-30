@@ -1,4 +1,4 @@
-<!--index.wxml-->
+﻿<!--index.wxml-->
 <view class="page1">
   <view class="page-top1">
     <view class="nav">
@@ -89,7 +89,7 @@
             <view class="row-list" style='align-items: baseline;'>
               船期<text wx:if="{{item.SAILINGDATE!=null}}" class='key-info'>{{item.SAILINGDATE}}</text> 
               航程<text wx:if="{{item.DAYNUM!=null}}" class='key-info'>{{item.DAYNUM}}</text>
-              航线<text wx:if="{{item.SAILLINE!=null}}" class='key-info'>{{item.SAILLINE}}</text>
+              船公司<text wx:if="{{item.CARRIER!=null}}" class='key-info'>{{item.CARRIER}}</text>
               <text class='sum'>￥{{item.TotalPrice}}</text>
               <image class='pin2' data-index="{{index}}" bindtap='sharePrice' src='../../images/share.png'></image>
               <!-- <button  class='share' bindtap='sharePrice' data-index="{{index}}">分享</button> -->
@@ -97,7 +97,7 @@
             <view class="row-list">
               <view class="col-list" style='align-items: baseline;'>
                 <text>有效期：{{item.STARTDATE}}~{{item.ENDDATE}}</text>
-                <text>20GP/40GP/40HQ：{{num20gp}}/{{num40gp}}/{{num40hc}}</text>
+                <text>20GP/40GP/40HQ：{{item.PRICE20GP}}/{{item.PRICE40GP}}/{{item.PRICE40HQ}}</text>
                 <view class="line"></view>
                 <text class="count">明细：{{num20gp}}×{{item.PRICE20GP}}+{{num40gp}}×{{item.PRICE40GP}}+{{num40hc}}×{{item.PRICE40HQ}}</text>
               </view>
