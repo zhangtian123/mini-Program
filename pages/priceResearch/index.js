@@ -606,7 +606,6 @@ Page({
         nodeValue = nodeValue.replace(']', '');
         nodeValue = nodeValue.replace(new RegExp('},{', 'g'), '} , {');
         var resultArray = nodeValue.split(' , ');
-        console.log(resultArray)
         for (var i = 0; i < resultArray.length; i++) {
           var ithResult = resultArray[i];
           var jsonData = JSON.parse(ithResult);
@@ -617,7 +616,6 @@ Page({
             DAYNUM: jsonData.DAYNUM,
             PORTLOADING: jsonData.PORTLOADING,
             PORTDISCHARGE: jsonData.PORTDISCHARGE,
-            CARRIER: jsonData.CARRIER,
             STARTDATE: (jsonData.STARTDATE).substring(0, 10),
             ENDDATE: (jsonData.ENDDATE).substring(0, 10),
             PRICE20GP: jsonData.BossPrice20GP.toFixed(2),
