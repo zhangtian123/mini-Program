@@ -1,4 +1,4 @@
-﻿//index.js
+//index.js
 //获取应用实例
 var app = getApp()
 var utils = require('../../utils/util.js');
@@ -78,7 +78,7 @@ Page({
     des_port_eng: app.data.des_port_eng,
     // 完货日期，默认为当前系统时期
     date: app.data.date,
-    isChangeDate: false,
+    // isChangeDate: app.data.isDateChange,
     // 毛重
     weight: app.data.weight,
     // 体积
@@ -471,8 +471,7 @@ Page({
   bindTimeChange: function (e) {
     app.data.date = e.detail.value
     this.setData({
-      date: e.detail.value,
-      isChangeDate: true
+      date: e.detail.value
     })
   },
 
@@ -550,6 +549,10 @@ Page({
 
   search_price: function (e) {
     //查询运价
+    //清空运价方案
+    this.setData({
+      pricelist:[]
+    })
     this.getPrice();
     this.setData({
       search: false,
@@ -567,7 +570,7 @@ Page({
     predicate += 'and PORTDISCHARGE==@1 '
     values += ',' + this.data.des_port_eng
     // 完货时间
-    if (this.data.isChangeDate == true) {
+    if (this.data.date != 'yyyy-mm-dd') {
       predicate += 'and ENDDATE>=MDFunctions.ParseDateTime(@2)';
       var endday = formatDate(this.data.date)
       values += ',' + endday
@@ -664,6 +667,7 @@ Page({
       weight: app.data.weight,
       vol: app.data.vol,
       num: app.data.num,
+      // isChangeDate:app.data.isDateChange,
       packageType: app.data.packageType,
       userflag: app.data.userflag,
       userinfonickname: app.data.userName,

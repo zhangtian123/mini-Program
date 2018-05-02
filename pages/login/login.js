@@ -111,7 +111,7 @@ Page({
             } else if (status == 2) {
               wx.showModal({
                 title: '提示',
-                content: '密码错误',
+                content: '用户名或密码错误',
               })
             } else if (status == 3) {
               wx.showModal({
