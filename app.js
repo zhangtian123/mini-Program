@@ -1,4 +1,4 @@
-//app.js
+﻿//app.js
 var util=require('utils/util.js')
 App({
   onLaunch: function () {
@@ -18,13 +18,13 @@ App({
     num40gp: 0,
     num40hc: 0,
     start_port: "厦门",
-    isDateChange:false,
+    
     start_port_eng:"XIAMEN",
     
     des_port: "名古屋",
     
     des_port_eng:"NAGOYA",
-    date: 'yyyy-mm-dd',
+    date: util.formatDate(new Date()),
     weight: 0,
     vol: 0,
     num:0,
