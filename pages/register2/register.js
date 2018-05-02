@@ -1,4 +1,4 @@
-﻿// pages/register2/register.js
+// pages/register2/register.js
 var app = getApp()
 var Parser = require('../../lib/dom-parser');
 //wsdlurl中设置需要访问的webservice的url地址
@@ -66,6 +66,7 @@ Page({
   },
 
   isUserExist: function () {
+    var that=this
     var UserCode = this.data.userName
     new Promise((resolve, reject) => {
       wx.request({
@@ -86,6 +87,9 @@ Page({
             wx.showModal({
               title: '提示',
               content: '用户名已存在',
+            })
+            that.setData({
+              userName:''
             })
           }
           resolve(result);
@@ -118,12 +122,16 @@ Page({
 
   isPhoneNumber: function () {
     // 验证130 - 139, 150 - 159, 180 - 189号码段的手机号码
+    var that=this
     var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
     var userPhonenumber = this.data.userPhonenumber;
     if (userPhonenumber != '' && userPhonenumber!=null && myreg.test(userPhonenumber) == false) {//手机号码无效
       wx.showModal({
         title: '提示',
         content: '手机号码无效',
+      })
+      that.setData({
+        userPhonenumber:''
       })
     }
   },
