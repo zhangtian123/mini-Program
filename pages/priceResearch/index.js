@@ -1,4 +1,4 @@
-﻿//index.js
+//index.js
 //获取应用实例
 var app = getApp()
 var utils = require('../../utils/util.js');
@@ -426,10 +426,22 @@ Page({
     app.data.num20gp = 0
     app.data.num40gp = 0
     app.data.num40hc = 0
-    app.data.start_port = "上海"
-    app.data.start_port_eng = "SHANGHAI"
-    app.data.des_port = "迪拜"
-    app.data.des_port_eng = "DUBAI"
+    app.data.userName = ''
+    app.data.userflag = ''
+    app.data.unit_index = 0
+    app.data.num20gp = 0
+    app.data.num40gp = 0
+    app.data.num40hc = 0
+    app.data.start_port = "厦门"
+    app.data.start_port_eng = "XIAMEN"
+    app.data.des_port = "名古屋"
+    app.data.des_port_eng = "NAGOYA"
+    app.data.date = utils.formatDate(new Date())
+    app.data.weight = 0
+    app.data.vol = 0
+    app.data.num = 0
+    app.data.packageType = []
+    app.data.allports = []
     app.data.date = utils.formatDate(new Date())
     app.data.weight = 0
     app.data.vol = 0
@@ -597,6 +609,9 @@ Page({
         if (result == null || result == '') {
           wx.showToast({
             title: '未查询到数据',
+          })
+          that.setData({
+            pricelist: []
           })
           return;
         }

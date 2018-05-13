@@ -1,4 +1,4 @@
-﻿//index.js
+//index.js
 //获取应用实例
 var app = getApp()
 var utils = require('../../utils/util.js');
@@ -560,6 +560,9 @@ Page({
         if (result == null || result == '') {
           wx.showToast({
             title: '未查询到数据',
+          })
+          that.setData({
+            pricelist:[]
           })
           return;
         }
