@@ -1,6 +1,6 @@
-﻿<!--index.wxml-->
-<view class="page1">
-  <view class="page-top1">
+<!--index.wxml-->
+<view class="">
+  <view class="">
     <view class="nav">
       <view bindtap="changePort" class="port">
         <text>{{start_port_eng}}→{{des_port_eng}}</text>

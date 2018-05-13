@@ -1,6 +1,6 @@
-﻿<!--index.wxml-->
-<view class="page1">
-  <view class="page-top1" bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start">
+<!--index.wxml-->
+<view class="">
+  <view class="" bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start">
     <view style='z-index:10000;position:fixed;'>
       <view wx:if="{{userflag=='CUSTOMER'}}">
         <include src="../template/externalUser.wxml" />
