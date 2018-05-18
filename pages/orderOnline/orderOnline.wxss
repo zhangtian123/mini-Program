@@ -8,14 +8,14 @@
 }
 
 .input-title{
-  width:40%;
+  width:50%;
 }
 
 .input-title2{
    width:100%; 
 }
  .input-title3{
-   width:40%; 
+   width:100%; 
 } 
 .input-normal{
   border: none;
