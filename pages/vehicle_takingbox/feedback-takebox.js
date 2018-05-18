@@ -68,7 +68,7 @@ Page({
     if (boxNumber != '' && boxNumber != null && myreg.test(boxNumber) == false) {//手机号码无效
       wx.showModal({
         title: '提示',
-        content: '箱号无效',
+        content: '箱号无效，格式为ABCD1234567',
       })
     }
   },
@@ -80,7 +80,7 @@ Page({
     if (sealNumber != '' && sealNumber != null && myreg.test(sealNumber) == false) {//手机号码无效
       wx.showModal({
         title: '提示',
-        content: '铅封号无效',
+        content: '铅封号无效，格式为ABC123456',
       })
     }
   },
@@ -258,6 +258,24 @@ Page({
         content: '请输入铅封号',
       })
     } else {
+      var boxNumber = this.data.boxNumber;
+      var myreg = /^[A-Z]{4}\d{7}$/;
+      if (boxNumber != '' && boxNumber != null && myreg.test(boxNumber) == false) {//手机号码无效
+        wx.showModal({
+          title: '提示',
+          content: '箱号无效，格式为ABCD1234567',
+        })
+        return;
+      }
+      var sealNumber = this.data.sealNumber;
+      var myreg = /^[A-Z]{3}\d{6}$/;
+      if (sealNumber != '' && sealNumber != null && myreg.test(sealNumber) == false) {//手机号码无效
+        wx.showModal({
+          title: '提示',
+          content: '铅封号无效，格式为ABC123456',
+        })
+        return;
+      }
       var that = this
       that.setData({
         showLoading: true
@@ -272,8 +290,7 @@ Page({
       };
       Trailer = JSON.stringify(Trailer);//将json转成字符串传值
       var NodeCode = this.data.nodeCode;
-      // var UserCode = 'admin'//app.data.userCode;
-      // var UserCode = 'VIRTUAL_TRAILER_01';
+      console.log(Trailer)
       var UserCode = 'VIRTUAL_USER';
       var DocumentList = [];
       var uploadedImage = that.data.uploadedImage;
@@ -361,7 +378,7 @@ Page({
         that.submit();
       })
     } else {
-      this.submit();
+      that.submit();
     }
   }
 })

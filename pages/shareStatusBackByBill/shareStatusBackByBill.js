@@ -33,9 +33,9 @@ Page({
     callbackcount: 4,      //返回数据的个数
 
     item: null,
-    BILLID: "982c9d3c84df4a329c07e1f70931937b",
-    predicate: 'DUNNINGORREQUESTS==@0 and NODECODE==@1  and BILLID == @2',
-    values: 'Dunning,Fee_CQK05,',
+    BILLID: "",
+    predicate: 'BILLID == @0',
+    values: '',
     orderByProperty: 'BILLDATE',
     rowsCount: 0,
   },
@@ -47,7 +47,7 @@ Page({
     var that = this;
     new Promise(function (resolve, reject) {
       that.setData({
-        values: 'Dunning,Fee_CQK05,' + that.data.BILLID,
+        values: that.data.BILLID,
       })
       wx.request({
         url: wsdlurl + 'GetAccountingList',

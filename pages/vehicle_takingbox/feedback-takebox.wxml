@@ -18,11 +18,11 @@
   </view>
   <view style="display:flex;flex-direction:row">
     <text>箱号</text>
-    <input type="text" class="box-no" bindinput='boxNumberInput' bindblur='isBoxNO' placeholder='（格式为：XXXX1111111）' />
+    <input type="text" class="box-no" bindinput='boxNumberInput' bindblur='isBoxNO' />
   </view>
   <view style="display:flex;flex-direction:row">
     <text>铅封号</text>
-    <input type="text" class="seal-no" bindinput='sealNumberInput' bindblur='isSealNO' placeholder='（格式为：XXX111111）' />
+    <input type="text" class="seal-no" bindinput='sealNumberInput' bindblur='isSealNO' />
   </view>
   <view style="display:flex;flex-direction:row">
     <text>描述</text>
