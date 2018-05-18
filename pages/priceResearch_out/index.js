@@ -70,7 +70,7 @@ Page({
     start_port_eng: app.data.start_port_eng,
     des_port_eng: app.data.des_port_eng,
     date: app.data.date,
-    isChangeDate:false,
+    // isChangeDate:false,
     weight: app.data.weight,
     vol: app.data.vol,
     num: app.data.num,
@@ -433,9 +433,10 @@ Page({
   },
 
   bindTimeChange: function (e) {
+    app.data.date = e.detail.value
     this.setData({
       date: e.detail.value,
-      isChangeDate:true
+      // isChangeDate:true
     })
   },
 
@@ -530,7 +531,7 @@ Page({
     predicate += 'and PORTDISCHARGE==@1 '
     values += ',' + this.data.des_port_eng
     // 完货时间
-    if (this.data.isChangeDate == true) {
+    if (this.data.date != 'yyyy-mm-dd') {
       predicate += 'and ENDDATE>=MDFunctions.ParseDateTime(@2)';
       var endday = formatDate(this.data.date)
       values += ',' + endday

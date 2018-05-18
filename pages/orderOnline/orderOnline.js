@@ -533,7 +533,7 @@ Page({
     app.data.start_port_eng = "XIAMEN"
     app.data.des_port = "名古屋"
     app.data.des_port_eng = "NAGOYA"
-    app.data.date = utils.formatDate(new Date())
+    app.data.date = 'yyyy-mm-dd'
     app.data.weight = 0
     app.data.vol = 0
     app.data.num = 0

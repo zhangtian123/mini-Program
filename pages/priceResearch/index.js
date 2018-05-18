@@ -78,7 +78,7 @@ Page({
     des_port_eng: app.data.des_port_eng,
     // 完货日期，默认为当前系统时期
     date: app.data.date,
-    isChangeDate: false,
+    // isChangeDate: false,
     // 毛重
     weight: app.data.weight,
     // 体积
@@ -436,7 +436,7 @@ Page({
     app.data.start_port_eng = "XIAMEN"
     app.data.des_port = "名古屋"
     app.data.des_port_eng = "NAGOYA"
-    app.data.date = utils.formatDate(new Date())
+    app.data.date = 'yyyy-mm-dd'
     app.data.weight = 0
     app.data.vol = 0
     app.data.num = 0
@@ -484,7 +484,7 @@ Page({
     app.data.date = e.detail.value
     this.setData({
       date: e.detail.value,
-      isChangeDate: true
+      // isChangeDate: true
     })
   },
 
@@ -579,7 +579,7 @@ Page({
     predicate += 'and PORTDISCHARGE==@1 '
     values += ',' + this.data.des_port_eng
     // 完货时间
-    if (this.data.isChangeDate == true) {
+    if (this.data.date != 'yyyy-mm-dd') {
       predicate += 'and ENDDATE>=MDFunctions.ParseDateTime(@2)';
       var endday = formatDate(this.data.date)
       values += ',' + endday

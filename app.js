@@ -21,7 +21,7 @@ App({
     start_port_eng:"XIAMEN",
     des_port: "名古屋",
     des_port_eng:"NAGOYA",
-    date: util.formatDate(new Date()),
+    date: 'yyyy-mm-dd',//util.formatDate(new Date()),
     weight: 0,
     vol: 0,
     num:0,
