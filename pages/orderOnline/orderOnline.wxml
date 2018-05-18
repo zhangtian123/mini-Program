@@ -80,21 +80,21 @@
             <view class="row-list" style="width:31%">
               <text>20GP</text>
               <image src="../../images/desc.png" bindtap="desc20gp" style='margin-left:5rpx;width:38rpx;height:38rpx;margin-top:10rpx;'></image>
-              <text style="margin-left:5rpx;width:30rpx">{{num20gp}}</text>
+              <text style="color:black;margin-left:5rpx;width:30rpx">{{num20gp}}</text>
               <image src="../../images/addition.png" bindtap="add20gp" style='margin-left:5rpx;width:38rpx;height:38rpx;margin-top:10rpx;'></image>
             </view>
             <view style='width:3.5%;'></view>
             <view class="row-list" style="width:31%">
               <text>40GP</text>
               <image src="../../images/desc.png" bindtap="desc40gp" style='margin-left:5rpx;width:38rpx;height:38rpx;margin-top:10rpx;'></image>
-              <text style="margin-left:5rpx;width:30rpx;">{{num40gp}}</text>
+              <text style="color:black;margin-left:5rpx;width:30rpx;">{{num40gp}}</text>
               <image src="../../images/addition.png" bindtap="add40gp" style='margin-left:5rpx;width:38rpx;height:38rpx;margin-top:10rpx;'></image>
             </view>
             <view style='width:3.5%;'></view>
             <view class="row-list" style="width:31%">
               <text>40HQ</text>
               <image src="../../images/desc.png" bindtap="desc40hc" style='margin-left:5rpx;width:38rpx;height:38rpx;margin-top:10rpx;'></image>
-              <text style="margin-left:5rpx;width:30rpx">{{num40hc}}</text>
+              <text style="color:black;margin-left:5rpx;width:30rpx">{{num40hc}}</text>
               <image src="../../images/addition.png" bindtap="add40hc" style='margin-left:5rpx;width:38rpx;height:38rpx;margin-top:10rpx;'></image>
             </view>
           </view>
