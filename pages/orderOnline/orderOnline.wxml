@@ -55,7 +55,7 @@
             </view>
             <view style="width:4%;"></view>
             <view class='line2 search-input-row'>
-              <view class="input-title2">单位</view>
+              <view class="input-title3">单位</view>
               <view class='input-right'>
                 <picker bindchange='bindPackageTypeChange' range='{{packagetypes}}' value='index}}' range-key='TYPENAMECH'>
                   <input value='{{packagetype}}' placeholder='点击选择' class="input-right input-normal" />
@@ -66,12 +66,12 @@
 
           <view class='search-input-row'>
             <view class='line2 search-input-row'>
-              <view class="input-title3">毛重</view>
+              <view class="input-title2">毛重</view>
               <input bindinput='getWeight' type='digit' class="input-normal input-right" value='{{weight==-1?"":weight}}' placeholder-class='input-right' placeholder='T' />
             </view>
             <view style="width:4%;"></view>
             <view class='line2 search-input-row'>
-              <view class="input-title3">体积</view>
+              <view class="input-title2">体积</view>
               <input bindinput='getVol' type='digit' class="input-normal input-right" value='{{vol==-1?"":vol}}' placeholder-class='input-right' placeholder='m³' />
             </view>
           </view>
