@@ -1,4 +1,4 @@
-﻿// pages/forgot_password2/forgot_password.js
+// pages/forgot_password2/forgot_password.js
 var app = getApp()
 var Promise = require('../../plugins/es6-promise.js')
 var Parser = require('../../lib/dom-parser');
@@ -82,7 +82,7 @@ Page({
           // success
           var resData = res.data;
           var result = resData.result;
-          if (result == false) {
+          if(result==false){
             wx.showModal({
               title: '提示',
               content: '用户名不存在',
@@ -99,6 +99,7 @@ Page({
         },
         complete: function () {
           // complete 
+
         }
       })
     })
@@ -114,17 +115,22 @@ Page({
       userPhonenumber: e.detail.value
     })
   },
-
-  isPhoneNumber: function () {
-    // 验证130 - 139, 150 - 159, 180 - 189号码段的手机号码
-    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
-    var userPhonenumber = this.data.userPhonenumber;
-    if (userPhonenumber != '' && userPhonenumber != null && myreg.test(userPhonenumber) == false) {//手机号码无效
+  isPhoneNumber:function(){
+    if (this.isPhoneNumber1()==false){
       wx.showModal({
         title: '提示',
         content: '手机号码无效',
       })
     }
+  },
+  isPhoneNumber1: function () {
+    // 验证130 - 139, 150 - 159, 180 - 189号码段的手机号码
+    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+    var userPhonenumber = this.data.userPhonenumber;
+    if (userPhonenumber != '' && userPhonenumber != null && myreg.test(userPhonenumber) == false) {//手机号码无效
+      return false;
+    }
+    return true;
   },
 
   eyeClick: function () {
@@ -152,6 +158,13 @@ Page({
   },
 
   getVerificationCode: function () {
+    if(this.isPhoneNumber1()==false){
+      wx.showModal({
+        title: '提示',
+        content: '手机号码无效',
+      })
+      return
+    }
     if (this.data.countNumber != 0 && this.data.countNumber != 60) {
       return
     }
@@ -250,22 +263,75 @@ Page({
         title: '提示',
         content: '请输入用户名',
       })
-    } else if (this.data.userPhonenumber == '' || this.data.userPhonenumber == null) {
+      return
+    } 
+    var UserCode = this.data.userName
+    new Promise((resolve, reject) => {
+      wx.request({
+        url: wsdlurl + 'IsExistUser',
+        data: {
+          UserCode: UserCode
+        },
+        method: 'GET',
+        header: {
+          'content-type': 'application/json'
+        },
+        // 设置请求的 header
+        success: function (res) {
+          // success
+          var resData = res.data;
+          var result = resData.result;
+          if (result == false) {
+            wx.showModal({
+              title: '提示',
+              content: '用户名不存在',
+            })
+            return
+          }
+          resolve(result);
+        },
+        fail: function () {
+          // fail
+          wx.showModal({
+            title: '提示',
+            content: '访问服务器失败',
+          })
+        },
+        complete: function () {
+          // complete 
+
+        }
+      })
+    })
+    if (this.data.userPhonenumber == '' || this.data.userPhonenumber == null) {
       wx.showModal({
         title: '提示',
         content: '请输入手机号',
       })
-    } else if (this.data.userPassword == '' || this.data.userPassword == null) {
+      return
+    }
+    if (this.isPhoneNumber1() == false) {
+      wx.showModal({
+        title: '提示',
+        content: '手机号码无效',
+      })
+      return
+    }
+     if (this.data.userPassword == '' || this.data.userPassword == null) {
       wx.showModal({
         title: '提示',
         content: '请输入新密码',
       })
-    } else if (this.data.verificationCode == '' || this.data.verificationCode == null) {
+      return
+    } 
+    if (this.data.verificationCode == '' ||    this.data.verificationCode == null) {
       wx.showModal({
         title: '提示',
         content: '请输入验证码',
       })
-    } else {
+      return
+    }
+
       this.setData({
         forgetpwd_loading: true
       })
@@ -365,7 +431,6 @@ Page({
           })
         }
       })
-    }
   },
 
   onLoad: function () {

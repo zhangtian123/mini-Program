@@ -64,7 +64,6 @@ Page({
       userName: e.detail.value
     })
   },
-
   isUserExist: function () {
     var that=this
     var UserCode = this.data.userName
@@ -88,9 +87,8 @@ Page({
               title: '提示',
               content: '用户名已存在',
             })
-            that.setData({
-              userName:''
-            })
+            return;
+          
           }
           resolve(result);
         },
@@ -119,21 +117,23 @@ Page({
       userPhonenumber: e.detail.value
     })
   },
-
   isPhoneNumber: function () {
+    if (this.isPhoneNumber1() == false) {
+      wx.showModal({
+        title: '提示',
+        content: '手机号码无效',
+      })
+    }
+  },
+  isPhoneNumber1: function () {
     // 验证130 - 139, 150 - 159, 180 - 189号码段的手机号码
     var that=this
     var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
     var userPhonenumber = this.data.userPhonenumber;
     if (userPhonenumber != '' && userPhonenumber!=null && myreg.test(userPhonenumber) == false) {//手机号码无效
-      wx.showModal({
-        title: '提示',
-        content: '手机号码无效',
-      })
-      that.setData({
-        userPhonenumber:''
-      })
+      return false;
     }
+    return true;
   },
 
   verificationCodeInput: function (e) {
@@ -143,6 +143,13 @@ Page({
   },
   
   getVerificationCode: function () {
+    if(this.isPhoneNumber1()==false){
+      wx.showModal({
+        title: '提示',
+        content: '手机号码无效',
+      })
+      return;
+    }
     if (this.data.userPhonenumber == '' || this.data.userPhonenumber==null){
       wx.showModal({
         title: '提示',
@@ -150,6 +157,7 @@ Page({
       })
       return;
     }
+    this.isPhoneNumber();
     if (this.data.countNumber != 0 && this.data.countNumber != 60) {
       return
     }
@@ -220,24 +228,76 @@ Page({
     if (that.data.userName == '') {
       wx.showModal({
         title: '提示',
-        title: '请输入用户名',
+        content: '请输入用户名',
       })
-    } else if (that.data.userPassword == '') {
+      return
+    } 
+    var UserCode = this.data.userName
+    new Promise((resolve, reject) => {
+      wx.request({
+        url: wsdlurl + 'IsExistUser',
+        data: {
+          UserCode: UserCode
+        },
+        method: 'GET',
+        header: {
+          'content-type': 'application/json'
+        },
+        // 设置请求的 header
+        success: function (res) {
+          // success
+          var resData = res.data;
+          var result = resData.result;
+          if (result == true) {
+            wx.showModal({
+              title: '提示',
+              content: '用户名已存在',
+            })
+            return;
+          }
+          resolve(result);
+        },
+        fail: function () {
+          // fail
+          wx.showModal({
+            title: '提示',
+            content: '访问服务器失败',
+          })
+        },
+        complete: function () {
+          // complete 
+        }
+      })
+    })
+    if (that.data.userPhonenumber == '') {
       wx.showModal({
         title: '提示',
-        title: '请输入密码',
+        content: '请输入手机号',
       })
-    } else if (that.data.userPhonenumber == '') {
+      return
+    } 
+    if (this.isPhoneNumber1() == false) {
       wx.showModal({
         title: '提示',
-        title: '请输入手机号',
+        content: '手机号码无效',
       })
-    } else if (this.data.verificationCode == '') {
+      return
+    }
+     if (this.data.verificationCode == '') {
       wx.showModal({
         title: '提示',
         content: '请输入验证码',
       })
-    } else {
+      return
+    } 
+    if (that.data.userPassword == '') {
+      wx.showModal({
+        title: '提示',
+        title: '请输入密码',
+      })
+      return
+    } 
+   
       //method中设置你想调用的方法名
       var method = 'ContactCompanyBll_IsValidCode';
       //datacopy中拼字符串，即http传输中的soap信息
@@ -311,7 +371,7 @@ Page({
           })
         }
       })
-    }
+    
   },
 
   logIn: function () {
