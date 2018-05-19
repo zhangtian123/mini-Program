@@ -23,7 +23,7 @@ Page({
     //账单
     isShowTable: false,
     isValidate:true,
-    BILLID: "99dfd44735974cc7854705126139a200",
+    BILLID: "",
     showImageUrl: '../../images/expand-arrow-down.png',
     predicate: 'BILLID == @0',
     values: '',

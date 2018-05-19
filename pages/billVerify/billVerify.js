@@ -536,7 +536,6 @@ Page({
     var ithItem = itemList[index];
     var BILLID = ithItem.BILL.BILLID;
     var that = this;
-
     new Promise(function (resolve, reject) {
       wx.request({
         url: wsdlurl + 'SetOcShareLog',
