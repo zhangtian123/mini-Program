@@ -25,7 +25,7 @@
       <input type="text" class="driver" bindinput='packInput' />
       包装单位
       <!-- <input type="text" class="driver" /> -->
-        <picker mode="selector" range='{{typeArray}}' value="{{typeIndex}}" bindchange="">
+        <picker mode="selector" range='{{typeArray}}' value="{{typeIndex}}" bindchange="bindtypeChange">
           <text class="picker">{{typeArray[typeIndex]}}</text>  
       </picker>
     </view>

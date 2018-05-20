@@ -166,6 +166,11 @@ Page({
       finishTime: this.data.dates + "T" + this.data.times + ":00.000"
     })
   },
+  bindtypeChange:function(e){
+    this.setData({
+      typeIndex :e.detail.value
+    })
+  },
   uploadImages: function () {
     var imgs = this.data.imgs;
     var that = this;
