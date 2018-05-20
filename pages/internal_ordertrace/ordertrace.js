@@ -751,7 +751,6 @@ Page({
       });
     }
   },
-
   filterConfirm: function () {
     this.setData({
       filterSrc: '../../images/filter.png',
@@ -767,16 +766,16 @@ Page({
     if (this.data.OrderID != '') {
       switch (this.data.filterTypeData[this.data.filterTypeIndex]) {
         case '订单号':
-          pre = pre + ' and ORDERNO'
+          pre = 'ORDERNO';
           break;
         case '客户委托号':
-          pre = pre + ' and REFNO'
+          pre = 'REFNO'
           break;
         case 'SO NO':
-          pre = pre + ' and BOOKINGNO'
+          pre = 'BOOKINGNO'
           break;
         case 'H/BL NO':
-          pre = pre + ' and HBLNO'
+          pre = 'HBLNO'
           break;
         default:
           break;
